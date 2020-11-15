@@ -1,6 +1,8 @@
 package gameboard;
-import tiles.Flooded;
 import java.util.Random;
+
+import cards.Flooded;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
