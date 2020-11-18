@@ -1,6 +1,4 @@
-/gameboard/
-/tiles/
-/cards/
-/deck/
-/player/
 /game/
+/player/
+/cards/
+/gameboard/
