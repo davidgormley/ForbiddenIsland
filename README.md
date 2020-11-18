@@ -32,3 +32,6 @@ Each player in turn should perform the following three things in order:
 4. Hand out treasure cards
 5. Set the water level
 
+
+## Design Considerations
+* Each tile needs a variable for a flooded and unflooded side.
