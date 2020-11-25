@@ -35,3 +35,5 @@ Each player in turn should perform the following three things in order:
 
 ## Design Considerations
 * Each tile needs a variable for a flooded and unflooded side.
+* Do we need more than one class to represent all the players?
+* How do we handle special abilities for more than one class type?
