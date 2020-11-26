@@ -35,5 +35,6 @@ Each player in turn should perform the following three things in order:
 
 ## Design Considerations
 * Each tile needs a variable for a flooded and unflooded side.
-* Do we need more than one class to represent all the players?
-* How do we handle special abilities for more than one class type?
+* DG: Do we need more than one class to represent all the players?
+* DG: How do we handle special abilities for more than one class type?
+* DG: There are 4 pawns, each of them assigned to a player. Should they be added in to a player class or as part of game logic?
