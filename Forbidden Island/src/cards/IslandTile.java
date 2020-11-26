@@ -55,4 +55,8 @@ public class IslandTile extends Card{
 		hasTreasure = false;
 	}
 	
+	// Returns string containing card attributes
+	public String toString() {
+		return name + " (" + flooded + ")";
+	}
 }
