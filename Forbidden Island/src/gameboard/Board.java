@@ -9,20 +9,16 @@
 // will be placed on Gold Gate.  
 
 package gameboard;
-import java.util.Random;
-
-import cards.Flooded;
-
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
+import cards.*;
 
 public class Board {
-	public int[][] board = new int[6][6];
+	public IslandTile[][] board = new IslandTile[6][6];
 	
 	// create new randomised board
-	public Board() {
-		// read in list of Island tiles
-		// Collections.shuffle(tiles)
+	public Board(Stack<IslandTile> tiles_deck) {
+		// shuffle Island Tiles deck
+		Collections.shuffle(tiles_deck);
 		
 		// build game board
 		for (int i = 0; i < 6; i++) {
@@ -30,19 +26,25 @@ public class Board {
 				
 				// skip invalid tiles
 				if (i == 0 || i == 5) {
+					// add tile to valid spaces
 					if (j == 2 || j == 3) {
 						// retrieve tile from front of list
+						board[i][j] = tiles_deck.pop();
 					}
 				}
 				
+				// skip invalid tiles
 				else if (i == 1 || i == 4) {
+					// add tile to valid spaces
 					if (j != 0 && j != 5) {
 						// retrieve tile from front of list
+						board[i][j] = tiles_deck.pop();
 					}
 				}
 				
 				else {
 					// retrieve tile from front of list
+					board[i][j] = tiles_deck.pop();
 				}
 			}
 		}
