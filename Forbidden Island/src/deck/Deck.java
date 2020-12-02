@@ -12,7 +12,6 @@ public class Deck {
 	Stack<IslandTile> floodDeck = new Stack<IslandTile>();
 
 	public void pushTreasureCard(Card e) {
-		System.out.print(e.toString());
 		this.treasureDeck.add(e);
 	}
 
@@ -22,13 +21,11 @@ public class Deck {
 	}
 
 	public Card popTreasureCard() {
-		System.out.println(treasureDeck.firstElement().toString());
 
 		return treasureDeck.pop();
 	}
 
 	public IslandTile popFloodCard() {
-		System.out.println(floodDeck.firstElement().toString());
 		return floodDeck.pop();
 	}
 
@@ -42,7 +39,7 @@ public class Deck {
 
 	public void printTreasureDeck() {
 		for (int i = 0; treasureDeck.size() > i; i++) {
-			System.out.println(this.treasureDeck.elementAt(i).toString());
+			System.out.println(this.treasureDeck.elementAt(i).cardName());
 		}
 	}
 
