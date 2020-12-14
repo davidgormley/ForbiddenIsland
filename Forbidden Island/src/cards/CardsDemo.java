@@ -39,7 +39,7 @@ public class CardsDemo {
 		deck.printFloodDeck();
 		deck.shuffleTreasureDeck();
 //		System.out.println(deck.size());
-		deck.popTreasureCard();
+		deck.drawTreasureCard();
 //		System.out.println(deck.size());
 //		Card p = deck.peek();
 //		System.out.println(p.toString()); // output is reference?
@@ -67,18 +67,18 @@ public class CardsDemo {
 		Card sbag = new Card("Sandbag", CardType.SANDBAG);
 		for(int i=0;i<5;i++)
 		{
-			deck.pushTreasureCard(tr);
-			deck.pushTreasureCard(tr1);
-			deck.pushTreasureCard(tr2);
-			deck.pushTreasureCard(tr3);
+			deck.addTreasureCard(tr);
+			deck.addTreasureCard(tr1);
+			deck.addTreasureCard(tr2);
+			deck.addTreasureCard(tr3);
 			if(i<3)
 			{
-				deck.pushTreasureCard(heli);
-				deck.pushTreasureCard(wr);
+				deck.addTreasureCard(heli);
+				deck.addTreasureCard(wr);
 			}
 			if(i<2)
 			{
-				deck.pushTreasureCard(sbag);
+				deck.addTreasureCard(sbag);
 			}
 		}
 		deck.printTreasureDeck();
@@ -94,7 +94,7 @@ public class CardsDemo {
 
 			IslandTile FL1 = new IslandTile(tileNames.get(i), CardType.FLOOD, false);
 			System.out.print(FL1.toString());
-			deck.pushFloodCard(FL1);
+			deck.addFloodCard(FL1);
 		}
 	}
 	public static ArrayList<String> createTileNames()
