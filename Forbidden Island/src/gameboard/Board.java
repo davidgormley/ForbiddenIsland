@@ -15,6 +15,13 @@ import cards.*;
 public class Board {
 	public IslandTile[][] board = new IslandTile[6][6];
 	
+	// map legend LUT
+	Map<String, String> legend = new HashMap<>();
+	legend.put("Breakers Bridge", "BB");
+	legend.put("Bronze Gate","BG");
+	legend.put("Cliffs of Abandon","CA");
+	
+	
 	// create new randomised board
 	public Board(Stack<IslandTile> tiles_deck) {
 		// shuffle Island Tiles deck
@@ -45,6 +52,22 @@ public class Board {
 				else {
 					// retrieve tile from front of list
 					board[i][j] = tiles_deck.pop();
+				}
+			}
+		}
+	}
+	
+	// method to print simple board
+	public void printBoard() {
+		for (int i = 0; i < 6; i++) {
+			// start new row
+			System.out.println("\n");
+			for (int j = 0; j < 6; j++) {
+				if (board[i][j] == null || board[i][j].flooded == SUNK) {
+					System.out.println("~~");
+				}
+				else {
+					System.out.println(legend.get(board[i][j].name));
 				}
 			}
 		}
