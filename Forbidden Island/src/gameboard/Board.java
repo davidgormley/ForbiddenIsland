@@ -83,16 +83,20 @@ public class Board {
 	// method to print simple board
 	public void printBoard() {
 		for (int i = 0; i < 6; i++) {
+			
 			// start new row
 			System.out.println("\n");
+			
 			for (int j = 0; j < 6; j++) {
-				if (board[i][j] == null || board[i][j].flooded == Flooded.SUNK){
+				if (board[i][j] == null || board[i][j].state() == Flooded.SUNK) {
 					System.out.println("~~ ");
 				}
 				else {
-					System.out.println(legend.get(board[i][j].name));
+					System.out.println(legend.get(board[i][j].getName()));
 				}
+				
 			}
 		}
 	}
+	
 }
