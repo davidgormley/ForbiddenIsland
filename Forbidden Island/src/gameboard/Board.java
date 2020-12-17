@@ -15,12 +15,35 @@ import cards.*;
 public class Board {
 	public IslandTile[][] board = new IslandTile[6][6];
 	
-	// map legend LUT
-	Map<String, String> legend = new HashMap<>();
-	legend.put("Breakers Bridge", "BB");
-	legend.put("Bronze Gate","BG");
-	legend.put("Cliffs of Abandon","CA");
-	
+	// Map legend LUT. Key is the full name as string.
+	// Value is a 2-char acronym string. 
+	public Map<String, String> legend;{
+		legend = new HashMap<String, String>();
+		legend.put("Breakers Bridge", "BB");
+		legend.put("Bronze Gate","BG");
+		legend.put("Cliffs of Abandon","CA");
+		legend.put("Cave of Embers","CE");
+		legend.put("Crimson Forest","CF");
+		legend.put("Copper Gate","CG");
+		legend.put("Coral Palace","CP");
+		legend.put("Cave of Shadows","CS");
+		legend.put("Dunes of Deception","DD");
+		legend.put("Fool's Landing","FL");
+		legend.put("Gold Gate","GG");
+		legend.put("Howling Garden","HG");
+		legend.put("Iron Gate","IG");
+		legend.put("Lost Lagoon","LL");
+		legend.put("Misty Marsh","MM");
+		legend.put("Observatory","OB");
+		legend.put("Phantom Rock","PR");
+		legend.put("Silver Gate","SG");
+		legend.put("Temple of the Moon","TM");
+		legend.put("Tidal Palace","TP");
+		legend.put("Temple of the Sun","TS");
+		legend.put("Twilight Hollow","TH");
+		legend.put("Whispering Garden","WG");
+		legend.put("Watchtower","WT");
+	}
 	
 	// create new randomised board
 	public Board(Stack<IslandTile> tiles_deck) {
@@ -63,8 +86,8 @@ public class Board {
 			// start new row
 			System.out.println("\n");
 			for (int j = 0; j < 6; j++) {
-				if (board[i][j] == null || board[i][j].flooded == SUNK) {
-					System.out.println("~~");
+				if (board[i][j] == null || board[i][j].flooded == Flooded.SUNK){
+					System.out.println("~~ ");
 				}
 				else {
 					System.out.println(legend.get(board[i][j].name));
