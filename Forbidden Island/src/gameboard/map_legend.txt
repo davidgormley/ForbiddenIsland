@@ -1,4 +1,4 @@
-BB - Breaker’s Bridge
+BB - Breaker's Bridge
 BG - Bronze Gate
 CA - Cliffs of Abandon
 CE - Cave of Embers
@@ -7,7 +7,7 @@ CG - Copper Gate
 CP - Coral Palace
 CS - Cave of Shadows
 DD - Dunes of Deception
-FL - Fool’s Landing
+FL - Fool's Landing
 GG - Gold Gate
 HG - Howling Garden
 IG - Iron Gate
