@@ -153,4 +153,22 @@ public class Board {
 		System.out.println("\nMap Legend:\n===========");
 		legend.forEach((k,v)-> System.out.println(v + ": " + k));
 	}
+	
+	// method to return the coordinates of a particular tile
+	public int[] tileCoords(String tile_name){
+		int[] coords = new int[2];
+		outerloop:
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 6; j++) {
+				if (board[i][j] != null) {
+					if (board[i][j].getName() == tile_name) {
+						coords[0] = i;
+						coords[1] = j;
+						break outerloop;
+					}
+				}
+			}
+		}
+		return coords;
+	}
 }
