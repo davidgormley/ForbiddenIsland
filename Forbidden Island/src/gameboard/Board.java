@@ -136,15 +136,21 @@ public class Board {
 				// check if tile space is empty (i.e., in corner) or tile is sunk
 				// then print the water symbol (a double tilde)
 				if (board[i][j] == null || board[i][j].state() == Flooded.SUNK) {
-					System.out.println("~~ ");
+					System.out.print("~~ ");
 				}
 				else {
 					// check tile name against LUT and print acronym
-					System.out.println(legend.get(board[i][j].getName()));
+					System.out.print(legend.get(board[i][j].getName()) + " ");
 				}
 				
 			}
 		}
+		System.out.println("\n");
 	}
 	
+	// method to print the map legend
+	public void printLegend() {
+		System.out.println("\nMap Legend:\n===========");
+		legend.forEach((k,v)-> System.out.println(v + ": " + k));
+	}
 }
