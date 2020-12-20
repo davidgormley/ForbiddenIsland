@@ -7,51 +7,33 @@ import cards.CardType;
 import cards.IslandTile;
 import java.util.Collections;
 
-public class Deck {
-	Stack<Card> treasureDeck = new Stack<Card>();
-	Stack<IslandTile> floodDeck = new Stack<IslandTile>();
+public class Deck<T> {
+	Stack<T> deck = new Stack<T>();
+	
 
-	public void addTreasureCard(Card e) {
-		this.treasureDeck.add(e);
+	public void addCard(Card e) {
+		this.deck.add((T) e);
 	}
 
-	public void addFloodCard(IslandTile e) {
-		this.floodDeck.add(e);
+	
 
+	public T drawCard() {
+
+		return deck.pop();
 	}
 
-	public Card drawTreasureCard() {
 
-		return treasureDeck.pop();
+	public void shuffleDeck() {
+		Collections.shuffle(this.deck);
 	}
 
-	public IslandTile drawFloodCard() {
-		return floodDeck.pop();
-	}
-
-	public void shuffleFloodDeck() {
-		Collections.shuffle(this.floodDeck);
-	}
-
-	public void shuffleTreasureDeck() {
-		Collections.shuffle(this.treasureDeck);
-	}
-
-	public void printTreasureDeck() {
-		for (int i = 0; treasureDeck.size() > i; i++) {
-			System.out.println(this.treasureDeck.elementAt(i).cardName());
+	public void printDeck() {
+		for (int i = 0; deck.size() > i; i++) {
+			System.out.println(this.deck.elementAt(i).toString());
 		}
 	}
 
-	public void printFloodDeck() {
-		for (int i = 0; floodDeck.size() > i; i++) {
-			System.out.println(this.floodDeck.elementAt(i).toString());
-		}
-	}
-	public int floodDeckLength() {
-		return floodDeck.size();
-	}
-	public int treasureDeckLength() {
-		return treasureDeck.size();
+	public int deckLength() {
+		return deck.size();
 	}
 }

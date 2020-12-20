@@ -25,4 +25,7 @@ public class Card {
 	public CardType getType() {
 		return type;
 	}
+	public String toString() {
+		return name;
+	}
 }

@@ -23,23 +23,23 @@ public class CardsDemo {
 
 		tileNames = createTileNames();
 		
-		Deck deck = new Deck();
-
-		createFloodDeck(tileNames,deck);
-		createTreasureDeck(deck);
+		Deck treasureDeck = new Deck<Card>();
+		Deck floodDeck = new Deck<IslandTile>();
+		createFloodDeck(tileNames,floodDeck);
+		createTreasureDeck(treasureDeck);
 		System.out.println("-------------------------------------------------------------------");
-		deck.shuffleTreasureDeck();
-		deck.printTreasureDeck();
+		treasureDeck.shuffleDeck();
+		treasureDeck.printDeck();
 		System.out.println("-------------------------------------------------------------------");
 //		deck.pushFloodCard(FL);
-		deck.printFloodDeck();
+		floodDeck.printDeck();
 		System.out.println("-------------------------------------------------------------------");
 
-		deck.shuffleFloodDeck();
-		deck.printFloodDeck();
-		deck.shuffleTreasureDeck();
+		floodDeck.shuffleDeck();
+		floodDeck.printDeck();
+		treasureDeck.shuffleDeck();
 //		System.out.println(deck.size());
-		deck.drawTreasureCard();
+		treasureDeck.drawCard();
 //		System.out.println(deck.size());
 //		Card p = deck.peek();
 //		System.out.println(p.toString()); // output is reference?
@@ -67,34 +67,34 @@ public class CardsDemo {
 		Card sbag = new Card("Sandbag", CardType.SANDBAG);
 		for(int i=0;i<5;i++)
 		{
-			deck.addTreasureCard(tr);
-			deck.addTreasureCard(tr1);
-			deck.addTreasureCard(tr2);
-			deck.addTreasureCard(tr3);
+			deck.addCard(tr);
+			deck.addCard(tr1);
+			deck.addCard(tr2);
+			deck.addCard(tr3);
 			if(i<3)
 			{
-				deck.addTreasureCard(heli);
-				deck.addTreasureCard(wr);
+				deck.addCard(heli);
+				deck.addCard(wr);
 			}
 			if(i<2)
 			{
-				deck.addTreasureCard(sbag);
+				deck.addCard(sbag);
 			}
 		}
-		deck.printTreasureDeck();
+		deck.printDeck();
 		
 	
 		
 		
 		
 	}
-	public static void createFloodDeck(ArrayList<String> tileNames,Deck deck)
+	public static <T> void createFloodDeck(ArrayList<String> tileNames,Deck<T> deck)
 	{
 		for (int i = 0; tileNames.size() > i; i++) {
 
 			IslandTile FL1 = new IslandTile(tileNames.get(i), CardType.FLOOD, false);
 			System.out.print(FL1.toString());
-			deck.addFloodCard(FL1);
+			deck.addCard(FL1);
 		}
 	}
 	public static ArrayList<String> createTileNames()
