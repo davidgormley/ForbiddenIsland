@@ -14,7 +14,7 @@ import java.util.Random;
 public class Player {
 	
 	int role; // 1-Engineer, 2-Explorer, 3-Diver, 4-Pilot, 5-Messenger, 6-Navigator
-	// int pawnPosition [i][j]; single value to show position on the board for player
+	int pawnPosition [][]; //single value to show position on the board for player
 	int treasureCards []; // max number of 5 treasure cards per player, anything over and a card must go into Treasure discard pile
 		
 	
@@ -27,6 +27,10 @@ public class Player {
 		int result = r.nextInt(high-low) + low;
 		this.role = result;
 
+	}
+	
+	public String toString() {
+		return "Player Role: "+this.role+", Player Cards: "+treasureCards+", Player Position: "+pawnPosition;
 	}
 	
 	// Part of the actions available for each turn
