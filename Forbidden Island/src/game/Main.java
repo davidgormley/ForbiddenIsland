@@ -18,6 +18,18 @@ public class Main {
 		int numberPlayers; // number of players between 2 - 4
 		int waterLevel; // water level between 1 - 5
 		
+		
+		
+		
+		// Testing the Player Class - To be removed
+		Player player1 = new Player();
+		System.out.println(player1.getRole());
+		
+		
+		
+		
+		
+		
 		// Setting up the game
 		System.out.println("Setting up the game...\n");
 
@@ -49,6 +61,9 @@ public class Main {
 	    
 	    // Finish game set
 		System.out.println("Finished game set up. Get ready to play.\n");
+		
+		
+
 
 
 	}

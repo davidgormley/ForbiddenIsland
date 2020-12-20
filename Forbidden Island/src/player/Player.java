@@ -9,15 +9,52 @@
 
 package player;
 
+import java.util.Random;
+
 public class Player {
 	
-	public String name;
+	int role; // 1-Engineer, 2-Explorer, 3-Diver, 4-Pilot, 5-Messenger, 6-Navigator
+	// int pawnPosition [i][j]; single value to show position on the board for player
+	int treasureCards []; // max number of 5 treasure cards per player, anything over and a card must go into Treasure discard pile
+		
 	
 	// constructor
-	public Player(String name) {
+	public Player() {
 		//super
-		this.name = name;
-		//this.flooded = Flooded.DRY;			// default state is dry
+		Random r = new Random();
+		int low = 1;
+		int high = 7; // excluding 7
+		int result = r.nextInt(high-low) + low;
+		this.role = result;
+
+	}
+	
+	// Part of the actions available for each turn
+	public void Move() {
+		System.out.println("Moving piece adjacently");
+	}
+	
+	// Part of the actions available for each turn
+	public void ShoreUp() {
+		System.out.println("Flip a tile from flooded to unflooded");
+	}
+	
+	// Part of the actions available for each turn
+	public void GiveTreasureCard() {
+		System.out.println("Give treasure card to another player");
+	}
+	
+	// Part of the actions available for each turn
+	public void CaptureTreasureCard() {
+		System.out.println("Capture treasure card");
+	}
+	
+	public void DrawTreasureCard() {
+		System.out.println("Draw treasure cards from the deck.");
+	}
+	
+	public int getRole() {
+		return this.role;
 	}
 
 

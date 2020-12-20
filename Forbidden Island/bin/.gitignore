@@ -1,4 +1,5 @@
-/game/
-/player/
-/cards/
 /gameboard/
+/game/
+/cards/
+/deck/
+/player/

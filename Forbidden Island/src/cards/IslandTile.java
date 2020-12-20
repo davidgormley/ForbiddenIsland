@@ -11,8 +11,8 @@ package cards;
 public class IslandTile extends Card{
 	// DG: each tile has a flooded and unflooded side, should this be a boolean?
 	// ORH: It could also be in 'sunk' state. 'Flooded' Enum has been created. 
-	public Flooded flooded; 
-	public boolean hasTreasure;				// tracks whether tile contains a treasure
+	private Flooded flooded; 
+	private boolean hasTreasure;				// tracks whether tile contains a treasure
 	
 	// constructor
 	public IslandTile(String name, CardType type, boolean hasTreasure) {
@@ -53,6 +53,15 @@ public class IslandTile extends Card{
 	// method to invoke when capturing a treasure
 	public void loot() {
 		hasTreasure = false;
+	}
+	
+	// Getters
+	public String getName() {
+		return this.name;
+	}
+	
+	public Flooded state() {
+		return this.flooded;
 	}
 	
 	// Returns string containing card attributes
