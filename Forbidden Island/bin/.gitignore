@@ -1,4 +1,9 @@
 /game/
 /player/
 /cards/
+<<<<<<< Updated upstream
 /gameboard/
+=======
+/deck/
+/gameboard/
+>>>>>>> Stashed changes
