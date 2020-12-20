@@ -12,6 +12,7 @@ public class CardsDemo {
 
 		
 		IslandTile FL = new IslandTile("Fool's Landing", CardType.TILE, false);
+		
 		System.out.println(FL.toString());
 		FL.flood();
 		System.out.println(FL.toString());
@@ -125,6 +126,23 @@ public class CardsDemo {
 		tileNames.add("Tidal Palace");
 		tileNames.add("Twilight Hollow");
 		return tileNames;
+	}
+	<T> void drawCardsFromFloodDeck(Deck<T> deck,WaterMeter wm)
+	{
+		
+		int n = wm.getLevel();
+		for(int i=0;i<n;i++)
+		{
+			IslandTile cardNew =  (IslandTile) deck.drawCard();
+			if(cardNew.flooded == Flooded.FLOODED)
+			{
+			//remove the tile from the game
+			}
+			else
+			{
+				//flood the tile in the board
+			}
+		}
 	}
 
 }
