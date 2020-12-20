@@ -7,10 +7,9 @@
 
 package game;
 import player.*;
-
 import java.util.Scanner;
-
 import gameboard.Board;
+import deck.*;
 
 public class Main {
 
@@ -68,7 +67,13 @@ public class Main {
 		    // Setting up the island tiles that will start to sink
 		    
 		    // Create floodDeck and take top 6 cards, flip the corresponding 6 island tiles to flooded
+		    // Deck floodDeck = new Deck();
+		    // floodDeck.fillWithTiles();
 		    
+		    for (int d = 0; d < 6; d ++) {
+		    	//int[2] T = gameboard.tileCoords(floodDeck.drawCard().getName());
+		    	//gameboard[T[0]][T[1]].flood();
+		    }
 		    
 		    // Randomly assign a role to each player
 			System.out.println("Randomly assigning a role to each player.\n");
