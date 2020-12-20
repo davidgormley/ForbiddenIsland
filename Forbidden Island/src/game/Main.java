@@ -6,6 +6,7 @@
 
 
 package game;
+import player.*;
 
 public class Main {
 
@@ -13,5 +14,8 @@ public class Main {
 		// TODO Auto-generated method stub
 
 	}
+	
+	
+	Player samplePlayer = new Player("John");
 
 }
