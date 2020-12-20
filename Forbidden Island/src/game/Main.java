@@ -45,7 +45,11 @@ public class Main {
 				newGame = true;		// Game on
 			}
 			else if (in.next().toUpperCase() == "N") {
-				System.exit(0);		// Goodbye
+				// close scanner 
+				in.close();
+				
+				// Exit app
+				System.exit(0);
 			}
 			
 		} while(newGame != true);
@@ -91,7 +95,11 @@ public class Main {
 					newGame = true;		// Game on
 				}
 				else if (in.next().toUpperCase() == "N") {
-					System.exit(0);		// Goodbye
+					// close scanner 
+					in.close();
+					
+					// Exit app
+					System.exit(0);
 				}
 				
 			} while(newGame != true);
