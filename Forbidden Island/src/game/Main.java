@@ -174,7 +174,7 @@ public class Main {
 			 */
 			int round = 0;
 			 while (win != true) {
-				 
+		
 				 /**
 				  * PLayer actions
 				  */
@@ -237,6 +237,12 @@ public class Main {
 					 
 					 **/
 				 }
+				 
+				 // draw treasure cards
+				 //roundTreasureDraw();
+				 
+				 // draw flood cards
+				 // roundFloodDraw();
 			 
 			 }
 	
@@ -260,8 +266,26 @@ public class Main {
 		}
 	}
 	
-	
-	// Player samplePlayer = new Player("John");
+	// method for drawing two treasure cards after player actions
+	public void roundTreasureDraw() {
+		// TODO
+	}
 
-		
+	// method for end-of-round flooding
+	public void roundFloodDraw(Deck floodDeck, int waterLevel) {
+		for (int w = 0; w < waterLevel; w++) {
+			// draw from flood deck
+	    	// IslandTile tmp = floodDeck.drawCard();
+	    	
+	    	// get position of that card on the board
+	    	// int[2] tmpPos = gameboard.tileCoords(tmp.getName());
+	    	
+	    	// flood it
+	    	// gameboard[tmpPos[0]][tmpPos[1]].flood();
+	    	
+	    	// add flood card to discard pile
+	    	// floodDiscard.addCard(tmp);
+		}
+	}
+
 }
