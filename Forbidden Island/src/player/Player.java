@@ -9,32 +9,29 @@
 
 package player;
 
-import java.util.Random;
 
 public class Player {
 	
-	int role; // 1-Engineer, 2-Explorer, 3-Diver, 4-Pilot, 5-Messenger, 6-Navigator
-	int pawnPosition [][]; //single value to show position on the board for player
+	String role; // 1-Engineer, 2-Explorer, 3-Diver, 4-Pilot, 5-Messenger, 6-Navigator
+	int pawnPosition []; //single value to show position on the board for player
 	int treasureCards []; // max number of 5 treasure cards per player, anything over and a card must go into Treasure discard pile
 		
 	
 	// constructor
-	public Player() {
-		//super
-		Random r = new Random();
-		int low = 1;
-		int high = 7; // excluding 7
-		int result = r.nextInt(high-low) + low;
-		this.role = result;
-
+	public Player(String assignedRole) {
+		role = assignedRole;
+	}
+	
+	public void setRole(String role) {
+		this.role = role;
 	}
 	
 	public String toString() {
 		return "Player Role: "+this.role+", Player Cards: "+treasureCards+", Player Position: "+pawnPosition;
 	}
 	
-	// Return the pawn position on 2D gameboard
-	public int[][] getPawnPosition() {
+	// Return the pawn position on 2D game board
+	public int[] getPawnPosition() {
 		return this.pawnPosition;
 	}
 	
@@ -62,7 +59,7 @@ public class Player {
 		System.out.println("Draw treasure cards from the deck.");
 	}
 	
-	public int getRole() {
+	public String getRole() {
 		return this.role;
 	}
 

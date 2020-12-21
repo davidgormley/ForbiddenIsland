@@ -7,6 +7,7 @@
 
 package game;
 import player.*;
+import java.util.*; 
 import java.util.Scanner;
 import gameboard.Board;
 import deck.*;
@@ -17,19 +18,7 @@ public class Main {
 		
 		int numberPlayers; // number of players between 2 - 4
 		int waterLevel; // water level between 1 - 5
-		
-		boolean newGame = false;
-		
-		
-		
-		// Testing the Player Class - To be removed
-		Player player1 = new Player();
-		System.out.println(player1.getRole());
-		
-		
-		
-		
-		
+		boolean newGame = false;		
 		
 		// Setting up the game
 		System.out.println("Setting up the game...\n");
@@ -115,9 +104,16 @@ public class Main {
 			/**
 				assign roles and starting positions
 			**/
+			
+            List<String> roleList = Arrays.asList("Engineer", "Explorer", "Diver", "Pilot", "Messenger", "Navigator");
+			// System.out.println("List before Shuffle : "+roleList);  
+            Collections.shuffle(roleList);  
+            // System.out.println("List after shuffle : "+roleList); 
+            Player[] playerList = new Player[numberPlayers];
 			for (int p = 0; p < numberPlayers; p++) {
 				// randomly assign a role
 				// player[p].assignRole();
+				playerList[p] = new Player(roleList.get(p));
 				
 				// set starting position on board based on role
 				// player[p].setStartPos(role);
