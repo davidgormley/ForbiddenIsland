@@ -1,7 +1,7 @@
 # Software Engineering Project - Forbidden Island
 
 ## Project Overview
-esign and implement the Forbidden Island game. Objective of the game is to work cooperatively with the other players to keep Forbidden Island from sinking, in order to buy enough time to capture its four treasures. Once you have captured them, you must make it to Fools’ Landing and escape by helicopter to win.
+Design and implement the Forbidden Island game. Objective of the game is to work cooperatively with the other players to keep Forbidden Island from sinking, in order to buy enough time to capture its four treasures. Once you have captured them, you must make it to Fools’ Landing and escape by helicopter to win.
 
 ## Team Members
 * David Gormley
