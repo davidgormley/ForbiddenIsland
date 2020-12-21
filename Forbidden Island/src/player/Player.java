@@ -33,6 +33,11 @@ public class Player {
 		return "Player Role: "+this.role+", Player Cards: "+treasureCards+", Player Position: "+pawnPosition;
 	}
 	
+	// Return the pawn position on 2D gameboard
+	public int[][] getPawnPosition() {
+		return this.pawnPosition;
+	}
+	
 	// Part of the actions available for each turn
 	public void Move() {
 		System.out.println("Moving piece adjacently");
