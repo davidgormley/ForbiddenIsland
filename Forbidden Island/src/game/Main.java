@@ -63,6 +63,9 @@ public class Main {
 			// win flag
 			boolean win = false;
 			
+			// counter for player per-round actions
+			int actionsTaken;
+			
 			// set number of players
 			System.out.println("How many players are playing? Enter integer between 2 and 4:");
 			numberPlayers = in.nextInt();
@@ -172,7 +175,68 @@ public class Main {
 			int round = 0;
 			 while (win != true) {
 				 
-				 // TODO play
+				 /**
+				  * PLayer actions
+				  */
+				 actionsTaken = 1;
+				 
+				 while (actionsTaken < 3) {
+					 // present player actions
+					 // playerActions();
+					 
+					 // read in command
+					 // String action = in.next();
+					 
+					 // do what the meatbag... err, 'boss' says
+					 
+					 /**
+					 
+					 switch (action.toLowerCase()){
+					 	
+					 	// many of these require fleshed out submenu options
+					 	case "move":
+					 		movePlayer();
+					 		break;
+					 	
+					 	case "shore up":
+					 		shoreUp();
+					 		break;
+					 	
+					 	case "give card":
+					 		giveCard();
+					 		break;
+					 		
+					 	case "capture":
+					 		capture();
+					 		break;
+					 		
+					 	case "use sandbag":
+					 		sandbag();
+							break;
+						
+						case "helicopter":
+							heli();
+							break;
+							
+						case "view inventory":
+							inventory();
+							break;
+						
+						case "view map":
+							viewMap();
+							break;
+							
+						case "end turn":
+							endTurn();
+							break;
+						
+						case "leave":
+							leaveGame();
+							break;
+					}
+					 
+					 **/
+				 }
 			 
 			 }
 	
