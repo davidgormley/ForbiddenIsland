@@ -51,6 +51,9 @@ public class CardsDemo {
 		FL.flood();
 
 	}
+	
+//	create a treasure deck by adding a total of 28 cards 20 (treasure cards) + 3 (Helicopter Lift cards) + 3 (Water rise cards) + 2 (Sand bag cards)
+
 	public static void createTreasureDeck(Deck deck)
 	{
 		System.out.println("-------------------------------------------------------------------");	
@@ -68,17 +71,23 @@ public class CardsDemo {
 		Card sbag = new Card("Sandbag", CardType.SANDBAG);
 		for(int i=0;i<5;i++)
 		{
+//			create a treasure deck by adding 5 cards of each treasure card
+
 			deck.addCard(tr);
 			deck.addCard(tr1);
 			deck.addCard(tr2);
 			deck.addCard(tr3);
 			if(i<3)
 			{
+//				3 water rise cards
+//				3 helicopter cards
 				deck.addCard(heli);
 				deck.addCard(wr);
 			}
 			if(i<2)
 			{
+				//	2 sand bag cards
+
 				deck.addCard(sbag);
 			}
 		}
@@ -89,6 +98,8 @@ public class CardsDemo {
 		
 		
 	}
+	
+//	create a flood deck full of island tiles
 	public static <T> void createFloodDeck(ArrayList<String> tileNames,Deck<T> deck)
 	{
 		for (int i = 0; tileNames.size() > i; i++) {
@@ -98,6 +109,8 @@ public class CardsDemo {
 			deck.addCard(FL1);
 		}
 	}
+	
+//	tile names
 	public static ArrayList<String> createTileNames()
 	{
 		ArrayList<String> tileNames = new ArrayList();
@@ -125,8 +138,10 @@ public class CardsDemo {
 		tileNames.add("Breakers Bridge");
 		tileNames.add("Tidal Palace");
 		tileNames.add("Twilight Hollow");
-		return tileNames;
+		return tileNames; 
 	}
+	
+//	draw cards from flood deck based on water rise card level
 	<T> void drawCardsFromFloodDeck(Deck<T> deck,WaterMeter wm)
 	{
 		
@@ -138,10 +153,12 @@ public class CardsDemo {
 			{
 			//remove the tile from the game
 				
+				
 			}
 			else
 			{
 				//flood the tile in the board
+				cardNew.flood();
 			}
 		}
 	}
