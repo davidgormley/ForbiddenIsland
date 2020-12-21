@@ -134,9 +134,10 @@ public class CardsDemo {
 		for(int i=0;i<n;i++)
 		{
 			IslandTile cardNew =  (IslandTile) deck.drawCard();
-			if(cardNew.flooded == Flooded.FLOODED)
+			if(cardNew.state() == Flooded.FLOODED)
 			{
 			//remove the tile from the game
+				
 			}
 			else
 			{
