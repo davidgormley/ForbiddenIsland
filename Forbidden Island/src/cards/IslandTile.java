@@ -11,7 +11,7 @@ package cards;
 public class IslandTile extends Card{
 	// DG: each tile has a flooded and unflooded side, should this be a boolean?
 	// ORH: It could also be in 'sunk' state. 'Flooded' Enum has been created. 
-	private Flooded flooded; 
+	Flooded flooded; 
 	private boolean hasTreasure;				// tracks whether tile contains a treasure
 	
 	// constructor
