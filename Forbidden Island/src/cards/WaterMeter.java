@@ -1,7 +1,7 @@
 package cards;
 
 public class WaterMeter {
-private int level=0;
+private int level=1;
 
 public int getLevel() {
 	return level;
