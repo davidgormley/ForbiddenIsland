@@ -20,27 +20,49 @@ public class Main {
 		int waterLevel; // water level between 1 - 5
 		boolean newGame = false;		
 		
-		// Setting up the game
-		System.out.println("Setting up the game...\n");
-
-		
 		Scanner in = new Scanner(System.in);
+	    String decision;
+	    while(!newGame){
+
+	        System.out.println("Would you like to play a New Game? [y/n]");
+	        decision = in.nextLine();
+
+	        switch(decision){
+	        case "y":
+	        	newGame = true;
+	            break;
+	        case "n": 
+	        	System.out.println("Ending the game...");
+	        	System.exit(0);
+	        default : 
+	            System.out.println("Incorrect input. Would you like to play a New Game? [y/n]");
+	            //return default;
+	        }
+	    }
 		
+		/**
+		Scanner in = new Scanner(System.in);
 		// Check if user wants to start a new game
 		do {
 			System.out.println("Would you like to play a New Game? [y/n] ");
 			if (in.next().toUpperCase() == "Y") {
+				System.out.println("You selected to play the game.");
 				newGame = true;		// Game on
 			}
 			else if (in.next().toUpperCase() == "N") {
-				// close scanner 
+				
+				// close scanner
 				in.close();
 				
 				// Exit app
 				System.exit(0);
 			}
 			
+			
 		} while(newGame != true);
+		**/
+		// Setting up the game
+		System.out.println("Setting up the game...\n");
 		
 		// Game loop
 		while (newGame == true) {
@@ -114,6 +136,7 @@ public class Main {
 				// randomly assign a role
 				// player[p].assignRole();
 				playerList[p] = new Player(roleList.get(p));
+				playerList[p].toString();
 				
 				// set starting position on board based on role
 				// player[p].setStartPos(role);
@@ -267,6 +290,7 @@ public class Main {
 		// TODO
 	}
 
+	/**
 	// method for end-of-round flooding
 	public void roundFloodDraw(Deck floodDeck, int waterLevel) {
 		for (int w = 0; w < waterLevel; w++) {
@@ -282,6 +306,6 @@ public class Main {
 	    	// add flood card to discard pile
 	    	// floodDiscard.addCard(tmp);
 		}
-	}
+	}**/
 
 }
