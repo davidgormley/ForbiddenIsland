@@ -14,12 +14,16 @@ public class Player {
 	
 	String role; // 1-Engineer, 2-Explorer, 3-Diver, 4-Pilot, 5-Messenger, 6-Navigator
 	int pawnPosition []; //single value to show position on the board for player
-	int treasureCards []; // max number of 5 treasure cards per player, anything over and a card must go into Treasure discard pile
+	String treasureCards []; // max number of 5 treasure cards per player, anything over and a card must go into Treasure discard pile
 		
 	
 	// constructor
 	public Player(String assignedRole) {
 		role = assignedRole;
+	}
+	
+	public String[] getPlayerTreasureCards() {
+		return treasureCards;
 	}
 	
 	public void setRole(String role) {
