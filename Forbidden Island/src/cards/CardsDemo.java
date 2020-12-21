@@ -138,10 +138,12 @@ public class CardsDemo {
 			{
 			//remove the tile from the game
 				
+				
 			}
 			else
 			{
 				//flood the tile in the board
+				cardNew.flood();
 			}
 		}
 	}
