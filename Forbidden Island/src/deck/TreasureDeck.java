@@ -10,7 +10,7 @@ import cards.*;
  * @version: 1.0
  */
 
-public class TreasureDeck {
+public class TreasureDeck extends Deck<Card> {
 	//===========================================================
 	// Variable Setup
 	//===========================================================
@@ -42,7 +42,6 @@ public class TreasureDeck {
 	 * Method to deal card from treasure deck
 	 * @param dealWaterRise sets whether a water rise card is a 
 	 * valid draw. For use with game setup.
-	 * @return
 	 */
 	public Card deal(Boolean dealWaterRise) {
 		Card tmp = this.treasureDeck.drawCard();

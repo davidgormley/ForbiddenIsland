@@ -37,7 +37,7 @@ public class Deck<T> {
 	 * @return Take a card from the deck
 	 */
 	public T drawCard() {
-		return deck.pop();
+		return (T) deck.pop();
 	}
 
 	//===========================================================

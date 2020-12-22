@@ -1,7 +1,6 @@
 package game;
 
 import player.*;
-import deck.*;
 import java.util.Stack;
 import java.util.Scanner;
 import java.util.Map;
