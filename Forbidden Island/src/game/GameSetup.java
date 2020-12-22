@@ -1,5 +1,14 @@
 package game;
 
+/**
+ * Class to set up the game for Forbidden Island.
+ * 
+ * @author:  Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
+ * @date:    201223
+ * @version: 1.0
+ */
+
+
 public class GameSetup {
 	// Setup players
 	
