@@ -19,10 +19,12 @@ public class Board {
 	
 	private static Board gameboard = null;
 	
+	// constructor
 	private Board() {
 		board = new IslandTile[6][6];
 	}
 	
+	// create instance of board singleton
 	public static Board getInstance() {
 		if (gameboard == null) {
 			gameboard = new Board();
