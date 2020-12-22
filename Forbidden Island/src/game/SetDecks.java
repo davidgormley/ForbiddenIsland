@@ -15,7 +15,6 @@ public class SetDecks {
 	//===========================================================
     // Variable Setup
     //===========================================================
-	private Deck<IslandTile> tilesDeck;
 	private Deck<IslandTile> floodDeck;
 	private Deck<IslandTile> floodDiscard;
 	private Deck<Card> treasureDeck;
@@ -28,7 +27,6 @@ public class SetDecks {
 	 * Populate tile and flood decks
 	 */
 	public void prefillDecks() {
-		tilesDeck.fillWithIslandTiles();
 		floodDeck.fillWithIslandTiles();
 		treasureDeck.fillTreasureDeck();
 	}

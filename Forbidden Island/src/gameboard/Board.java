@@ -33,39 +33,14 @@ public class Board {
 		return gameboard;
 	}
 	
-	// initialise new tiles deck
-	private Stack<IslandTile> tiles_deck;{
-		tiles_deck = new Stack<IslandTile>();
-		tiles_deck.push(new IslandTile("Breakers Bridge", CardType.TILE, false));
-		tiles_deck.push(new IslandTile("Bronze Gate", CardType.TILE, false));
-		tiles_deck.push(new IslandTile("Cliffs of Abandon", CardType.TILE, false));
-		tiles_deck.push(new IslandTile("Cave of Embers", CardType.TILE, true));
-		tiles_deck.push(new IslandTile("Crimson Forest", CardType.TILE, false));
-		tiles_deck.push(new IslandTile("Copper Gate", CardType.TILE, false));
-		tiles_deck.push(new IslandTile("Coral Palace", CardType.TILE, true));
-		tiles_deck.push(new IslandTile("Cave of Shadows", CardType.TILE, true));
-		tiles_deck.push(new IslandTile("Dunes of Deception", CardType.TILE, false));
-		tiles_deck.push(new IslandTile("Fool's Landing", CardType.TILE, false));
-		tiles_deck.push(new IslandTile("Gold Gate", CardType.TILE, false));
-		tiles_deck.push(new IslandTile("Howling Garden", CardType.TILE, true));
-		tiles_deck.push(new IslandTile("Iron Gate", CardType.TILE, false));
-		tiles_deck.push(new IslandTile("Lost Lagoon", CardType.TILE, false));
-		tiles_deck.push(new IslandTile("Misty Marsh", CardType.TILE, false));
-		tiles_deck.push(new IslandTile("Observatory", CardType.TILE, false));
-		tiles_deck.push(new IslandTile("Phantom Rock", CardType.TILE, false));
-		tiles_deck.push(new IslandTile("Silver Gate", CardType.TILE, false));
-		tiles_deck.push(new IslandTile("Temple of the Moon", CardType.TILE, true));
-		tiles_deck.push(new IslandTile("Tidal Palace", CardType.TILE, true));
-		tiles_deck.push(new IslandTile("Temple of the Sun", CardType.TILE, true));
-		tiles_deck.push(new IslandTile("Twilight Hollow", CardType.TILE, false));
-		tiles_deck.push(new IslandTile("Whispering Garden", CardType.TILE, true));
-		tiles_deck.push(new IslandTile("Watchtower", CardType.TILE, false));
-	}
-	
 	// create new randomised board
 	private void fillBoard() {
+		// create and fill tiles deck
+		Deck<IslandTile> tiles_deck = new Deck<IslandTile>();
+		tiles_deck.fillWithIslandTiles();
+		
 		// shuffle Island Tiles deck
-		Collections.shuffle(tiles_deck);
+		tiles_deck.shuffleDeck();
 		
 		// build game board
 		for (int i = 0; i < 6; i++) {
@@ -76,7 +51,7 @@ public class Board {
 					// add tile to valid spaces
 					if (j == 2 || j == 3) {
 						// retrieve tile from front of list
-						board[i][j] = tiles_deck.pop();
+						board[i][j] = tiles_deck.drawCard();
 					}
 				}
 				
@@ -85,13 +60,13 @@ public class Board {
 					// add tile to valid spaces
 					if (j != 0 && j != 5) {
 						// retrieve tile from front of list
-						board[i][j] = tiles_deck.pop();
+						board[i][j] = tiles_deck.drawCard();
 					}
 				}
 				
 				else {
 					// retrieve tile from front of list
-					board[i][j] = tiles_deck.pop();
+					board[i][j] = tiles_deck.drawCard();
 				}
 			}
 		}
