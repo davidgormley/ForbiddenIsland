@@ -1,9 +1,11 @@
 package game;
 
 import player.*;
-import java.util.ArrayList;
+import deck.*;
+import java.util.Stack;
 import java.util.Scanner;
 import java.util.Map;
+import java.util.Collections.*;
 
 /**
  * Class to setup the players for a new game.
@@ -19,6 +21,7 @@ public class SetPlayers {
     //===========================================================
 	private int 				numberPlayers;
 	private Map<Integer,Player>	players;
+	private Stack<String>		roles;
 	
 	
 	//===========================================================
@@ -61,6 +64,30 @@ public class SetPlayers {
 		for (int p = 1; p <= this.numberPlayers; p++) {
 				nextP = createPlayer(in, p);
 				players.put(p,nextP);
+		}
+	}
+	
+	/**
+	 * Method to create list of player roles for later assignment.
+	 */
+	private void addRoles() {
+		this.roles.push("Diver");
+		this.roles.push("Engineer");
+		this.roles.push("Explorer");
+		this.roles.push("Messenger");
+		this.roles.push("Navigator");
+		this.roles.push("Pilot");
+	}
+	
+	/**
+	 * Method to randomly assign roles to players. For each, the 
+	 * list of possible roles is shuffled then one role is popped
+	 * from the top of the stack and assigned to the player.
+	 */
+	public void assignRoles() {
+		for (int p = 1; p <= numberPlayers; p++) {
+			java.util.Collections.shuffle(this.roles);
+			players.get(p).setRole(roles.pop());
 		}
 	}
 }
