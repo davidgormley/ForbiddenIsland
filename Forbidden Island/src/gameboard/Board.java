@@ -127,7 +127,7 @@ public class Board {
 	
 	// method to print the map legend
 	public void printLegend() {
-		System.out.println("\nMap Legend:\n===========");
+		System.out.println("\nMap Legend:\n==========");
 		legend.forEach((k,v)-> System.out.println(v + ": " + k));
 	}
 	
