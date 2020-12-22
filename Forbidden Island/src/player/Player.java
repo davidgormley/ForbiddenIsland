@@ -78,12 +78,33 @@ public class Player {
 	}
 	
 	/**
-	 * Set starting position
+	 * Set player starting position
 	 */
 	public void setStartingPos() {
+		int[] pos = new int[2];
+		Board board = Board.getInstance();
+		
 		switch(this.role) {
-			
+			case "Diver":
+				pos = board.tileCoords("Iron Gate");
+				
+			case "Engineer":
+				pos = board.tileCoords("Bronze Gate");
+				
+			case "Explorer":
+				pos = board.tileCoords("Copper Gate");
+				
+			case "Messenger":
+				pos = board.tileCoords("Silver Gate");
+				
+			case "Navigator":
+				pos = board.tileCoords("Gold Gate");
+				
+			case "Pilot":
+				pos = board.tileCoords("Fool's Landing");
 		}
+		
+		setPos(pos[0],pos[1]);
 	}
 	
 	public String toString() {
