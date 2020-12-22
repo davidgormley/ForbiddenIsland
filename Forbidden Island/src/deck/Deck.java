@@ -44,7 +44,7 @@ public class Deck<T> {
 	// Other
 	//===========================================================
 	/**
-	 * Shuffule the deck
+	 * Shuffle the deck
 	 * 
 	 */
 	public void shuffleDeck() {
@@ -59,5 +59,35 @@ public class Deck<T> {
 
 	public int deckLength() {
 		return deck.size();
+	}
+	
+	/**
+	 * fill deck with Island Tiles
+	 */
+	public void fillWithIslandTiles(Deck<IslandTile> tilesDeck) {
+		tilesDeck.addCard(new IslandTile("Breakers Bridge", CardType.TILE, false));
+		tilesDeck.addCard(new IslandTile("Bronze Gate", CardType.TILE, false));
+		tilesDeck.addCard(new IslandTile("Cliffs of Abandon", CardType.TILE, false));
+		tilesDeck.addCard(new IslandTile("Cave of Embers", CardType.TILE, true));
+		tilesDeck.addCard(new IslandTile("Crimson Forest", CardType.TILE, false));
+		tilesDeck.addCard(new IslandTile("Copper Gate", CardType.TILE, false));
+		tilesDeck.addCard(new IslandTile("Coral Palace", CardType.TILE, true));
+		tilesDeck.addCard(new IslandTile("Cave of Shadows", CardType.TILE, true));
+		tilesDeck.addCard(new IslandTile("Dunes of Deception", CardType.TILE, false));
+		tilesDeck.addCard(new IslandTile("Fool's Landing", CardType.TILE, false));
+		tilesDeck.addCard(new IslandTile("Gold Gate", CardType.TILE, false));
+		tilesDeck.addCard(new IslandTile("Howling Garden", CardType.TILE, true));
+		tilesDeck.addCard(new IslandTile("Iron Gate", CardType.TILE, false));
+		tilesDeck.addCard(new IslandTile("Lost Lagoon", CardType.TILE, false));
+		tilesDeck.addCard(new IslandTile("Misty Marsh", CardType.TILE, false));
+		tilesDeck.addCard(new IslandTile("Observatory", CardType.TILE, false));
+		tilesDeck.addCard(new IslandTile("Phantom Rock", CardType.TILE, false));
+		tilesDeck.addCard(new IslandTile("Silver Gate", CardType.TILE, false));
+		tilesDeck.addCard(new IslandTile("Temple of the Moon", CardType.TILE, true));
+		tilesDeck.addCard(new IslandTile("Tidal Palace", CardType.TILE, true));
+		tilesDeck.addCard(new IslandTile("Temple of the Sun", CardType.TILE, true));
+		tilesDeck.addCard(new IslandTile("Twilight Hollow", CardType.TILE, false));
+		tilesDeck.addCard(new IslandTile("Whispering Garden", CardType.TILE, true));
+		tilesDeck.addCard(new IslandTile("Watchtower", CardType.TILE, false));
 	}
 }
