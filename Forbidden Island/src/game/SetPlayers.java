@@ -45,6 +45,8 @@ public class SetPlayers {
 		System.out.println("\nEnter name for player " + playerNum + " : ");
 		String name = in.nextLine();
 		
+		Player p = new Player(name);
 		
+		return p;
 	}
 }

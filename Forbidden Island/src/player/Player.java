@@ -16,6 +16,7 @@ public class Player {
 	private String	role;
 	private int 	pawnPosition [];
 	private String 	treasureCards [];
+	private String 	name;
 		
 	
 	//===========================================================
@@ -25,8 +26,8 @@ public class Player {
 	 * Constructor for room object.
 	 * @param assignedRole The role of the player.
 	 */
-	public Player(String assignedRole) {
-		role = assignedRole;
+	public Player(String pName) {
+		this.name = pName;
 	}
 	
 	public String[] getPlayerTreasureCards() {
