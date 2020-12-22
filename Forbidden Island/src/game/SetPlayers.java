@@ -3,6 +3,8 @@ package game;
 import player.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Map;
+
 /**
  * Class to setup the players for a new game.
  * 
@@ -15,8 +17,8 @@ public class SetPlayers {
 	//===========================================================
     // Variable Setup
     //===========================================================
-	private int numberPlayers;
-	private ArrayList<Player> players;
+	private int 				numberPlayers;
+	private Map<Integer,Player>	players;
 	
 	
 	//===========================================================
@@ -26,7 +28,7 @@ public class SetPlayers {
 	 * Set number of players
 	 * @param in Scanner for player inputs
 	 */
-	public void getPlayers(Scanner in) {
+	public void getNumPlayers(Scanner in) {
 		// set number of players
 		System.out.println("How many players are playing? Enter integer between 2 and 4:");
 		while (numberPlayers != 2 && numberPlayers != 3 && numberPlayers != 4) {
@@ -48,5 +50,17 @@ public class SetPlayers {
 		Player p = new Player(name);
 		
 		return p;
+	}
+	
+	/**
+	 * Method to add players to game
+	 * @param in Scanner for player inputs
+	 */
+	public void addPlayers(Scanner in) {
+		Player nextP;
+		for (int p = 1; p <= this.numberPlayers; p++) {
+				nextP = createPlayer(in, p);
+				players.put(p,nextP);
+		}
 	}
 }
