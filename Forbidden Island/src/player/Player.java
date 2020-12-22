@@ -1,6 +1,8 @@
 package player;
 
 import java.util.ArrayList;
+import cards.*;
+import gameboard.*;
 
 /**
  * Class for a Player on the Board in a game of Forbidden Island.
@@ -16,7 +18,7 @@ public class Player {
     // Variable Setup
     //===========================================================
 	private String		role;
-	private int 		pawnPosition [];
+	private int[] 		pawnPosition;
 	private Inventory 	treasureCards;
 	private String 		name;
 		
@@ -31,8 +33,12 @@ public class Player {
 	public Player(String pName) {
 		this.name = pName;
 		this.treasureCards = new Inventory();
+		this.pawnPosition = new int[2];
 	}
 	
+	//===========================================================
+	// Methods
+	//===========================================================
 	/**
 	 * Method to view player's inventory.
 	 */
@@ -47,8 +53,37 @@ public class Player {
 		}
 	}
 	
+	/**
+	 * Method to give card to this player.
+	 * @param c
+	 */
+	public void giveCard(Card c) {
+		this.treasureCards.addCard(c);
+	}
+	
+	/**
+	 * Method to set player's role.
+	 * @param role player role as string
+	 */
 	public void setRole(String role) {
 		this.role = role;
+	}
+	
+	/**
+	 * Method to set player's position.
+	 */
+	public void setPos(int i ,int j) {
+		this.pawnPosition[0] = i;
+		this.pawnPosition[1] = j;
+	}
+	
+	/**
+	 * Set starting position
+	 */
+	public void setStartingPos() {
+		switch(this.role) {
+			
+		}
 	}
 	
 	public String toString() {
