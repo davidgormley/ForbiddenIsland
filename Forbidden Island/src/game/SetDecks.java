@@ -30,5 +30,8 @@ public class SetDecks {
 	public void prefillDecks() {
 		tilesDeck.fillWithIslandTiles();
 		floodDeck.fillWithIslandTiles();
+		treasureDeck.fillTreasureDeck();
 	}
+	
+	
 }

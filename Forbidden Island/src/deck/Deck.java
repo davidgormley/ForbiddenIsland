@@ -90,4 +90,32 @@ public class Deck<T> {
 		this.addCard(new IslandTile("Whispering Garden", CardType.TILE, true));
 		this.addCard(new IslandTile("Watchtower", CardType.TILE, false));
 	}
+	
+	/**
+	 * fill treasure deck
+	 */
+	public void fillTreasureDeck() {
+		// create 20 treasure cards
+		for (int i = 0; i < 6; i++) {
+			this.addCard(new Card("The Earth Stone",CardType.TREASURE));
+			this.addCard(new Card("The Ocean's Chalice",CardType.TREASURE));
+			this.addCard(new Card("The Statue of the Wind",CardType.TREASURE));
+			this.addCard(new Card("The Crystal of Fire",CardType.TREASURE));
+		}
+		
+		// create 3 helicopter lift cards
+		for(int i = 0; i < 4; i++) {
+			this.addCard(new Card("Helicopter Lift",CardType.HELI));
+		}
+		
+		// create 2 sandbag cards
+		for(int i = 0; i < 2; i++) {
+			this.addCard(new Card("Sandbag",CardType.SANDBAG));
+		}
+		
+		// create 3 water rise cards
+		for(int i = 0; i< 4; i++) {
+			this.addCard(new Card("Water Rise",CardType.WATER_RISE));
+		}
+	}
 }
