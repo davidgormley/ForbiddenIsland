@@ -1,5 +1,7 @@
 package player;
 
+import java.util.ArrayList;
+
 /**
  * Class for a Player on the Board in a game of Forbidden Island.
  * 
@@ -13,25 +15,36 @@ public class Player {
     //===========================================================
     // Variable Setup
     //===========================================================
-	private String	role;
-	private int 	pawnPosition [];
-	private String 	treasureCards [];
-	private String 	name;
+	private String		role;
+	private int 		pawnPosition [];
+	private Inventory 	treasureCards;
+	private String 		name;
 		
 	
 	//===========================================================
 	// Constructor
 	//===========================================================
 	/**
-	 * Constructor for room object.
-	 * @param assignedRole The role of the player.
+	 * Constructor for player object.
+	 * @param name The player's name.
 	 */
 	public Player(String pName) {
 		this.name = pName;
+		this.treasureCards = new Inventory();
 	}
 	
-	public String[] getPlayerTreasureCards() {
-		return treasureCards;
+	/**
+	 * Method to view player's inventory.
+	 */
+	public void viewInventory() {
+		if (treasureCards.size() == 0){
+			System.out.println("Inventory is empty.");
+		}
+		else {
+			for (int i = 0; i < treasureCards.size(); i++) {
+				System.out.println("\n" + String.valueOf(i+1) + ": " + treasureCards.viewCard(i));
+			}
+		}
 	}
 	
 	public void setRole(String role) {
@@ -39,7 +52,7 @@ public class Player {
 	}
 	
 	public String toString() {
-		return "Player Role: "+this.role+", Player Cards: "+treasureCards+", Player Position: "+pawnPosition;
+		return "Player Role: "+this.role+", Player Position: "+pawnPosition;
 	}
 	
 	// Return the pawn position on 2D game board
