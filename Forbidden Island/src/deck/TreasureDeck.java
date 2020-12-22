@@ -14,15 +14,15 @@ public class TreasureDeck {
 	//===========================================================
 	// Variable Setup
 	//===========================================================
-	private Deck<IslandTile>		treasureDeck;
+	private Deck<Card>				treasureDeck;
 	private static TreasureDeck 	TDeck;
 	
 	//===========================================================
 	// Private Constructor
 	//===========================================================
 	private TreasureDeck() {
-		this.treasureDeck = new Deck<IslandTile>();
-		this.treasureDeck.fillWithIslandTiles();
+		this.treasureDeck = new Deck<Card>();
+		this.treasureDeck.fillTreasureDeck();
 	}
 	
 	//===========================================================
@@ -38,5 +38,12 @@ public class TreasureDeck {
 	//===========================================================
 	// Public Methods
 	//===========================================================
-	
+	/**
+	 * Method to deal card from treasure deck
+	 * @param dealWaterRise
+	 * @return
+	 */
+	public Card deal(Boolean dealWaterRise) {
+		
+	}
 }
