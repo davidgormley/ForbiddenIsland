@@ -40,10 +40,22 @@ public class TreasureDeck {
 	//===========================================================
 	/**
 	 * Method to deal card from treasure deck
-	 * @param dealWaterRise
+	 * @param dealWaterRise sets whether a water rise card is a 
+	 * valid draw. For use with game setup.
 	 * @return
 	 */
 	public Card deal(Boolean dealWaterRise) {
+		Card tmp = this.treasureDeck.drawCard();
 		
+		// If a water rise is not valid draw, return card to treasure
+		// deck and shuffle, then call method recursively until a valid 
+		// treasure card is drawn.
+		if (tmp.getType() == CardType.WATER_RISE && dealWaterRise == false) {
+			this.treasureDeck.addCard(tmp);
+			this.treasureDeck.shuffleDeck();
+			tmp = deal(false);
+		}
+		
+		return tmp;
 	}
 }
