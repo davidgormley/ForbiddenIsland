@@ -2,6 +2,7 @@ package game;
 
 import deck.*;
 import cards.*;
+import java.util.ArrayList;
 
 public class SetDecks {
 	/**
@@ -15,10 +16,19 @@ public class SetDecks {
 	//===========================================================
     // Variable Setup
     //===========================================================
-	private Deck<IslandTile> floodDeck;
-	private Deck<IslandTile> floodDiscard;
-	private Deck<Card> treasureDeck;
-	private Deck<Card> treasureDiscard;
+	private Deck<IslandTile> 	floodDeck;
+	private Deck<IslandTile> 	floodDiscard;
+	private Deck<Card> 			treasureDeck;
+	private Deck<Card> 			treasureDiscard;
+	private ArrayList<Deck>		gameDecks;
+	
+	//===========================================================
+    // 
+    //===========================================================
+	public static SetDecks getInstance() {
+		if S
+	}
+	
 	
 	//===========================================================
     // Other
