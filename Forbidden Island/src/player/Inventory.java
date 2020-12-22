@@ -64,4 +64,21 @@ public class Inventory {
 		}
 		return false;
 	}
+	
+	/**
+	 * Method to return how many cards are in inventory.
+	 * @return Number of cards.
+	 */
+	public int size() {
+		return this.numCards;
+	}
+	
+	/**
+	 * Method to view card in inventory.
+	 * @param i Index of card in inventory.
+	 * @return The name of the card as String.
+	 */
+	public String viewCard(int i) {
+		return this.cards.get(i).cardName();
+	}
 }
