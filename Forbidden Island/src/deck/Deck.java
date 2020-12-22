@@ -1,40 +1,93 @@
 package deck;
 
-import java.util.Stack;
-
 import cards.Card;
 import cards.CardType;
 import cards.IslandTile;
 import java.util.Collections;
+import java.util.Stack;
+
+/**
+ * Class for a Deck on the Board in a game of Forbidden Island.
+ * 
+ * @author:  Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
+ * @date:    201223
+ * @version: 1.0
+ */
 
 public class Deck<T> {
+	
+	//===========================================================
+	// Variable Setup
+	//===========================================================
 	Stack<T> deck = new Stack<T>();
 	
-//add a card to the deck
+	//===========================================================
+	// Getters and Setters
+	//===========================================================
+	/**
+	 * Add a card to the deck
+	 * @param e Adding card to the deck
+	 */
 	public void addCard(Card e) {
 		this.deck.add((T) e);
 	}
 
-	
-//draw a card from the deck
+	/**
+	 * Take a card from the deck
+	 * @return Take a card from the deck
+	 */
 	public T drawCard() {
-
 		return deck.pop();
 	}
 
-//shuffle the deck 
+	//===========================================================
+	// Other
+	//===========================================================
+	/**
+	 * Shuffle the deck
+	 * 
+	 */
 	public void shuffleDeck() {
 		Collections.shuffle(this.deck);
 	}
-//print the cards in the deck
+
 	public void printDeck() {
 		for (int i = 0; deck.size() > i; i++) {
 			System.out.println(this.deck.elementAt(i).toString());
 		}
 	}
 
-//	get the deck length
 	public int deckLength() {
 		return deck.size();
+	}
+	
+	/**
+	 * fill deck with Island Tiles
+	 */
+	public void fillWithIslandTiles() {
+		this.addCard(new IslandTile("Breakers Bridge", CardType.TILE, false));
+		this.addCard(new IslandTile("Bronze Gate", CardType.TILE, false));
+		this.addCard(new IslandTile("Cliffs of Abandon", CardType.TILE, false));
+		this.addCard(new IslandTile("Cave of Embers", CardType.TILE, true));
+		this.addCard(new IslandTile("Crimson Forest", CardType.TILE, false));
+		this.addCard(new IslandTile("Copper Gate", CardType.TILE, false));
+		this.addCard(new IslandTile("Coral Palace", CardType.TILE, true));
+		this.addCard(new IslandTile("Cave of Shadows", CardType.TILE, true));
+		this.addCard(new IslandTile("Dunes of Deception", CardType.TILE, false));
+		this.addCard(new IslandTile("Fool's Landing", CardType.TILE, false));
+		this.addCard(new IslandTile("Gold Gate", CardType.TILE, false));
+		this.addCard(new IslandTile("Howling Garden", CardType.TILE, true));
+		this.addCard(new IslandTile("Iron Gate", CardType.TILE, false));
+		this.addCard(new IslandTile("Lost Lagoon", CardType.TILE, false));
+		this.addCard(new IslandTile("Misty Marsh", CardType.TILE, false));
+		this.addCard(new IslandTile("Observatory", CardType.TILE, false));
+		this.addCard(new IslandTile("Phantom Rock", CardType.TILE, false));
+		this.addCard(new IslandTile("Silver Gate", CardType.TILE, false));
+		this.addCard(new IslandTile("Temple of the Moon", CardType.TILE, true));
+		this.addCard(new IslandTile("Tidal Palace", CardType.TILE, true));
+		this.addCard(new IslandTile("Temple of the Sun", CardType.TILE, true));
+		this.addCard(new IslandTile("Twilight Hollow", CardType.TILE, false));
+		this.addCard(new IslandTile("Whispering Garden", CardType.TILE, true));
+		this.addCard(new IslandTile("Watchtower", CardType.TILE, false));
 	}
 }

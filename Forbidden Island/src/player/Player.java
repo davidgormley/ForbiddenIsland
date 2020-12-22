@@ -1,23 +1,30 @@
-// There are 4 pawns, each of them assigned to a player. Should they be added in here?
-// Engineer will be placed on Bronze Gate, the Explorer will be placed on Copper Gate,
-// the Diver will be placed on Iron Gate, the Pilot will be placed on Fools’ Landing,
-// the Messenger will be placed on Silver Gate, and the Navigator will be placed on Gold Gate
-
-
-//Assign a role to each player: Randomly assign to each player one of the following roles: 
-//Explorer, Diver, Pilot, Engineer, Messenger and Navigator.
-
 package player;
 
+/**
+ * Class for a Player on the Board in a game of Forbidden Island.
+ * 
+ * @author:  Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
+ * @date:    201223
+ * @version: 1.0
+ */
 
 public class Player {
 	
-	String role; // 1-Engineer, 2-Explorer, 3-Diver, 4-Pilot, 5-Messenger, 6-Navigator
-	int pawnPosition []; //single value to show position on the board for player
-	String treasureCards []; // max number of 5 treasure cards per player, anything over and a card must go into Treasure discard pile
+    //===========================================================
+    // Variable Setup
+    //===========================================================
+	private String	role;
+	private int 	pawnPosition [];
+	private String 	treasureCards [];
 		
 	
-	// constructor
+	//===========================================================
+	// Constructor
+	//===========================================================
+	/**
+	 * Constructor for room object.
+	 * @param assignedRole The role of the player.
+	 */
 	public Player(String assignedRole) {
 		role = assignedRole;
 	}

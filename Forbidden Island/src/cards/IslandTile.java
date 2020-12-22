@@ -1,20 +1,30 @@
-// There are 24 island tiles in total
-// 2 Island tiles are associated with each treasure
-// the Temple of the Moon and the Temple of the Sun are associated with
-// the Earth Stone; the Whispering Garden and the Howling Garden are associated 
-// with The Statue of the Wind; the Cave of Embers and the Cave of Shadows are 
-// associated with the Crystal of Fire; the Coral Palace and the Tidal Palace are 
-// associated with The Ocean’s Chalice.
-
 package cards;
 
+/**
+ * Class for the island tiles on the board
+ * 
+ * @author:  Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
+ * @date:    201223
+ * @version: 1.0
+ */
+
 public class IslandTile extends Card{
-	// DG: each tile has a flooded and unflooded side, should this be a boolean?
-	// ORH: It could also be in 'sunk' state. 'Flooded' Enum has been created. 
-	Flooded flooded; 
-	private boolean hasTreasure;				// tracks whether tile contains a treasure
+
+	//===========================================================
+    // Variable Setup
+    //===========================================================
+	Flooded 		flooded; 
+	private boolean hasTreasure;
 	
-	// constructor
+	//===========================================================
+	// Constructor
+	//===========================================================
+	/**
+	 * Constructor for island tile object.
+	 * @param name The name of the island tile.
+	 * @param type The type of card.
+	 * @param hasTreasure If the tile has a treasure or not.
+	 */
 	public IslandTile(String name, CardType type, boolean hasTreasure) {
 		super(name,type);
 		this.flooded = Flooded.DRY;			// default state is dry

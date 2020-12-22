@@ -1,16 +1,18 @@
-// Game objective: Work cooperatively with the other players to keep Forbidden
-// Island from sinking in order to buy enough time to capture its four
-// treasures. Once you have captured them, you must make it to Fools' Landing
-// and escape by helicopter to win
-
-
-
 package game;
+
 import player.*;
 import java.util.*; 
 import java.util.Scanner;
 import gameboard.Board;
 import deck.*;
+
+/**
+ * Main class to play the game Forbidden Island.
+ * 
+ * @author:  Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
+ * @date:    201223
+ * @version: 1.0
+ */
 
 public class Main {
 

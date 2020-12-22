@@ -19,10 +19,12 @@ public class Board {
 	
 	private static Board gameboard = null;
 	
+	// constructor
 	private Board() {
 		board = new IslandTile[6][6];
 	}
 	
+	// create instance of board singleton
 	public static Board getInstance() {
 		if (gameboard == null) {
 			gameboard = new Board();
@@ -170,5 +172,22 @@ public class Board {
 			}
 		}
 		return coords;
+	}
+	
+	
+	// method to remove tile
+	public void removeTile(int i, int j) {
+		// need to check input values or whether tile is already removed?
+		board[i][j] = null;
+	}
+	
+	// return string
+	public String toString(int i, int j) {
+		if (board[i][j] == null){
+			return "Water...";
+		}
+		else {
+			return board[i][j].getName();
+		}
 	}
 }

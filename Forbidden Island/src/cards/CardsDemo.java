@@ -5,6 +5,14 @@ import deck.Deck;
 import java.awt.List;
 import java.util.ArrayList;
 
+/**
+ * Class for a Cards Demo on the Board in a game of Forbidden Island.
+ * 
+ * @author:  Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
+ * @date:    201223
+ * @version: 1.0
+ */
+
 public class CardsDemo {
 
 	public static void main(String[] args) {

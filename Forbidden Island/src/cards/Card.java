@@ -1,16 +1,29 @@
-// The treasure deck contains 28 cards - 20 Treasure cards (5 for each treasure),
-// 3 Helicopter Lift cards, 2 Sandbag cards, 3 water rise cards
-
-// Flood deck contains 24 cards each of them corresponding to an Island Tile
-
-
 package cards;
 
+/**
+ * Class for a Card on the Board in a game of Forbidden Island.
+ * 
+ * @author:  Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
+ * @date:    201223
+ * @version: 1.0
+ */
+
 public class Card {
-	public String name;
-	public CardType type;
 	
+    //===========================================================
+    // Variable Setup
+    //===========================================================
+	public String 	name;
+	public CardType	type;
+	
+	//===========================================================
 	// Constructor
+	//===========================================================
+	/**
+	 * Constructor for Card object.
+	 * @param name The name of the card.
+	 * @param type The type of card.
+	 */
 	public Card(String name, CardType type) {
 		this.name = name;
 		this.type = type;
