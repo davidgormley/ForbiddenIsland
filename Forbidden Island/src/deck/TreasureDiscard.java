@@ -39,10 +39,24 @@ public class TreasureDiscard {
 	//===========================================================
 	/**
 	 * Method to add card to discard pile.
-	 * @param dealWaterRise sets whether a water rise card is a 
-	 * valid draw. For use with game setup.
+	 * @param c is the card to be discarded.
 	 */
 	public void addCard(Card c) {
 		this.treasureDiscard.addCard(c);
+	}
+	
+	/**
+	 * Method to empty the discard pile.
+	 */
+	public void empty() {
+		this.treasureDiscard = null;
+	}
+	
+	/**
+	 * Method to return size of discard pile.
+	 * @return
+	 */
+	public int size() {
+		return this.treasureDiscard.deckLength();
 	}
 }
