@@ -1,7 +1,6 @@
 package game;
 
 import deck.*;
-import cards.*;
 import java.util.ArrayList;
 
 public class SetDecks {
@@ -16,28 +15,24 @@ public class SetDecks {
 	// ===========================================================
 	// Variable Setup
 	// ===========================================================
-	private Deck<IslandTile> floodDeck;
-	private Deck<IslandTile> floodDiscard;
+	private FloodDeck floodDeck;
+	private FloodDiscard floodDiscard;
 	private TreasureDeck treasureDeck;
-	private Deck<Card> treasureDiscard;
-	private ArrayList<Deck> gameDecks;
+	private TreasureDiscard treasureDiscard;
 
 	// ===========================================================
 	// Constructor
 	// ===========================================================
 	public SetDecks() {
-		// TODO
+		this.floodDeck = 		FloodDeck.getInstance();
+		this.floodDiscard = 	FloodDiscard.getInstance();
+		this.treasureDeck = 	TreasureDeck.getInstance();
+		this.treasureDiscard = 	TreasureDiscard.getInstance();
 	}
 
 	// ===========================================================
 	// Other
 	// ===========================================================
-	/**
-	 * Populate tile and flood decks
-	 */
-	public void prefillDecks() {
-		floodDeck.fillWithIslandTiles();
-		treasureDeck.fillTreasureDeck();
-	}
+	
 
 }
