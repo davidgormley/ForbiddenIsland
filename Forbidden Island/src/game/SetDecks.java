@@ -18,15 +18,15 @@ public class SetDecks {
     //===========================================================
 	private Deck<IslandTile> 	floodDeck;
 	private Deck<IslandTile> 	floodDiscard;
-	private Deck<Card> 			treasureDeck;
-	private Deck<Card> 			treasureDiscard;
+	private TreasureDeck 		treasureDeck;
+	private TreasureDiscard 	treasureDiscard;
 	private ArrayList<Deck>		gameDecks;
 	
 	//===========================================================
-    // 
+    // Constructor
     //===========================================================
-	public static SetDecks getInstance() {
-		if S
+	public SetDecks() {
+		// TODO
 	}
 	
 	
