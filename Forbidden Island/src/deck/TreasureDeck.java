@@ -57,4 +57,15 @@ public class TreasureDeck extends Deck<Card> {
 		
 		return tmp;
 	}
+	
+	/**
+	 * Method to refill the treasure deck. To be called when all cards
+	 * have been drawn during gameplay.
+	 */
+	public void refill() {
+		// make sure treasure deck is empty first
+		if (this.treasureDeck.deckLength() == 0) {
+			treasureDeck.fillTreasureDeck();
+		}
+	}
 }
