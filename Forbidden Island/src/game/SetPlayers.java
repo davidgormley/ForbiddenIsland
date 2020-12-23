@@ -22,6 +22,10 @@ public class SetPlayers {
 	private Map<Integer,Player>	players;
 	private Stack<String>		roles;
 	
+	//===========================================================
+    // Methods
+    //===========================================================
+	
 	
 	//===========================================================
     // Methods
@@ -70,12 +74,13 @@ public class SetPlayers {
 	 * Method to create list of player roles for later assignment.
 	 */
 	private void addRoles() {
-		this.roles.push("Diver");
-		this.roles.push("Engineer");
-		this.roles.push("Explorer");
-		this.roles.push("Messenger");
-		this.roles.push("Navigator");
-		this.roles.push("Pilot");
+		this.roles = new Stack<String>();
+		roles.push("Diver");
+		roles.push("Engineer");
+		roles.push("Explorer");
+		roles.push("Messenger");
+		roles.push("Navigator");
+		roles.push("Pilot");
 	}
 	
 	/**
