@@ -4,7 +4,6 @@ import player.*;
 import java.util.Stack;
 import java.util.Scanner;
 import java.util.Map;
-import java.util.Collections.*;
 
 /**
  * Class to setup the players for a new game.
@@ -23,9 +22,14 @@ public class SetPlayers {
 	private Stack<String>		roles;
 	
 	//===========================================================
-    // Methods
+    // Constructor
     //===========================================================
-	
+	public SetPlayers(Scanner in) {
+		getNumPlayers(in);
+		addPlayers(in);
+		addRoles();
+		assignRoles();
+	}
 	
 	//===========================================================
     // Methods
