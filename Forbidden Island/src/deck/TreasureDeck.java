@@ -66,6 +66,7 @@ public class TreasureDeck extends Deck<Card> {
 		// make sure treasure deck is empty first
 		if (this.treasureDeck.deckLength() == 0) {
 			treasureDeck.fillTreasureDeck();
+			//the above statement is wrong call treasureDeck.refillTreasureDeck();
 		}
 	}
 }

@@ -3,6 +3,8 @@ package deck;
 import cards.Card;
 import cards.CardType;
 import cards.IslandTile;
+
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Stack;
 
@@ -38,6 +40,7 @@ public class Deck<T> {
 	 */
 	public T drawCard() {
 		return (T) deck.pop();
+	
 	}
 
 	//===========================================================
@@ -96,7 +99,7 @@ public class Deck<T> {
 	 */
 	public void fillTreasureDeck() {
 		// create 20 treasure cards
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < 5; i++) {
 			this.addCard(new Card("The Earth Stone",CardType.TREASURE));
 			this.addCard(new Card("The Ocean's Chalice",CardType.TREASURE));
 			this.addCard(new Card("The Statue of the Wind",CardType.TREASURE));
@@ -104,7 +107,7 @@ public class Deck<T> {
 		}
 		
 		// create 3 helicopter lift cards
-		for(int i = 0; i < 4; i++) {
+		for(int i = 0; i < 3; i++) {
 			this.addCard(new Card("Helicopter Lift",CardType.HELI));
 		}
 		
@@ -114,8 +117,13 @@ public class Deck<T> {
 		}
 		
 		// create 3 water rise cards
-		for(int i = 0; i< 4; i++) {
+		for(int i = 0; i< 3; i++) {
 			this.addCard(new Card("Water Rise",CardType.WATER_RISE));
 		}
+	}
+	public void refillTreasureDeck(Stack<Card> s)
+	{
+		this.deck.addAll((Collection<? extends T>) s);
+		this.shuffleDeck();
 	}
 }

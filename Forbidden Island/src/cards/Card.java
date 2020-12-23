@@ -27,7 +27,7 @@ public class Card {
 	public Card(String name, CardType type) {
 		this.name = name;
 		this.type = type;
-	}
+	}    
 	
 	// get card name
 	public String cardName() {
