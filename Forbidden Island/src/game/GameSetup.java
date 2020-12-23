@@ -1,5 +1,7 @@
 package game;
 
+import gameboard.Board;
+
 /**
  * Class to set up the game for Forbidden Island.
  * 
@@ -12,6 +14,7 @@ package game;
 public class GameSetup {
 	// Setup players
 	
+	
 	// Create game decks
 	//	- Island Tiles
 	//	- Flood deck
@@ -20,6 +23,7 @@ public class GameSetup {
 	//	- Treasure discard
 	
 	// Create game board
+	Board gameboard = Board.getInstance();
 	
 	// Assign player starting positions
 	
