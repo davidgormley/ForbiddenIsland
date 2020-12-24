@@ -22,7 +22,6 @@ public class TreasureDeck extends Deck<Card> {
 	//===========================================================
 	private TreasureDeck() {
 		this.treasureDeck = new Deck<Card>();
-		this.treasureDeck.fillTreasureDeck();
 	}
 	
 	//===========================================================
@@ -31,6 +30,7 @@ public class TreasureDeck extends Deck<Card> {
 	public static TreasureDeck getInstance() {
 		if (TDeck == null) {
 			TDeck = new TreasureDeck();
+			TDeck.refill();
 		}
 		return TDeck;
 	}
@@ -64,9 +64,27 @@ public class TreasureDeck extends Deck<Card> {
 	 */
 	public void refill() {
 		// make sure treasure deck is empty first
-		if (this.treasureDeck.deckLength() == 0) {
-			treasureDeck.fillTreasureDeck();
+		if (this.size() == 0) {
+			this.treasureDeck.fillTreasureDeck();
 			//the above statement is wrong call treasureDeck.refillTreasureDeck();
 		}
+	}
+	
+	/**
+	 * Print out the contents of the deck. **For testing**
+	 */
+	public void view() {
+		this.treasureDeck.printDeck();
+	}
+	
+	/**
+	 * Empty the treasure deck. **For testing**
+	 */
+	public void empty() {
+		this.treasureDeck.empty();
+	}
+	
+	public int size() {
+		return this.treasureDeck.deckLength();
 	}
 }

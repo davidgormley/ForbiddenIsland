@@ -54,9 +54,18 @@ public class Deck<T> {
 		Collections.shuffle(this.deck);
 	}
 
+	/**
+	 * Method to print the contents of the deck.
+	 */
 	public void printDeck() {
-		for (int i = 0; deck.size() > i; i++) {
-			System.out.println(this.deck.elementAt(i).toString());
+		// Inform the user if the deck is empty.
+		if (deck.size() == 0) {
+			System.out.println("Deck is empty.");
+		}
+		else {
+			for (int i = 0; deck.size() > i; i++) {
+				System.out.println(this.deck.elementAt(i).toString());
+			}
 		}
 	}
 
@@ -65,7 +74,7 @@ public class Deck<T> {
 	}
 	
 	/**
-	 * fill deck with Island Tiles
+	 * Fill deck with Island Tiles. Used for creating Board and Flood deck.
 	 */
 	public void fillWithIslandTiles() {
 		this.addCard(new IslandTile("Breakers Bridge", CardType.TILE, false));
@@ -95,7 +104,9 @@ public class Deck<T> {
 	}
 	
 	/**
-	 * fill treasure deck
+	 * Fill treasure deck method. To be used when creating a new treasure deck,
+	 * or when refilling the treasure deck after all cards have been dealt
+	 * during gameplay.
 	 */
 	public void fillTreasureDeck() {
 		// create 20 treasure cards
@@ -117,10 +128,20 @@ public class Deck<T> {
 		}
 		
 		// create 3 water rise cards
-		for(int i = 0; i< 3; i++) {
+		for(int i = 0; i < 3; i++) {
 			this.addCard(new Card("Water Rise",CardType.WATER_RISE));
 		}
 	}
+	
+	/**
+	 * Empty method. **For testing**
+	 */
+	public void empty() {
+		while(this.deck.size() > 0) {
+			deck.pop();
+		}
+	}
+	
 	public void refillTreasureDeck(Stack<Card> s)
 	{
 		this.deck.addAll((Collection<? extends T>) s);
