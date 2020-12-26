@@ -41,6 +41,13 @@ public class TreasureDiscard extends Deck<Card>{
 	 * Method to empty the discard pile.
 	 */
 	public void empty() {
-		this.treasureDiscard = null;
+		this.treasureDiscard.empty();
+	}
+	
+	/**
+	 * Method to add card to pile.
+	 */
+	public void addCard(Card c) {
+		this.treasureDiscard.addCard(c);
 	}
 }

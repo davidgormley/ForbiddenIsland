@@ -41,7 +41,14 @@ public class FloodDiscard extends Deck<Card>{
 	 * Method to empty the discard pile.
 	 */
 	public void empty() {
-		this.floodDiscard = null;
+		this.floodDiscard.empty();
+	}
+	
+	/**
+	 * Method to add card to pile.
+	 */
+	public void addCard(Card c) {
+		this.floodDiscard.addCard(c);
 	}
 
 }

@@ -15,10 +15,10 @@ public class SetDecks {
 	// ===========================================================
 	// Variable Setup
 	// ===========================================================
-	private FloodDeck floodDeck;
-	private FloodDiscard floodDiscard;
-	private TreasureDeck treasureDeck;
-	private TreasureDiscard treasureDiscard;
+	private FloodDeck 			floodDeck;
+	private FloodDiscard 		floodDiscard;
+	private TreasureDeck 		treasureDeck;
+	private TreasureDiscard 	treasureDiscard;
 
 	// ===========================================================
 	// Constructor
