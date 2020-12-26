@@ -1,30 +1,27 @@
-// Water Meter measures the level of the water in the island, which can range from 1 to 5
-// should water meter logic be added in here?
-
-// The number of players should range from 2 to 4. Each Player can have a role: Engineer,
-// Explorer, Diver, Pilot, Messenger, Navigator. Depending on his/her role, a player’s pawn
-// will be placed initially on a specific Island tile. The Engineer will be placed on Bronze Gate,
-// the Explorer will be placed on Copper Gate, the Diver will be placed on Iron Gate, the Pilot 
-// will be placed on Fools’ Landing, the Messenger will be placed on Silver Gate, and the Navigator 
-// will be placed on Gold Gate.  
-
 package gameboard;
+
 import java.util.*;
 import cards.*;
 import deck.*;
 
 public class Board {
-	
+	//===========================================================
+	// Variable Setup
+	//===========================================================
 	private IslandTile[][] board;
 	
-	private static Board gameboard = null;
+	private static Board gameboard;
 	
-	// constructor
+	//===========================================================
+	// Private Constructor
+	//===========================================================
 	private Board() {
-		board = new IslandTile[6][6];
+		this.board = new IslandTile[6][6];
 	}
 	
-	// create instance of board singleton
+	//===========================================================
+	// Get Instance
+	//===========================================================
 	public static Board getInstance() {
 		if (gameboard == null) {
 			gameboard = new Board();
@@ -33,7 +30,12 @@ public class Board {
 		return gameboard;
 	}
 	
-	// create new randomised board
+	//===========================================================
+	// Methods
+	//===========================================================
+	/**
+	 * Method to fill a new randomised board.
+	 */
 	private void fillBoard() {
 		// create and fill tiles deck
 		Deck<IslandTile> tiles_deck = new Deck<IslandTile>();
@@ -72,8 +74,10 @@ public class Board {
 		}
 	}
 	
-	// Map legend LUT. Key is the full name as string.
-	// Value is a 2-char acronym string. 
+	/**
+	 * Map legend LUT. Key is the full name as string.
+	 * Value is a 2-char acronym string. 
+	 */
 	public Map<String, String> legend;{
 		legend = new HashMap<String, String>();
 		legend.put("Breakers Bridge", "BB");
@@ -102,7 +106,9 @@ public class Board {
 		legend.put("Watchtower","WT");
 	}
 	
-	// method to print simple board
+	/**
+	 * Method to print simple board
+	 */
 	public void printBoard() {
 		for (int i = 0; i < 6; i++) {
 			
@@ -125,13 +131,19 @@ public class Board {
 		System.out.println("\n");
 	}
 	
-	// method to print the map legend
+	/**
+	 * Method to print the map legend
+	 */
 	public void printLegend() {
 		System.out.println("\nMap Legend:\n===========");
 		legend.forEach((k,v)-> System.out.println(v + ": " + k));
 	}
 	
-	// method to return the coordinates of a particular tile
+	/**
+	 * Method to return location of a given tile on the board.
+	 * @param tile_name Name of the tile as string.
+	 * @return two-element int array
+	 */
 	public int[] tileCoords(String tile_name){
 		int[] coords = new int[2];
 		outerloop:
@@ -149,14 +161,23 @@ public class Board {
 		return coords;
 	}
 	
-	
-	// method to remove tile
+	/**
+	 * Method to remove a tile from the board.
+	 * @param i	tile row index
+	 * @param j	tile column index
+	 */
 	public void removeTile(int i, int j) {
 		// need to check input values or whether tile is already removed?
 		board[i][j] = null;
 	}
 	
-	// return string
+	/**
+	 * Method which returns the name of the tile at a 
+	 * specified location.
+	 * @param i	tile row index
+	 * @param j tile column index
+	 * @return
+	 */
 	public String toString(int i, int j) {
 		if (board[i][j] == null){
 			return "Water...";
@@ -164,5 +185,14 @@ public class Board {
 		else {
 			return board[i][j].getName();
 		}
+	}
+	
+	/**
+	 * Flood a specified tile on the board.
+	 * @param tile_name Tile name as string.
+	 */
+	public void floodTile(String tile_name) {
+		int[] pos = tileCoords(tile_name);
+		board[pos[0]][pos[1]].flood();
 	}
 }
