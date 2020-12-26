@@ -1,19 +1,36 @@
 package deck;
 
-import cards.Card;
+import cards.*;
 import cards.Flooded;
 import cards.IslandTile;
 import cards.WaterMeter;
 
+/**
+ * Singleton class for the Flood deck.
+ * 
+ * @author:  Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
+ * @date:    201223
+ * @version: 1.0
+ */
+
 public class FloodDeck extends Deck {
+	//===========================================================
+	// Variable Setup
+	//===========================================================
 	private static FloodDeck FDeck;
 	private Deck<IslandTile> floodDeck;
 
+	//===========================================================
+	// Private Constructor
+	//===========================================================
 	private FloodDeck() {
 		this.floodDeck = new Deck<IslandTile>();
 		this.floodDeck.fillWithIslandTiles();
 	}
 
+	//===========================================================
+	// Get Instance
+	//===========================================================
 	public static FloodDeck getInstance() {
 		if (FDeck == null) {
 			FDeck = new FloodDeck();
@@ -21,11 +38,26 @@ public class FloodDeck extends Deck {
 		return FDeck;
 	}
 
+	//===========================================================
+	// Public Methods
+	//===========================================================
+	/**
+	 * Method to refill flood deck. To be used when creating new
+	 * instance and during gameplay when cards have been dealt.
+	 */
 	public void refill() {
-		floodDeck.fillWithIslandTiles();
+		this.floodDeck.fillWithIslandTiles();
 
 	}
 
+	/**
+	 * Method to deal card from Flood deck.
+	 * @return
+	 */
+	public IslandTile deal() {
+		return this.floodDeck.drawCard();
+	}
+	
 	Deck<IslandTile> drawSixCardsFloodDeck() {
 		Deck<IslandTile> cardsDrawn = new Deck<IslandTile>();
 		for (int i = 0; i < 6; i++) {
@@ -43,9 +75,9 @@ public class FloodDeck extends Deck {
 	}
 
 //	draw cards from flood deck based on water rise card level
-	Deck<IslandTile> drawCardsFromFloodDeck(WaterMeter wm) {
+	public Deck<IslandTile> drawCardsFromFloodDeck() {
 
-		int n = wm.getLevel();
+		
 
 		Deck<IslandTile> cardsDrawn = new Deck<IslandTile>();
 		for (int i = 0; i < n; i++) {
