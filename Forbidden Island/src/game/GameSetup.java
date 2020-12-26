@@ -1,7 +1,9 @@
 package game;
 
-import gameboard.Board;
+import gameboard.*;
 import java.util.Scanner;
+import cards.*;
+import deck.*;
 
 /**
  * Class to set up the game for Forbidden Island.
@@ -21,6 +23,7 @@ public class GameSetup {
 	private SetPlayers 			playerCtrl;
 	private SetDecks			deckCtrl;
 	private Board				boardCtrl;
+	private WaterLevel			waterCtrl;
 	
 	public Scanner 				in;
 	
@@ -32,6 +35,9 @@ public class GameSetup {
 		this.boardCtrl = 	Board.getInstance();
 		this.playerCtrl = 	new SetPlayers(in);
 		this.deckCtrl = 	new SetDecks();
+		this.waterCtrl =	WaterLevel.getInstance();
+		
+		dealInitialCards();
 	}
 	
 	//===========================================================
@@ -44,13 +50,25 @@ public class GameSetup {
 		return fIsland;
 	}
 	
-	
-	// Deal treasure cards to players
-	
-	// Deal flood cards
-	
-	// Assign player roles
-	
-	// Set water level
+	//===========================================================
+    // Methods
+    //===========================================================	
+	private void dealInitialCards() {
+		// deal 2 treasure cards to each player
+		// TODO
+
+		
+		// deal 6 flood cards
+		IslandTile tmp;
+		FloodDeck flood = FloodDeck.getInstance();
+		FloodDiscard fdiscard = FloodDiscard.getInstance();
+		Board board = Board.getInstance();
+		for (int i = 0; i < 6; i++) {
+			tmp = flood.deal();
+			board.floodTile(tmp.getName());
+			fdiscard.addCard(tmp);
+		}
+		
+	}
 	
 }
