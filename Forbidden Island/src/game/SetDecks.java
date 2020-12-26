@@ -24,10 +24,17 @@ public class SetDecks {
 	// Constructor
 	// ===========================================================
 	public SetDecks() {
+		// instantiate decks
 		this.floodDeck = 		FloodDeck.getInstance();
 		this.floodDiscard = 	FloodDiscard.getInstance();
 		this.treasureDeck = 	TreasureDeck.getInstance();
 		this.treasureDiscard = 	TreasureDiscard.getInstance();
+		
+		// shuffle decks
+		floodDeck.shuffleDeck();
+		floodDiscard.shuffleDeck();
+		treasureDeck.shuffleDeck();
+		treasureDiscard.shuffleDeck();
 	}
 
 	// ===========================================================
