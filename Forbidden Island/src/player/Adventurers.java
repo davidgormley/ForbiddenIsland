@@ -40,7 +40,7 @@ public class Adventurers {
 	//===========================================================
 	/**
 	 * Adds players to the adventurers list.
-	 * @param pnum Order number of player.
+	 * @param pnum Play order number.
 	 * @param p The player to be added.
 	 */
 	public void addPlayer(int pnum, Player p) {
@@ -48,9 +48,9 @@ public class Adventurers {
 	}
 	
 	/**
-	 * Returns the specified player by their specified order number.
-	 * @param pnum
-	 * @return
+	 * Returns the player specified by play order number.
+	 * @param pnum Play order number.
+	 * @return The player.
 	 */
 	public Player getPlayer(int pnum) {
 		return this.players.get(pnum);
