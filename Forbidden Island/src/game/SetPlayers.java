@@ -18,13 +18,14 @@ public class SetPlayers {
     // Variable Setup
     //===========================================================
 	private int 				numberPlayers;
-	private Map<Integer,Player>	players;
+	private Adventurers			players;
 	private Stack<String>		roles;
 	
 	//===========================================================
     // Constructor
     //===========================================================
 	public SetPlayers(Scanner in) {
+		this.players = Adventurers.getInstance();
 		getNumPlayers(in);
 		addPlayers(in);
 		addRoles();
@@ -70,7 +71,7 @@ public class SetPlayers {
 		Player nextP;
 		for (int p = 1; p <= this.numberPlayers; p++) {
 				nextP = createPlayer(in, p);
-				players.put(p,nextP);
+				this.players.addPlayer(p,nextP);
 		}
 	}
 	
@@ -95,7 +96,7 @@ public class SetPlayers {
 	public void assignRoles() {
 		for (int p = 1; p <= numberPlayers; p++) {
 			java.util.Collections.shuffle(this.roles);
-			players.get(p).setRole(roles.pop());
+			this.players.getPlayer(p).setRole(roles.pop());
 		}
 	}
 }
