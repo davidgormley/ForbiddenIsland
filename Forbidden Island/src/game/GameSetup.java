@@ -1,6 +1,8 @@
 package game;
 
 import gameboard.*;
+import player.*;
+
 import java.util.Scanner;
 import cards.*;
 import deck.*;
@@ -53,9 +55,22 @@ public class GameSetup {
 	//===========================================================
     // Methods
     //===========================================================	
+	/**
+	 * This method handles the initial dealing of treasure cards
+	 * to players and the drawing of six flood cards.
+	 */
 	private void dealInitialCards() {
 		// deal 2 treasure cards to each player
-		// TODO
+		Adventurers players = Adventurers.getInstance();
+		TreasureDeck tdeck = TreasureDeck.getInstance();
+		Card ctmp;
+		
+		for(int p = 1; p <= players.numPlayers(); p++) {
+			for (int i = 0; i< 2; i++) {
+				ctmp = tdeck.deal(false);
+				players.getPlayer(p).giveCard(ctmp);
+			}
+		}
 
 		
 		// deal 6 flood cards
@@ -63,6 +78,7 @@ public class GameSetup {
 		FloodDeck flood = FloodDeck.getInstance();
 		FloodDiscard fdiscard = FloodDiscard.getInstance();
 		Board board = Board.getInstance();
+		
 		for (int i = 0; i < 6; i++) {
 			tmp = flood.deal();
 			board.floodTile(tmp.getName());
