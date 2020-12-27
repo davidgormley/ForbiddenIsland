@@ -19,6 +19,14 @@ public class PlayerDemo {
 		eric.giveCard(new Card("The Earth Stone", CardType.TREASURE));
 		eric.viewInventory();
 		
+		// test Adventurers
+		Adventurers adv = Adventurers.getInstance();
+		Player john = new Player("John");
+		adv.addPlayer(1,eric);
+		adv.addPlayer(2,john);
+		System.out.println(adv.getPlayer(1).getName());
+		System.out.println(adv.getPlayer(2).getName());
+		
 		
 
 	}

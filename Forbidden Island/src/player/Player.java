@@ -143,6 +143,10 @@ public class Player {
 	public String getRole() {
 		return this.role;
 	}
+	
+	public String getName() {
+		return this.name;
+	}
 
 
 }
