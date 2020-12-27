@@ -55,4 +55,12 @@ public class Adventurers {
 	public Player getPlayer(int pnum) {
 		return this.players.get(pnum);
 	}
+	
+	/**
+	 * Returns the number of players.
+	 * @return Integer
+	 */
+	public int numPlayers() {
+		return this.players.size();
+	}
 }
