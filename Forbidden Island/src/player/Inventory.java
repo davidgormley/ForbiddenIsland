@@ -81,4 +81,35 @@ public class Inventory {
 	public String viewCard(int i) {
 		return this.cards.get(i).cardName();
 	}
+	
+	/**
+	 * Method to check whether a player has a given card in their inventory.
+	 * @param cardname Name of desired card
+	 * @return Boolean stating whether player has the card
+	 */
+	public boolean hasCard(String cardname) {
+		for (Card card : this.cards) {
+			if (card.cardName().equals(cardname)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * Method to check how many copies of a specified card a 
+	 * player may have in their inventory.
+	 * @param cardname Name of desired card
+	 * @return How many of a given card the player has as Integer.
+	 */
+	public int cardInstances(String cardname) {
+		int count = 0;
+		
+		for (Card card : this.cards) {
+			if (card.cardName().equals(cardname)) {
+				count++;
+			}
+		}
+		return count;
+	}
 }
