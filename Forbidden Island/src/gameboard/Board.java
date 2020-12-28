@@ -214,4 +214,31 @@ public class Board {
 	public void shoreUp(int i, int j) {
 		board[i][j].shoreUp();
 	}
+	
+	/**
+	 * Method which iterates through board tiles and creates a TreeMap with K,V 
+	 * pair of a number (int) and tile name (string). An intended use of this 
+	 * method is in presenting a list of valid tiles to a player who can then
+	 * easily select one via the assigned key int. This helps make selections
+	 * quicker and inputs easier to validate.
+	 * @return
+	 */
+	public TreeMap<Integer,String> activeTiles() {
+		int tilecounter = 0;
+		String tilename;
+		TreeMap<Integer,String> tiles = new TreeMap<Integer,String>();
+		
+		// iterate and find valid tiles
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 6; j++) {
+				if (board[i][j] != null && board[i][j].state() != Flooded.SUNK) {
+					tilecounter++;
+					tilename = board[i][j].getName();
+					tiles.put(tilecounter, tilename);
+				}
+			}
+		}
+		
+		return tiles;
+	}
 }
