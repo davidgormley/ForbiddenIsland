@@ -63,4 +63,15 @@ public class Adventurers {
 	public int numPlayers() {
 		return this.players.size();
 	}
+	
+	/**
+	 * Prints out each active player in the play order.
+	 */
+	public void printList() {
+		if (this.numPlayers() > 0) {
+			for (int i = 1; i <= this.numPlayers(); i++) {
+				System.out.println(i + ". " + players.get(i).getName());
+			}
+		}
+	}
 }
