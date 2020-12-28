@@ -147,6 +147,15 @@ public class Player {
 	public String getName() {
 		return this.name;
 	}
+	
+	/**
+	 * Method to call the hasCard check from Inventory
+	 * @param cardname Name of desired card
+	 * @return Boolean
+	 */
+	public boolean hasCard(String cardname) {
+		return this.treasureCards.hasCard(cardname);
+	}
 
 
 }
