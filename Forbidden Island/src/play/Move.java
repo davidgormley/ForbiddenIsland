@@ -1,5 +1,7 @@
 package play;
 
+import java.util.Scanner;
+
 /**
  * This class handles the move action for players.
  * 
