@@ -1,5 +1,11 @@
 package play;
 
+import java.util.Scanner;
+
+import gameboard.Board;
+import player.Adventurers;
+import cards.Flooded;
+
 /**
  * This class handles the sandbag action for players.
  * 
@@ -9,19 +15,71 @@ package play;
  */
 
 public class Sandbag {
-	// check which player wishes to play the card
-	
-	// check if player has the card
-	
-	// check whether the target tile can be shored up (i.e., is not DRY or SUNK)
-	
-	
 	//===========================================================
     // Variable Setup
     //===========================================================
-	
+	Adventurers players = Adventurers.getInstance(); 
+	Board board = Board.getInstance();
+	Scanner in = new Scanner(System.in);
+	int P1 = 0;
 	
 	//===========================================================
     // Methods
     //===========================================================
+	/**
+	 * Method to read user input and select which player will perform
+	 * the action.
+	 */
+	private void selectPlayer() {
+		System.out.println("\nWhich Player will use a Sandbag card?");
+		players.printList();
+		
+		do {
+			P1 = in.nextInt();
+		} while(P1 < 1 || P1 > players.numPlayers());
+	}
+	
+	/**
+	 * Checks whether player has a sandbag card.
+	 */
+	private boolean checkCard() {
+		if (players.getPlayer(P1).hasCard("Sandbag") == true) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	/**
+	 * Checks whether tile can be shored up
+	 * @return
+	 */
+	private boolean checkTile() {
+		int[] loc = players.getPlayer(P1).getPawnPosition();
+		
+		if (board.getState(loc[0],loc[1]) == Flooded.FLOODED) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	/**
+	 * Performs player selection, checks and sandbag action.
+	 */
+	public void doSandbag() {
+		selectPlayer();
+
+		int[] loc = players.getPlayer(P1).getPawnPosition();
+		
+		if (checkCard() == true) {
+			if (checkTile() == true) {
+				board.shoreUp(loc[0],loc[1]);
+			}else {
+				System.out.println("Tile isn't flooded.");}
+		}else {
+			System.out.println(players.getPlayer(P1).getName() + " doesn't have a sandbag card");}
+		
+	}
 }
