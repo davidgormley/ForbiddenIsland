@@ -195,4 +195,23 @@ public class Board {
 		int[] pos = tileCoords(tile_name);
 		board[pos[0]][pos[1]].flood();
 	}
+	
+	/**
+	 * Returns the flood state of tile at location
+	 * @param i	tile row index
+	 * @param j	tile column index
+	 * @return Flood state enum
+	 */
+	public Flooded getState(int i, int j) {
+		return board[i][j].state();
+	}
+	
+	/**
+	 * Calls shoreUp() on specified tile
+	 * @param i	tile row index
+	 * @param j	tile column index
+	 */
+	public void shoreUp(int i, int j) {
+		board[i][j].shoreUp();
+	}
 }
