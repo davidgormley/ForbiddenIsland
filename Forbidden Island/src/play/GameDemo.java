@@ -14,13 +14,19 @@ public class GameDemo {
         board.printBoard();
 
         Player p1 = new Player("P1"); // we set the players
-        p1.setRole("Engineer");
         Player p2 = new Player("P2");
-        p2.setRole("Pilot");
         Player p3 = new Player("P3");
-        p3.setRole("Diver");
         Player p4 = new Player("P4");
+
+        p1.setRole("Engineer");
+        p2.setRole("Pilot");
+        p3.setRole("Diver");
         p4.setRole("Navigator");
+
+        p1.setStartingPos();
+        p2.setStartingPos();
+        p3.setStartingPos();
+        p4.setStartingPos();
 
         Card tcard1 = new Card("The Earth Stone", CardType.TREASURE);
         Card tcard2 = new Card("The Earth Stone", CardType.TREASURE);
@@ -32,10 +38,14 @@ public class GameDemo {
         p1.giveCard(tcard3);
         p1.giveCard(tcard4);
 
+        board.floodTile("Temple of the Moon");
+        board.floodTile("Temple of the Moon");
+
         p1.viewInventory();
+        p1.setPos(board.tileCoords("Temple of the Moon")[0], board.tileCoords("Temple of the Moon")[1]);
 
         // Need to find a way to pass in the players position.
-        // Capture.isValid(board, player)
+        System.out.println(Capture.isValid(board, p1, TreasureType.EARTH_STONE));
     }
 
 }
