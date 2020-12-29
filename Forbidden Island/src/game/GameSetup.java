@@ -37,7 +37,7 @@ public class GameSetup {
 		this.boardCtrl = 	Board.getInstance();
 		this.playerCtrl = 	new SetPlayers(in);
 		this.deckCtrl = 	new SetDecks();
-		this.waterCtrl =	WaterLevel.getInstance();
+		this.waterCtrl = 	WaterLevel.getInstance();
 		
 		dealInitialCards();
 	}
