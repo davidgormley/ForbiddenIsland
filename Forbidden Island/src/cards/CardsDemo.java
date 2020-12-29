@@ -16,9 +16,9 @@ import java.util.ArrayList;
 public class CardsDemo {
 
 	public static void main(String[] args) {
-//		Stack<Card> deck = new Stack<Card>();
+		// Stack<Card> deck = new Stack<Card>();
 
-		IslandTile FL = new IslandTile("Fool's Landing", CardType.TILE, false);
+		IslandTile FL = new IslandTile("Fool's Landing", CardType.TILE, TreasureType.NONE);
 
 		System.out.println(FL.toString());
 		FL.flood();
@@ -30,9 +30,9 @@ public class CardsDemo {
 		ArrayList<String> tileNames = new ArrayList();
 
 		tileNames = createTileNames();
-//		creating a treasure deck
+		// creating a treasure deck
 		Deck treasureDeck = new Deck<Card>();
-//		creating a flood deck
+		// creating a flood deck
 		Deck floodDeck = new Deck<IslandTile>();
 
 		createFloodDeck(tileNames, floodDeck);
@@ -41,19 +41,19 @@ public class CardsDemo {
 		treasureDeck.shuffleDeck();
 		treasureDeck.printDeck();
 		System.out.println("-------------------------------------------------------------------");
-//		deck.pushFloodCard(FL);
+		// deck.pushFloodCard(FL);
 		floodDeck.printDeck();
 		System.out.println("-------------------------------------------------------------------");
 
 		floodDeck.shuffleDeck();
 		floodDeck.printDeck();
 		treasureDeck.shuffleDeck();
-//		System.out.println(deck.size());
+		// System.out.println(deck.size());
 		treasureDeck.drawCard();
-//		System.out.println(deck.size());
-//		Card p = deck.peek();
-//		System.out.println(p.toString()); // output is reference?
-//		System.out.println(deck.search(wr));
+		// System.out.println(deck.size());
+		// Card p = deck.peek();
+		// System.out.println(p.toString()); // output is reference?
+		// System.out.println(deck.search(wr));
 		FL.flood();
 		FL.flood();
 		System.out.println(FL.toString());
@@ -61,7 +61,8 @@ public class CardsDemo {
 
 	}
 
-//	create a treasure deck by adding a total of 28 cards 20 (treasure cards) + 3 (Helicopter Lift cards) + 3 (Water rise cards) + 2 (Sand bag cards)
+	// create a treasure deck by adding a total of 28 cards 20 (treasure cards) + 3
+	// (Helicopter Lift cards) + 3 (Water rise cards) + 2 (Sand bag cards)
 
 	public static void createTreasureDeck(Deck deck) {
 		System.out.println("-------------------------------------------------------------------");
@@ -69,24 +70,24 @@ public class CardsDemo {
 		tileNames.add("The Earth Stone");
 		tileNames.add("The Statue of the Wind");
 		tileNames.add("The Crystal of Fire");
-		tileNames.add("The Ocean’s Chalice");
+		tileNames.add("The Oceanï¿½s Chalice");
 		Card tr = new Card(tileNames.get(0), CardType.TREASURE);
 		Card tr1 = new Card(tileNames.get(1), CardType.TREASURE);
 		Card tr2 = new Card(tileNames.get(2), CardType.TREASURE);
 		Card tr3 = new Card(tileNames.get(3), CardType.TREASURE);
-		Card heli = new Card("Helicopter LIft", CardType.HELI);
+		Card heli = new Card("Helicopter Lift", CardType.HELI);
 		Card wr = new Card("Water Rise", CardType.WATER_RISE);
 		Card sbag = new Card("Sandbag", CardType.SANDBAG);
 		for (int i = 0; i < 5; i++) {
-//			create a treasure deck by adding 5 cards of each treasure card
+			// create a treasure deck by adding 5 cards of each treasure card
 
 			deck.addCard(tr);
 			deck.addCard(tr1);
 			deck.addCard(tr2);
 			deck.addCard(tr3);
 			if (i < 3) {
-//				3 water rise cards
-//				3 helicopter cards
+				// 3 water rise cards
+				// 3 helicopter cards
 				deck.addCard(heli);
 				deck.addCard(wr);
 			}
@@ -100,17 +101,17 @@ public class CardsDemo {
 
 	}
 
-//	create a flood deck full of island tiles
+	// create a flood deck full of island tiles
 	public static <T> void createFloodDeck(ArrayList<String> tileNames, Deck<T> deck) {
 		for (int i = 0; tileNames.size() > i; i++) {
 
-			IslandTile FL1 = new IslandTile(tileNames.get(i), CardType.FLOOD, false);
+			IslandTile FL1 = new IslandTile(tileNames.get(i), CardType.FLOOD, TreasureType.NONE);
 			System.out.print(FL1.toString());
 			deck.addCard(FL1);
 		}
 	}
 
-//	tile names
+	// tile names
 	public static ArrayList<String> createTileNames() {
 		ArrayList<String> tileNames = new ArrayList();
 		tileNames.add("Temple of the Sun");
@@ -145,12 +146,11 @@ public class CardsDemo {
 			IslandTile cardNew = (IslandTile) deck.drawCard();
 
 			// flood the tile in the board
-			
-			
+
 		}
 	}
 
-//	draw cards from flood deck based on water rise card level
+	// draw cards from flood deck based on water rise card level
 	void drawCardsFromFloodDeck(Deck<IslandTile> deck, WaterMeter wm) {
 
 		int n = wm.getLevel();
