@@ -1,6 +1,7 @@
 package player;
 
 import java.util.TreeMap;
+import cards.TreasureType;
 
 
 /**
@@ -15,14 +16,16 @@ public class Adventurers {
 	//===========================================================
 	// Variable Setup
 	//===========================================================
-	private static Adventurers		adventurers;
-	private TreeMap<Integer,Player>	players;
+	private static Adventurers				adventurers;
+	private TreeMap<Integer,Player>			players;
+	private TreeMap<TreasureType,Boolean>	treasures;
 
 	//===========================================================
 	// Private Constructor
 	//===========================================================
 	private Adventurers() {
 		this.players = new TreeMap<Integer,Player>();
+		setTreasures();
 	}
 
 	//===========================================================
@@ -71,6 +74,48 @@ public class Adventurers {
 		if (this.numPlayers() > 0) {
 			for (int i = 1; i <= this.numPlayers(); i++) {
 				System.out.println(i + ". " + players.get(i).getName());
+			}
+		}
+	}
+	
+	/**
+	 * This method initialises the treasure tracker for the group of
+	 * plucky adventurers.
+	 */
+	private void setTreasures() {
+		treasures.put(TreasureType.EARTH_STONE, false);
+		treasures.put(TreasureType.CRYSTAL_OF_FIRE, false);
+		treasures.put(TreasureType.OCEAN_CHALICE, false);
+		treasures.put(TreasureType.STATUE_OF_WIND,false);
+	}
+	
+	/**
+	 * Adds captured treasure to list.
+	 * @param treasure TreasureType Enum representing capture treasures.
+	 */
+	public void addTreasure(TreasureType treasure) {
+		treasures.replace(treasure, true);
+	}
+	
+	/**
+	 * Checks whether a specified treasure has been captured.
+	 */
+	public boolean haveTreasure(TreasureType treasure) {
+		if (treasures.get(treasure) == true) {
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Prints out a list of captured treasures.
+	 */
+	public void capturedTreasures() {
+		System.out.println("\nTreasure Collection:");
+		
+		for (TreasureType treasure : treasures.keySet()) {
+			if (treasures.get(treasure) == true) {
+				System.out.println(treasure.toString());
 			}
 		}
 	}
