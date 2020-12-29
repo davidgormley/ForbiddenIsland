@@ -1,6 +1,5 @@
 package player;
 
-import java.util.ArrayList;
 import cards.*;
 import gameboard.*;
 
@@ -87,24 +86,30 @@ public class Player {
 		switch(this.role) {
 			case "Diver":
 				pos = board.tileCoords("Iron Gate");
+				break;
 				
 			case "Engineer":
 				pos = board.tileCoords("Bronze Gate");
+				break;
 				
 			case "Explorer":
 				pos = board.tileCoords("Copper Gate");
+				break;
 				
 			case "Messenger":
 				pos = board.tileCoords("Silver Gate");
+				break;
 				
 			case "Navigator":
 				pos = board.tileCoords("Gold Gate");
+				break;
 				
 			case "Pilot":
 				pos = board.tileCoords("Fool's Landing");
+				break;
 		}
 		
-		setPos(pos[0],pos[1]);
+		this.setPos(pos[0],pos[1]);
 	}
 	
 	public String toString() {
