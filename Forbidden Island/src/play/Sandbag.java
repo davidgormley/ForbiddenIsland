@@ -24,6 +24,13 @@ public class Sandbag {
 	int P1 = 0;
 	
 	//===========================================================
+    // Constructor
+    //===========================================================
+	public Sandbag() {
+		doSandbag();
+	}
+	
+	//===========================================================
     // Methods
     //===========================================================
 	/**
@@ -79,6 +86,7 @@ public class Sandbag {
 		if (checkCard() == true) {
 			if (checkTile() == true) {
 				board.shoreUp(loc[0],loc[1]);
+				System.out.println(board.getTileName(loc[0],loc[1]) + " is now dry.");
 			}else {
 				System.out.println("Tile isn't flooded.");}
 		}else {
