@@ -32,6 +32,11 @@ public class GameplayDemo {
 				+ board.getTileName(pos2[0], pos2[1]));
 		
 		/**
+		 * Test player turn
+		 */
+		Turn t = new Turn(in,1);
+		
+		/**
 		 * Test Sandbag
 		 */
 		int[] fl = board.tileCoords("Fool's Landing");
