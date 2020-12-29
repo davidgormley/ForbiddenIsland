@@ -1,0 +1,56 @@
+package play;
+
+import gameboard.Board;
+import player.Adventurers;
+import java.util.Scanner;
+import game.*;
+import cards.*;
+
+public class GameplayDemo {
+	//===========================================================
+    // Testing
+    //===========================================================
+	public static void main(String args[]) {
+		Adventurers players = Adventurers.getInstance();
+		Board board = Board.getInstance();
+		board.printBoard();
+		Scanner in = new Scanner(System.in);
+		
+		
+		/**
+		 * Test player setup
+		 */
+		SetPlayers playerCtrl = new SetPlayers(in);
+		System.out.println(players.getPlayer(1).getRole());
+		int[] pos1 = players.getPlayer(1).getPawnPosition();
+		System.out.println("[" + pos1[0] + "][" + pos1[1] + "] "
+				+ board.getTileName(pos1[0], pos1[1]));
+		
+		System.out.println(players.getPlayer(2).getRole());
+		int[] pos2 = players.getPlayer(2).getPawnPosition();
+		System.out.println("[" + pos2[0] + "][" + pos2[1] + "] "
+				+ board.getTileName(pos2[0], pos2[1]));
+		
+		/**
+		 * Test Sandbag
+		 */
+		int[] fl = board.tileCoords("Fool's Landing");
+		System.out.println("Fool's Landing is located at (" + fl[0] + ", " + fl[1] + ").");
+		
+		// flood Fool's Landing
+		board.floodTile("Fool's Landing");
+		Card sbag = new Card("Sandbag",CardType.SANDBAG);
+		
+		// give Player 1 a Sandbag card and move to FL
+		players.getPlayer(1).giveCard(sbag);
+		players.getPlayer(1).setPos(fl[0], fl[1]);
+		
+		// use card
+		Sandbag s = new Sandbag();
+		
+		// try again with Player 2
+		s.doSandbag();
+		
+		
+	}
+}
