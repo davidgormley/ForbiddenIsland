@@ -28,7 +28,10 @@ public class Sandbag {
     //===========================================================
 	/**
 	 * Method to read user input and select which player will perform
-	 * the action.
+	 * the action. As these cards can be played at any time, the 
+	 * intention here is that if another player would like to play
+	 * the card outside their turn then they can be temporarily
+	 * made the active player and control should then be given to that player.
 	 */
 	private void selectPlayer() {
 		System.out.println("\nWhich Player will use a Sandbag card?");
