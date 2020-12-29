@@ -25,6 +25,7 @@ public class Adventurers {
 	//===========================================================
 	private Adventurers() {
 		this.players = new TreeMap<Integer,Player>();
+		this.treasures = new TreeMap<TreasureType,Boolean>();
 		setTreasures();
 	}
 
