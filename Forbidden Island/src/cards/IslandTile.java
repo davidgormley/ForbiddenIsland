@@ -62,6 +62,10 @@ public class IslandTile extends Card {
 		return this.treasureType != TreasureType.NONE;
 	}
 
+	public TreasureType getTreasureType() {
+		return treasureType;
+	}
+
 	// method to invoke when capturing a treasure
 	public void loot() {
 		this.treasureType = TreasureType.NONE;
