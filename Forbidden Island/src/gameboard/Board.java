@@ -241,4 +241,17 @@ public class Board {
 		
 		return tiles;
 	}
+	
+	/**
+	 * Checks if the specified tile is a valid active tile.
+	 * @param i	tile row index
+	 * @param j	tile column index
+	 * @return Boolean
+	 */
+	public boolean isValidTile(int i, int j) {
+		if (board[i][j] != null && board[i][j].state() != Flooded.SUNK) {
+			return true;
+		}
+		return false;
+	}
 }
