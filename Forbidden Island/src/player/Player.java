@@ -167,5 +167,13 @@ public class Player {
 	public boolean hasCard(String cardname) {
 		return this.treasureCards.hasCard(cardname);
 	}
+	
+	/**
+	 * Returns how many cards are in player's inventory.
+	 * @return Integer.
+	 */
+	public int inventorySize() {
+		return treasureCards.size();
+	}
 
 }
