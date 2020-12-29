@@ -58,13 +58,13 @@ public class Move {
 		}
 		
 		// check East tile
-		if (loc[1] < 6 && board.isValidTile(loc[0], loc[1]+1) == true) {
+		if (loc[1] < 5 && board.isValidTile(loc[0], loc[1]+1) == true) {
 			numMoves++;
 			moves.put(2, board.getTileName(loc[0],loc[1]+1));
 		}
 		
 		// check South tile
-		if (loc[0] < 6 && board.isValidTile(loc[0]+1, loc[1]) == true) {
+		if (loc[0] < 5 && board.isValidTile(loc[0]+1, loc[1]) == true) {
 			numMoves++;
 			moves.put(3, board.getTileName(loc[0]+1,loc[1]));
 		}
