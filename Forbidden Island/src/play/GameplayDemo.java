@@ -64,6 +64,9 @@ public class GameplayDemo {
 		System.out.print("P1: " + board.getTileName(pos1[0], pos1[1]) + "\nP2: "
 				+ board.getTileName(pos2[0], pos2[1]));
 		
-		
+		/**
+		 * Test Move
+		 */
+		Move m = new Move(1);
 	}
 }

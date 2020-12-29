@@ -87,13 +87,13 @@ public class Move {
 		int choice;
 		
 		// present options to player
-		System.out.println("Available Destinations:");
+		System.out.println("\nAvailable Destinations:");
 		for (int n : moves.keySet()) {
 			System.out.println(n + ". " + moves.get(n));
 		}
 		
 		// get player's choice of destination
-		System.out.println("Please select a destination [1-4]: ");
+		System.out.println("\nPlease select a destination [1-4]: ");
 		do {
 			choice = in.nextInt();
 		}while(!moves.containsKey(choice));
@@ -113,7 +113,7 @@ public class Move {
 		determineValidMoves();
 		
 		if (numMoves == 0) {
-			System.out.println("Uh-oh. There are no valid moves available. Get to the choppa!");
+			System.out.println("\nUh-oh. There are no valid moves available. Get to the choppa!");
 		}
 		else {
 			selectDestination();
