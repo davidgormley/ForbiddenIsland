@@ -275,14 +275,26 @@ public class Board {
 	 * to check context of use as this method will return "Water..." rather than
 	 * tile name if specified position position contains an invalid tile.
 	 * 
-	 * @param i
-	 * @param j
-	 * @return
+	 * @param i tile row index
+	 * @param j tile column index
+	 * @return Tile name as String
 	 */
 	public String getTileName(int i, int j) {
 		if (isValidTile(i, j) == true) {
 			return board[i][j].getName();
 		}
 		return ("Water...");
+	}
+	
+	/**
+	 * Method to return a tile at a specified location.
+	 * NOTE: be sure to validate tile BEFORE calling this method.
+	 * 
+	 * @param i tile row index
+	 * @param j tile column index
+	 * @return IslandTile
+	 */
+	public IslandTile getTile(int i, int j) {
+		return board[i][j];
 	}
 }
