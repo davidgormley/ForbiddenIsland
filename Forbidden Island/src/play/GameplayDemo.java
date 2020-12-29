@@ -51,6 +51,19 @@ public class GameplayDemo {
 		// try again with Player 2
 		s.doSandbag();
 		
+		/**
+		 * Test Helicopter
+		 */
+		Card heli = new Card("Helicopter Lift",CardType.HELI);
+		players.getPlayer(1).giveCard(heli);
+		
+		Helicopter h = new Helicopter();
+		pos1 = players.getPlayer(1).getPawnPosition();
+		pos2 = players.getPlayer(2).getPawnPosition();
+		
+		System.out.print("P1: " + board.getTileName(pos1[0], pos1[1]) + "\nP2: "
+				+ board.getTileName(pos2[0], pos2[1]));
+		
 		
 	}
 }

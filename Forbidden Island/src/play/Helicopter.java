@@ -46,7 +46,7 @@ public class Helicopter {
 	 * made the active player and control should then be given to that player.
 	 */
 	private void selectPlayer() {
-		System.out.println("\nWhich Player will use a Sandbag card?");
+		System.out.println("\nWhich Player will use Helicopter Lift card?");
 		players.printList();
 		
 		do {
@@ -55,7 +55,7 @@ public class Helicopter {
 	}
 	
 	/**
-	 * Checks whether player has a sandbag card.
+	 * Checks whether player has a helicopter lift card.
 	 */
 	private boolean checkCard() {
 		if (players.getPlayer(P1).hasCard("Helicopter Lift") == true) {
