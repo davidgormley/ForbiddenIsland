@@ -38,8 +38,9 @@ public class GameDemo {
         p1.giveCard(tcard3);
         p1.giveCard(tcard4);
 
-        board.floodTile("Temple of the Moon");
-        board.floodTile("Temple of the Moon");
+		board.floodTile("Temple of the Moon"); 
+		board.floodTile("Temple of the Moon");
+		 
 
         p1.viewInventory();
         p1.setPos(board.tileCoords("Temple of the Moon")[0], board.tileCoords("Temple of the Moon")[1]);

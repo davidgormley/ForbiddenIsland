@@ -44,8 +44,25 @@ public class Capture {
 		if (tile.getTreasureType() != treasureType)
 			return false;
 
-		if (player.getTreasureCards().cardInstances("The Earth Stone") != 4)
-			return false;
+		if (treasureType == TreasureType.EARTH_STONE) {
+			if (player.getTreasureCards().cardInstances("The Earth Stone") < 4)
+				return false;
+		}
+
+		if (treasureType == TreasureType.OCEAN_CHALICE) {
+			if (player.getTreasureCards().cardInstances("The Ocean's Chalice") < 4)
+				return false;
+		}
+
+		if (treasureType == TreasureType.STATUE_OF_WIND) {
+			if (player.getTreasureCards().cardInstances("The Statue of the Wind") < 4)
+				return false;
+		}
+
+		if (treasureType == TreasureType.CRYSTAL_OF_FIRE) {
+			if (player.getTreasureCards().cardInstances("The Crystal of Fire") < 4)
+				return false;
+		}
 
 		return true;
 	}
