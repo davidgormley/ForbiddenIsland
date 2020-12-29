@@ -254,4 +254,20 @@ public class Board {
 		}
 		return false;
 	}
+	
+	/**
+	 * Method to return the name of a tile at a specified position.
+	 * Note: be careful to check context of use as this method will return
+	 * "Water..." rather than tile name if specified position position contains
+	 * an invalid tile.
+	 * @param i
+	 * @param j
+	 * @return
+	 */
+	public String getTileName(int i, int j) {
+		if (isValidTile(i,j) == true) {
+			return board[i][j].getName();
+		}
+		return ("Water...");
+	}
 }
