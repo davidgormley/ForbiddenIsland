@@ -44,6 +44,7 @@ public class SetPlayers {
 		System.out.println("How many players are playing? Enter integer between 2 and 4:");
 		while (numberPlayers != 2 && numberPlayers != 3 && numberPlayers != 4) {
 			numberPlayers = in.nextInt();
+			in.nextLine();
 		}
 		System.out.println("There are " + numberPlayers + " players playing.\n");
 	}
@@ -92,11 +93,13 @@ public class SetPlayers {
 	 * Method to randomly assign roles to players. For each, the 
 	 * list of possible roles is shuffled then one role is popped
 	 * from the top of the stack and assigned to the player.
+	 * Starting positions are then assigned.
 	 */
 	public void assignRoles() {
 		for (int p = 1; p <= numberPlayers; p++) {
 			java.util.Collections.shuffle(this.roles);
 			this.players.getPlayer(p).setRole(roles.pop());
+			players.getPlayer(p).setStartingPos();
 		}
 	}
 }
