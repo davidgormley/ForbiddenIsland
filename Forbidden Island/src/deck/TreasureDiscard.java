@@ -6,11 +6,12 @@ import cards.Card;
  * Singleton class for the Treasure discard pile.
  * 
  * @author:  Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
- * @date:    201223
+ * @date:    201230
  * @version: 1.0
  */
 
 public class TreasureDiscard extends Deck<Card>{
+	
 	//===========================================================
 	// Variable Setup
 	//===========================================================
@@ -20,6 +21,9 @@ public class TreasureDiscard extends Deck<Card>{
 	//===========================================================
 	// Private Constructor
 	//===========================================================
+	/**
+	 * Create the treasure discard pile
+	 */
 	private TreasureDiscard() {
 		this.treasureDiscard = new Deck<Card>();
 	}
@@ -27,6 +31,10 @@ public class TreasureDiscard extends Deck<Card>{
 	//===========================================================
 	// Get Instance
 	//===========================================================
+	/**
+	 * Get an instance of the treasure discard object
+	 * @return DDeck Treasure Discard object
+	 */
 	public static TreasureDiscard getInstance() {
 		if (DDeck == null) {
 			DDeck = new TreasureDiscard();
