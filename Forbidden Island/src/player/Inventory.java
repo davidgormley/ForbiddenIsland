@@ -137,4 +137,12 @@ public class Inventory {
 		return null;
 	}
 
+	/**
+	 * Method to return type of the i'th card in inventory. 
+	 * @param i Index of card in inventory.
+	 * @return CardType enum
+	 */
+	public CardType cardType(int i) {
+		return this.cards.get(i).getType();
+	}
 }
