@@ -138,12 +138,18 @@ public class Player {
 	}
 
 	// Part of the actions available for each turn
-	public void CaptureTreasureCard() {
-		System.out.println("Capture treasure card");
+	public void CaptureTreasureCard(Card card) {
+		treasureCards.addCard(card);
 	}
 
-	public void DrawTreasureCard() {
-		System.out.println("Draw treasure cards from the deck.");
+	/**
+	 * Method to draw the specified treasure card from the deck.
+	 * 
+	 * @param cardname Name of desired card
+	 * @return Card
+	 */
+	public Card DrawTreasureCard(String cardname) {
+		return treasureCards.popCard(cardname);
 	}
 
 	public String getRole() {
@@ -167,9 +173,10 @@ public class Player {
 	public boolean hasCard(String cardname) {
 		return this.treasureCards.hasCard(cardname);
 	}
-	
+
 	/**
 	 * Returns how many cards are in player's inventory.
+	 * 
 	 * @return Integer.
 	 */
 	public int inventorySize() {
