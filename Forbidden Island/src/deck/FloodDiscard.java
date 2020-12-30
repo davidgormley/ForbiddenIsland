@@ -6,11 +6,12 @@ import cards.Card;
  * Singleton class for the Flood deck discard pile.
  * 
  * @author:  Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
- * @date:    201223
+ * @date:    201230
  * @version: 1.0
  */
 
 public class FloodDiscard extends Deck<Card>{
+	
 	//===========================================================
 	// Variable Setup
 	//===========================================================
@@ -20,6 +21,9 @@ public class FloodDiscard extends Deck<Card>{
 	//===========================================================
 	// Private Constructor
 	//===========================================================
+	/**
+	 * Create flood discard object.
+	 */
 	private FloodDiscard() {
 		this.floodDiscard = new Deck<Card>();
 	}
@@ -27,6 +31,10 @@ public class FloodDiscard extends Deck<Card>{
 	//===========================================================
 	// Get Instance
 	//===========================================================
+	/**
+	 * Get instance of the flood discard object.
+	 * @return fDeck Flood Discard deck object
+	 */
 	public static FloodDiscard getInstance() {
 		if (fDeck == null) {
 			fDeck = new FloodDiscard();

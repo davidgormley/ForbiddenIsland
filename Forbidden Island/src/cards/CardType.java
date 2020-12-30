@@ -1,10 +1,10 @@
 package cards;
 
 /**
- * TODO: Fill in description
+ * Class to hold the card types.
  * 
  * @author:  Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
- * @date:    201223
+ * @date:    201230
  * @version: 1.0
  */
 

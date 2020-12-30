@@ -4,7 +4,7 @@ package cards;
  * Class for the island tiles on the board
  * 
  * @author: Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
- * @date: 201223
+ * @date: 201230
  * @version: 1.0
  */
 
@@ -32,10 +32,33 @@ public class IslandTile extends Card {
 		this.treasureType = treasureType;
 	}
 
-	// method to change flood state
-	// ORH: will a check against flood state be made in player method before calling
-	// this method?
-	// i.e., is the last else / error statement here needed?
+	//===========================================================
+	// Getters and Setters
+	//===========================================================
+	/**
+	 * Return the name of the tile.
+	 * @return String containing name of the Island tile
+	 */
+	public String getName() {
+		return this.name;
+	}
+	
+	/**
+	 * Return the TreasureType of the island tile.
+	 * @return treasuretype containing treasure type of the Island tile
+	 */
+	public TreasureType getTreasureType() {
+		return treasureType;
+	}
+	
+	//===========================================================
+	// Other Functions
+	//===========================================================
+	/**
+	 * Method to change flood state
+	 * ORH: will a check against flood state be made in player method before calling
+	 * this method? i.e., is the last else / error statement here needed?
+	 */
 	public void flood() {
 		if (flooded == Flooded.DRY) {
 			flooded = Flooded.FLOODED;
@@ -46,9 +69,11 @@ public class IslandTile extends Card {
 		} // invalid action
 	}
 
-	// method to shore up a flooded tile
-	// ORH: will a check against flood state be made in player method before calling
-	// this method?
+	/**
+	 * Method to shore up a flooded tile
+	 * ORH: will a check against flood state be made in player method before calling
+	 * this method?
+	 */
 	public void shoreUp() {
 		if (flooded == Flooded.FLOODED) {
 			flooded = Flooded.DRY;
@@ -57,30 +82,33 @@ public class IslandTile extends Card {
 		} // invalid action
 	}
 
-	// method to check whether a treasure can be captured
+	/**
+	 * Method to check whether a treasure can be captured
+	 * @return boolean whether a treasure card has been captured
+	 */
 	public boolean isLootable() {
 		return this.treasureType != TreasureType.NONE;
 	}
 
-	public TreasureType getTreasureType() {
-		return treasureType;
-	}
-
-	// method to invoke when capturing a treasure
+	/**
+	 * Method to invoke when capturing a treasure
+	 */
 	public void loot() {
 		this.treasureType = TreasureType.NONE;
 	}
-
-	// Getters
-	public String getName() {
-		return this.name;
-	}
-
+	
+	/**
+	 * Return the flooded state of the tile.
+	 * @return Flooded containing flooded state of the Island tile
+	 */
 	public Flooded state() {
 		return this.flooded;
 	}
 
-	// Returns string containing card attributes
+	/**
+	 * Return the toString of the Island tile.
+	 * @return String containing flooded state of the Island tile and the name
+	 */
 	public String toString() {
 		return name + " (" + flooded + ")";
 	}

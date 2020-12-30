@@ -9,11 +9,12 @@ import cards.WaterMeter;
  * Singleton class for the Flood deck.
  * 
  * @author:  Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
- * @date:    201223
+ * @date:    201230
  * @version: 1.0
  */
 
 public class FloodDeck extends Deck {
+	
 	//===========================================================
 	// Variable Setup
 	//===========================================================
@@ -23,6 +24,9 @@ public class FloodDeck extends Deck {
 	//===========================================================
 	// Private Constructor
 	//===========================================================
+	/**
+	 * Private constructor for the flood deck
+	 */
 	private FloodDeck() {
 		this.floodDeck = new Deck<IslandTile>();
 		this.floodDeck.fillWithIslandTiles();
@@ -31,6 +35,10 @@ public class FloodDeck extends Deck {
 	//===========================================================
 	// Get Instance
 	//===========================================================
+	/**
+	 * Get an instance of the flood deck
+	 * @return FDeck FloodDeck object
+	 */
 	public static FloodDeck getInstance() {
 		if (FDeck == null) {
 			FDeck = new FloodDeck();
@@ -47,12 +55,11 @@ public class FloodDeck extends Deck {
 	 */
 	public void refill() {
 		this.floodDeck.fillWithIslandTiles();
-
 	}
 
 	/**
 	 * Method to deal card from Flood deck.
-	 * @return
+	 * @return floodDeck drawCard method
 	 */
 	public IslandTile deal() {
 		return this.floodDeck.drawCard();
