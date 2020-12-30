@@ -10,7 +10,7 @@ import deck.*;
  * Main class to play the game Forbidden Island.
  * 
  * @author:  Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
- * @date:    201223
+ * @date:    201230
  * @version: 1.0
  */
 
