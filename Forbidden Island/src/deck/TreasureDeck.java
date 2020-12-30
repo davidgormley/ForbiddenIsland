@@ -6,11 +6,12 @@ import cards.*;
  * Singleton class for the Treasure Deck.
  * 
  * @author:  Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
- * @date:    201223
+ * @date:    201230
  * @version: 1.0
  */
 
 public class TreasureDeck extends Deck<Card> {
+	
 	//===========================================================
 	// Variable Setup
 	//===========================================================
@@ -20,6 +21,9 @@ public class TreasureDeck extends Deck<Card> {
 	//===========================================================
 	// Private Constructor
 	//===========================================================
+	/**
+	 * Create treasure deck
+	 */
 	private TreasureDeck() {
 		this.treasureDeck = new Deck<Card>();
 	}
@@ -27,6 +31,10 @@ public class TreasureDeck extends Deck<Card> {
 	//===========================================================
 	// Get Instance
 	//===========================================================
+	/**
+	 * Get instance of the treasure deck
+	 * @return tDeck Instance of the treasure deck
+	 */
 	public static TreasureDeck getInstance() {
 		if (TDeck == null) {
 			TDeck = new TreasureDeck();
@@ -45,7 +53,6 @@ public class TreasureDeck extends Deck<Card> {
 	 */
 	public Card deal(Boolean dealWaterRise) {
 		Card tmp = this.treasureDeck.drawCard();
-		
 		// If a water rise is not valid draw, return card to treasure
 		// deck and shuffle, then call method recursively until a valid 
 		// treasure card is drawn.
@@ -84,6 +91,10 @@ public class TreasureDeck extends Deck<Card> {
 		this.treasureDeck.empty();
 	}
 	
+	/**
+	 * get the size of the Treasure deck
+	 * @return int Size of the treasure deck
+	 */
 	public int size() {
 		return this.treasureDeck.deckLength();
 	}
