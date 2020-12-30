@@ -13,7 +13,7 @@ import java.util.Stack;
  * Class for a Deck on the Board in a game of Forbidden Island.
  * 
  * @author: Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
- * @date: 201223
+ * @date: 201230
  * @version: 1.0
  */
 
@@ -29,7 +29,6 @@ public class Deck<T> {
 	// ===========================================================
 	/**
 	 * Add a card to the deck
-	 * 
 	 * @param e Adding card to the deck
 	 */
 	public void addCard(Card e) {
@@ -38,20 +37,17 @@ public class Deck<T> {
 
 	/**
 	 * Take a card from the deck
-	 * 
 	 * @return Take a card from the deck
 	 */
 	public T drawCard() {
 		return (T) deck.pop();
-
 	}
 
 	// ===========================================================
-	// Other
+	// Other functions
 	// ===========================================================
 	/**
 	 * Shuffle the deck
-	 * 
 	 */
 	public void shuffleDeck() {
 		Collections.shuffle(this.deck);
@@ -71,6 +67,10 @@ public class Deck<T> {
 		}
 	}
 
+	/**
+	 * Method to get the size of the deck
+	 * @return int Size of the deck
+	 */
 	public int deckLength() {
 		return deck.size();
 	}
@@ -144,6 +144,10 @@ public class Deck<T> {
 		}
 	}
 
+	/**
+	 * Refill the treasure deck
+	 * @param Stack<Card> Passing in the Deck object
+	 */
 	public void refillTreasureDeck(Stack<Card> s) {
 		this.deck.addAll((Collection<? extends T>) s);
 		this.shuffleDeck();

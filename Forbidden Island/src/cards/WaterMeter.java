@@ -20,7 +20,6 @@ public class WaterMeter {
 	// ===========================================================
 	/**
 	 * gets the water meter level
-	 * 
 	 * @return level Water meter level
 	 */
 	public int getLevel() {
@@ -30,7 +29,6 @@ public class WaterMeter {
 	/**
 	 * sets the water meter level 
 	 * checks if level is between 1-5
-	 * 
 	 * @param level Water meter level
 	 */
 	public void setLevel(int level) {
