@@ -2,6 +2,7 @@ package player;
 
 import java.util.TreeMap;
 import cards.TreasureType;
+import gameboard.Board;
 
 
 /**
@@ -19,6 +20,8 @@ public class Adventurers {
 	private static Adventurers				adventurers;
 	private TreeMap<Integer,Player>			players;
 	private TreeMap<TreasureType,Boolean>	treasures;
+	
+	Board board = Board.getInstance();
 
 	//===========================================================
 	// Private Constructor
@@ -118,6 +121,20 @@ public class Adventurers {
 			if (treasures.get(treasure) == true) {
 				System.out.println(treasure.toString());
 			}
+		}
+	}
+	
+	/**
+	 * Print current player locations.
+	 */
+	public void playerLocations() {
+		int[] pos;
+		String tile;
+		
+		for (int p : players.keySet()) {
+			pos = getPlayer(p).getPawnPosition();
+			tile = board.getTileName(pos[0],pos[1]);
+			System.out.println(getPlayer(p).getName() + ": " + tile);
 		}
 	}
 }
