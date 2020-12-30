@@ -4,17 +4,28 @@ import java.util.*;
 import cards.*;
 import deck.*;
 
+/**
+ * Class to set up the Board for Forbidden Island.
+ * 
+ * @author:  Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
+ * @date:    2012230
+ * @version: 1.0
+ */
+
 public class Board {
+	
 	// ===========================================================
 	// Variable Setup
 	// ===========================================================
-	private IslandTile[][] board;
-
-	private static Board gameboard;
+	private IslandTile[][] 	board;
+	private static Board 	gameboard;
 
 	// ===========================================================
 	// Private Constructor
 	// ===========================================================
+	/**
+	 * Create a new 6by6 board
+	 */
 	private Board() {
 		this.board = new IslandTile[6][6];
 	}
@@ -22,6 +33,10 @@ public class Board {
 	// ===========================================================
 	// Get Instance
 	// ===========================================================
+	/**
+	 * Get instance of gameboard
+	 * @return gameboard Game board object
+	 */
 	public static Board getInstance() {
 		if (gameboard == null) {
 			gameboard = new Board();
@@ -141,7 +156,6 @@ public class Board {
 
 	/**
 	 * Method to get a tile from the board using the coordinates given.
-	 * 
 	 * @param i tile row index
 	 * @param j tile column index
 	 */
@@ -151,7 +165,6 @@ public class Board {
 
 	/**
 	 * Method to return location of a given tile on the board.
-	 * 
 	 * @param tile_name Name of the tile as string.
 	 * @return two-element int array
 	 */
@@ -173,7 +186,6 @@ public class Board {
 
 	/**
 	 * Method to remove a tile from the board.
-	 * 
 	 * @param i tile row index
 	 * @param j tile column index
 	 */
@@ -184,10 +196,9 @@ public class Board {
 
 	/**
 	 * Method which returns the name of the tile at a specified location.
-	 * 
 	 * @param i tile row index
 	 * @param j tile column index
-	 * @return
+	 * @return String name of the individual tile or water
 	 */
 	public String toString(int i, int j) {
 		if (board[i][j] == null) {
@@ -199,7 +210,6 @@ public class Board {
 
 	/**
 	 * Flood a specified tile on the board.
-	 * 
 	 * @param tile_name Tile name as string.
 	 */
 	public void floodTile(String tile_name) {
@@ -209,7 +219,6 @@ public class Board {
 
 	/**
 	 * Returns the flood state of tile at location
-	 * 
 	 * @param i tile row index
 	 * @param j tile column index
 	 * @return Flood state enum
@@ -220,7 +229,6 @@ public class Board {
 
 	/**
 	 * Calls shoreUp() on specified tile
-	 * 
 	 * @param i tile row index
 	 * @param j tile column index
 	 */
@@ -234,8 +242,7 @@ public class Board {
 	 * in presenting a list of valid tiles to a player who can then easily select
 	 * one via the assigned key int. This helps make selections quicker and inputs
 	 * easier to validate.
-	 * 
-	 * @return
+	 * @return tiles Tiles of the board
 	 */
 	public TreeMap<Integer, String> activeTiles() {
 		int tilecounter = 0;
@@ -258,10 +265,9 @@ public class Board {
 
 	/**
 	 * Checks if the specified tile is a valid active tile.
-	 * 
 	 * @param i tile row index
 	 * @param j tile column index
-	 * @return Boolean
+	 * @return Boolean For valid tile
 	 */
 	public boolean isValidTile(int i, int j) {
 		if (board[i][j] != null && board[i][j].state() != Flooded.SUNK) {
@@ -274,7 +280,6 @@ public class Board {
 	 * Method to return the name of a tile at a specified position. Note: be careful
 	 * to check context of use as this method will return "Water..." rather than
 	 * tile name if specified position position contains an invalid tile.
-	 * 
 	 * @param i tile row index
 	 * @param j tile column index
 	 * @return Tile name as String
@@ -289,7 +294,6 @@ public class Board {
 	/**
 	 * Method to return a tile at a specified location.
 	 * NOTE: be sure to validate tile BEFORE calling this method.
-	 * 
 	 * @param i tile row index
 	 * @param j tile column index
 	 * @return IslandTile
