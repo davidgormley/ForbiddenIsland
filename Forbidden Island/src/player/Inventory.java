@@ -7,21 +7,25 @@ import java.util.ArrayList;
  * Class to hold player's treasure cards during game.
  * 
  * @author: Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
- * @date: 201223
+ * @date: 201230
  * @version: 1.0
  */
 
 public class Inventory {
+	
 	// ===========================================================
 	// Variable Setup
 	// ===========================================================
-	public ArrayList<Card> cards;
-	public static int maxCards = 5;
-	public int numCards;
+	public ArrayList<Card> 	cards;
+	public static int 		maxCards = 5;
+	public int 				numCards;
 
 	// ===========================================================
 	// Constructor
 	// ===========================================================
+	/**
+	 * Create the player's inventory.
+	 */
 	public Inventory() {
 		this.cards = new ArrayList<Card>();
 		this.numCards = 0;
@@ -32,7 +36,6 @@ public class Inventory {
 	// ===========================================================
 	/**
 	 * Method to add card to player's inventory.
-	 * 
 	 * @param c Card to add.
 	 */
 	public void addCard(Card c) {
@@ -46,7 +49,6 @@ public class Inventory {
 
 	/**
 	 * Method to remove card from player's inventory.
-	 * 
 	 * @param i Index of card to remove.
 	 */
 	public void removeCard(int i) {
@@ -56,7 +58,6 @@ public class Inventory {
 
 	/**
 	 * Method to check whether player's inventory is full.
-	 * 
 	 * @return True if full, false otherwise.
 	 */
 	public boolean isFull() {
@@ -68,7 +69,6 @@ public class Inventory {
 
 	/**
 	 * Method to return how many cards are in inventory.
-	 * 
 	 * @return Number of cards.
 	 */
 	public int size() {
@@ -77,7 +77,6 @@ public class Inventory {
 
 	/**
 	 * Method to view card in inventory.
-	 * 
 	 * @param i Index of card in inventory.
 	 * @return The name of the card as String.
 	 */
@@ -87,7 +86,6 @@ public class Inventory {
 
 	/**
 	 * Method to check whether a player has a given card in their inventory.
-	 * 
 	 * @param cardname Name of desired card
 	 * @return Boolean stating whether player has the card
 	 */
@@ -103,7 +101,6 @@ public class Inventory {
 	/**
 	 * Method to check how many copies of a specified card a player may have in
 	 * their inventory.
-	 * 
 	 * @param cardname Name of desired card
 	 * @return How many of a given card the player has as Integer.
 	 */
@@ -120,7 +117,6 @@ public class Inventory {
 
 	/**
 	 * Method to pop the card from the inventory.
-	 * 
 	 * @param cardname Name of desired card
 	 * @return Card that is specified.
 	 */

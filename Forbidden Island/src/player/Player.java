@@ -7,7 +7,7 @@ import gameboard.*;
  * Class for a Player on the Board in a game of Forbidden Island.
  * 
  * @author: Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
- * @date: 201223
+ * @date: 201230
  * @version: 1.0
  */
 
@@ -16,17 +16,16 @@ public class Player {
 	// ===========================================================
 	// Variable Setup
 	// ===========================================================
-	private String role;
-	private int[] pawnPosition;
-	private Inventory treasureCards;
-	private String name;
+	private String 		role;
+	private int[] 		pawnPosition;
+	private Inventory 	treasureCards;
+	private String 		name;
 
 	// ===========================================================
 	// Constructor
 	// ===========================================================
 	/**
 	 * Constructor for player object.
-	 * 
 	 * @param name The player's name.
 	 */
 	public Player(String pName) {
@@ -53,8 +52,7 @@ public class Player {
 
 	/**
 	 * Method to give card to this player.
-	 * 
-	 * @param c
+	 * @param c Card object
 	 */
 	public void giveCard(Card c) {
 		this.treasureCards.addCard(c);
@@ -62,7 +60,6 @@ public class Player {
 
 	/**
 	 * Method to set player's role.
-	 * 
 	 * @param role player role as string
 	 */
 	public void setRole(String role) {
@@ -71,6 +68,8 @@ public class Player {
 
 	/**
 	 * Method to set player's position.
+	 * @param i location i
+	 * @param j locaiton j
 	 */
 	public void setPos(int i, int j) {
 		this.pawnPosition[0] = i;
@@ -113,38 +112,31 @@ public class Player {
 		setPos(pos[0], pos[1]);
 	}
 
+	/**
+	 * Print the toString for the player
+	 * @return String toString of the player details
+	 */
 	public String toString() {
 		return "Player Role: " + this.role + ", Player Position: " + pawnPosition;
 	}
 
-	// Return the pawn position on 2D game board
+	/**
+	 * Return the location for the player
+	 * @return pawnPosition pawn player position on board
+	 */
 	public int[] getPawnPosition() {
 		return this.pawnPosition;
 	}
 
-	// Part of the actions available for each turn
-	public void Move() {
-		System.out.println("Moving piece adjacently");
-	}
-
-	// Part of the actions available for each turn
-	public void ShoreUp() {
-		System.out.println("Flip a tile from flooded to unflooded");
-	}
-
-	// Part of the actions available for each turn
-	public void GiveTreasureCard() {
-		System.out.println("Give treasure card to another player");
-	}
-
-	// Part of the actions available for each turn
+	/**
+	 * Add treasure card for the player
+	 */
 	public void CaptureTreasureCard(Card card) {
 		treasureCards.addCard(card);
 	}
 
 	/**
 	 * Method to draw the specified treasure card from the deck.
-	 * 
 	 * @param cardname Name of desired card
 	 * @return Card
 	 */
@@ -152,21 +144,32 @@ public class Player {
 		return treasureCards.popCard(cardname);
 	}
 
+	/**
+	 * Get the players role.
+	 * @return role Get players role
+	 */
 	public String getRole() {
 		return this.role;
 	}
 
+	/**
+	 * Get the players name.
+	 * @return name Get players name
+	 */
 	public String getName() {
 		return this.name;
 	}
 
+	/**
+	 * Get the players inventory.
+	 * @return treasureCards Get players cards
+	 */
 	public Inventory getTreasureCards() {
 		return this.treasureCards;
 	}
 
 	/**
 	 * Method to call the hasCard check from Inventory
-	 * 
 	 * @param cardname Name of desired card
 	 * @return Boolean
 	 */
@@ -176,7 +179,6 @@ public class Player {
 
 	/**
 	 * Returns how many cards are in player's inventory.
-	 * 
 	 * @return Integer.
 	 */
 	public int inventorySize() {
