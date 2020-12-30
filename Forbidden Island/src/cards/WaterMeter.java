@@ -12,9 +12,8 @@ public class WaterMeter {
 
 	// ===========================================================
 	// Variable Setup
-	// the minimum water level must be 1	
 	// ===========================================================
-	private int level = 1;
+	private int level = 1; // the minimum water level must be 1	
 
 	// ===========================================================
 	// Getters and Setters
