@@ -13,30 +13,33 @@ import player.Player;
  * This class handles player turns.
  * 
  * @author:  Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
- * @date:    201223
+ * @date:    201230
  * @version: 1.0
  */
 
 public class Turn {
+	
 	//===========================================================
     // Variable Setup
     //===========================================================
-	Adventurers players = Adventurers.getInstance();
-	Board board = Board.getInstance();
-	Scanner in;
-	
-	ArrayList<String> actionCodes = new ArrayList<String>(
+	String 				action;
+	int 				pnum;
+	int 				turns;
+	Player 				p1;
+	Adventurers 		players = Adventurers.getInstance();
+	Board 				board = Board.getInstance();
+	Scanner 			in;
+	ArrayList<String> 	actionCodes = new ArrayList<String>(
 			Arrays.asList("M","U","C","I","G","S","H","E","V","L"));
-	
-	String action;
-	int pnum;
-	int turns;
-	Player p1;
-	
-	
+		
 	//===========================================================
     // Constructor
     //===========================================================
+	/**
+	 * Create turn object
+	 * @param in Scanner object for user input
+	 * @param int Player's number
+	 */
 	public Turn(Scanner in, int playerNumber) {
 		this.in = in;
 		this.pnum = playerNumber;
