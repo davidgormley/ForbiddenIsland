@@ -36,13 +36,9 @@ public class GameSetup {
 	 * Create the game set up logic and structure.
 	 */
 	private GameSetup() {
-		this.in = 			new Scanner(System.in);
 		this.boardCtrl = 	Board.getInstance();
-		this.playerCtrl = 	new SetPlayers(in);
 		this.deckCtrl = 	new SetDecks();
 		this.waterCtrl = 	WaterLevel.getInstance();
-		
-		dealInitialCards();
 	}
 	
 	//===========================================================
@@ -90,5 +86,15 @@ public class GameSetup {
 			board.floodTile(tmp.getName());
 			fdiscard.addCard(tmp);
 		}
+	}
+	
+	/**
+	 * This method handles setting up a new game.
+	 * @param in
+	 */
+	public void setupNewGame(Scanner in) {
+		this.playerCtrl = new SetPlayers(in);
+		dealInitialCards();
+		this.waterCtrl.setWaterLevel(in);
 	}
 }
