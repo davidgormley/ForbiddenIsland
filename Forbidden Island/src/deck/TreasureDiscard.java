@@ -58,4 +58,11 @@ public class TreasureDiscard extends Deck<Card>{
 	public void addCard(Card c) {
 		this.treasureDiscard.addCard(c);
 	}
+	
+	/**
+	 * Pop card from discard pile. Used for flipping the deck.
+	 */
+	public Card pop() {
+		return treasureDiscard.pop();
+	}
 }

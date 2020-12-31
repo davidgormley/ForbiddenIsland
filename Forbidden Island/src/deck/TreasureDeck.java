@@ -98,4 +98,15 @@ public class TreasureDeck extends Deck<Card> {
 	public int size() {
 		return this.treasureDeck.deckLength();
 	}
+	
+	/**
+	 * Turns over the discard pile to create a new Treasure Deck. Used when
+	 * the treasure deck runs out during gameplay.
+	 */
+	public void flipDiscard() {
+		TreasureDiscard discard = TreasureDiscard.getInstance();
+		while (discard.deckLength() > 0) {
+			this.treasureDeck.addCard(discard.pop());
+		}
+	}
 }

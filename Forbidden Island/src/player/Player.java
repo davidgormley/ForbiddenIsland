@@ -49,7 +49,7 @@ public class Player {
 			System.out.println("Inventory is empty.");
 		} else {
 			for (int i = 0; i < treasureCards.size(); i++) {
-				System.out.println("\n" + String.valueOf(i + 1) + ": " + treasureCards.viewCard(i));
+				System.out.println(String.valueOf(i + 1) + ": " + treasureCards.viewCard(i));
 			}
 		}
 	}

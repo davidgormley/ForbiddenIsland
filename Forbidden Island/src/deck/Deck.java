@@ -152,4 +152,12 @@ public class Deck<T> {
 		this.deck.addAll((Collection<? extends T>) s);
 		this.shuffleDeck();
 	}
+	
+	/**
+	 * Pop card from Deck.
+	 * @return
+	 */
+	public T pop() {
+		return (T) this.deck.pop();
+	}
 }
