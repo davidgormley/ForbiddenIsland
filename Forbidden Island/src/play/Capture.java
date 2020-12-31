@@ -1,6 +1,9 @@
 package play;
 
+import java.util.Scanner;
+
 import gameboard.Board;
+import player.Adventurers;
 import player.Player;
 import cards.TreasureType;
 import cards.IslandTile;
@@ -26,50 +29,112 @@ public class Capture {
 	// ===========================================================
 	// Variable Setup
 	// ===========================================================
-
+	Adventurers players = Adventurers.getInstance();
+	Board board = Board.getInstance();
+	Scanner in;
+	
+	int pnum;
+	int[] pos;
+	Player player;
+	TreasureType treasureType;
+	String cardname;
+	
+	// ===========================================================
+	// Constructor
+	// ===========================================================
+	public Capture(int playerNum, Scanner in) {
+		this.pnum = playerNum;
+		this.in = in;
+		this.player = players.getPlayer(pnum);
+		this.pos = player.getPawnPosition();
+		this.treasureType = getTileTreasure();
+	}
+	
 	// ===========================================================
 	// Other functions
 	// ===========================================================
 	/**
-	 * Checks the state of tile and if Treasure type is valid
+	 * Checks the state of tile and if Treasure type is valid.
+	 * 
+	 * Also sets the card name variable if check is successful.
+	 * 
 	 * @param board Board object
 	 * @param player Player object
 	 * @param treasureType Treasure type object
 	 * @return Boolean Check if tile is valid
 	 */
-	public static boolean isValid(Board board, Player player, TreasureType treasureType) {
+	public boolean isValid() {
 		int playerPosition[] = player.getPawnPosition();
+		
 		IslandTile tile = board.getTileAt(playerPosition[0], playerPosition[1]);
 
-		if (tile.state() == Flooded.SUNK)
-			return false;
+		if (tile.state() == Flooded.SUNK) {
+			System.out.println("Can't loot a flooded tile - get to safety!");
+			return false;}
 
-		if (!tile.isLootable())
-			return false;
-
+		if (!tile.isLootable()) {
+			System.out.println("There is no treasure to capture here.");
+			return false;}
+		
+		/*
 		if (tile.getTreasureType() != treasureType)
 			return false;
+		*/
 
 		if (treasureType == TreasureType.EARTH_STONE) {
-			if (player.getTreasureCards().cardInstances("The Earth Stone") < 4)
-				return false;
+			if (player.getTreasureCards().cardInstances("The Earth Stone") < 4) {
+				System.out.println("Not enough treasure cards. Keep exploring!");
+				return false;}
+			
+			this.cardname = "The Earth Stone";
 		}
 
 		if (treasureType == TreasureType.OCEAN_CHALICE) {
-			if (player.getTreasureCards().cardInstances("The Ocean's Chalice") < 4)
-				return false;
+			if (player.getTreasureCards().cardInstances("The Ocean's Chalice") < 4){
+				System.out.println("Not enough treasure cards. Keep exploring!");
+				return false;}
+			
+			this.cardname = "The Ocean's Chalice";
 		}
 
 		if (treasureType == TreasureType.STATUE_OF_WIND) {
-			if (player.getTreasureCards().cardInstances("The Statue of the Wind") < 4)
-				return false;
+			if (player.getTreasureCards().cardInstances("The Statue of the Wind") < 4){
+				System.out.println("Not enough treasure cards. Keep exploring!");
+				return false;}
+			
+			this.cardname = "The Statue of the Wind";
 		}
 
 		if (treasureType == TreasureType.CRYSTAL_OF_FIRE) {
-			if (player.getTreasureCards().cardInstances("The Crystal of Fire") < 4)
-				return false;
+			if (player.getTreasureCards().cardInstances("The Crystal of Fire") < 4){
+				System.out.println("Not enough treasure cards. Keep exploring!");
+				return false;}
+			
+			this.cardname = "The Crystal of Fire";
 		}
+		
+		if (treasureType == TreasureType.NONE) {
+			System.out.println("There is no treasure to loot here.");
+			return false;}
 
 		return true;
+	}
+	
+	/**
+	 * Returns the treasure type of the tile at the given location
+	 * @return TreasureType enum
+	 */
+	private TreasureType getTileTreasure() {
+		return board.getTreasureType(pos[0],pos[1]);
+	}
+	
+	/**
+	 * Adds treasure to team's collection, updates tile, nad removes treasure
+	 * cars from player's inventory.
+	 */
+	public void doCapture() {
+		players.addTreasure(treasureType);
+		board.treasureCaptured(pos[0],pos[1]);
+		players.getPlayer(pnum).removeTreasureCards(cardname);
 	}
 }
