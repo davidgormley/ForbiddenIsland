@@ -135,7 +135,7 @@ public class Helicopter {
 			return false;
 		
 		// check that all players on Fool's Landing
-		for (int p = 0; p < players.numPlayers(); p++) {
+		for (int p = 1; p <= players.numPlayers(); p++) {
 			if (!loc.equals(players.getPlayer(p).getPawnPosition()))
 				return false;
 		}
