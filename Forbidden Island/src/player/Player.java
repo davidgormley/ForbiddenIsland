@@ -182,5 +182,16 @@ public class Player {
 	public int inventorySize() {
 		return treasureCards.size();
 	}
+	
+	/**
+	 * Pops card at specified index from player's inventory.
+	 * @param i Card index in inventory
+	 * @return Card object
+	 */
+	public Card popFromInventory(int i) {
+		Card card = this.treasureCards.getCard(i);
+		treasureCards.removeCard(i);
+		return card;
+	}
 
 }

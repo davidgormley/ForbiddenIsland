@@ -34,7 +34,10 @@ public class GameplayDemo {
 		/**
 		 * Test player turn
 		 */
+		players.getPlayer(1).giveCard(new Card("The Ocean Chalice",CardType.TREASURE));
+		players.getPlayer(1).setPos(pos2[0],pos2[1]);
 		Turn t = new Turn(in,1);
+		t = new Turn(in,2);
 		
 		/**
 		 * Test Sandbag

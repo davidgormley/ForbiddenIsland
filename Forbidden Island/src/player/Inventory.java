@@ -145,4 +145,13 @@ public class Inventory {
 	public CardType cardType(int i) {
 		return this.cards.get(i).getType();
 	}
+	
+	/**
+	 * Returns the card at a given inventory index.
+	 * @param i Index of card
+	 * @return Card object
+	 */
+	public Card getCard(int i) {
+		return this.cards.get(i);
+	}
 }
