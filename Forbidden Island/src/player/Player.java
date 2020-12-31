@@ -1,5 +1,7 @@
 package player;
 
+import java.util.TreeMap;
+
 import cards.*;
 import gameboard.*;
 
@@ -20,6 +22,8 @@ public class Player {
 	private int[] 		pawnPosition;
 	private Inventory 	treasureCards;
 	private String 		name;
+	
+	Board 				board = Board.getInstance();
 
 	// ===========================================================
 	// Constructor
@@ -211,6 +215,34 @@ public class Player {
 				removeTreasureCards(cardname);
 			}
 		}
+	}
+	
+	/**
+	 * This method checks each tile adjacent to the player and, if valid, 
+	 * puts the tile name into a numbered TreeMap to later present to player.
+	 * The keys correspond to move direction as follows:
+	 * 1- North; 2- East; 3- South; 4- West.
+	 */
+	public TreeMap<Integer,String> determineValidMoves(int[] loc) {
+		TreeMap<Integer,String> moves = new TreeMap<Integer,String>();
+		
+		// check North tile
+		if (loc[0] > 0 && board.isValidTile(loc[0]-1, loc[1]) == true)
+			moves.put(1, board.getTileName(loc[0]-1,loc[1]));
+		
+		// check East tile
+		if (loc[1] < 5 && board.isValidTile(loc[0], loc[1]+1) == true)
+			moves.put(2, board.getTileName(loc[0],loc[1]+1));
+		
+		// check South tile
+		if (loc[0] < 5 && board.isValidTile(loc[0]+1, loc[1]) == true)
+			moves.put(3, board.getTileName(loc[0]+1,loc[1]));
+		
+		// check West tile
+		if (loc[1] > 0 && board.isValidTile(loc[0], loc[1]-1) == true)
+			moves.put(4, board.getTileName(loc[0],loc[1]-1));
+		
+		return moves;
 	}
 
 }

@@ -66,7 +66,7 @@ public class GameplayDemo {
 		players.getPlayer(1).setPos(fl[0], fl[1]);
 		
 		// use card
-		Sandbag s = new Sandbag();
+		Sandbag s = new Sandbag(in);
 		
 		// try again with Player 2
 		s.doSandbag();
@@ -77,7 +77,7 @@ public class GameplayDemo {
 		Card heli = new Card("Helicopter Lift",CardType.HELI);
 		players.getPlayer(1).giveCard(heli);
 		
-		Helicopter h = new Helicopter();
+		Helicopter h = new Helicopter(in);
 		pos1 = players.getPlayer(1).getPawnPosition();
 		pos2 = players.getPlayer(2).getPawnPosition();
 		
@@ -87,6 +87,6 @@ public class GameplayDemo {
 		/**
 		 * Test Move
 		 */
-		Move m = new Move(1);
+		Move m = new Move(1,in);
 	}
 }

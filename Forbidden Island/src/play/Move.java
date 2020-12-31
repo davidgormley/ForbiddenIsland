@@ -5,6 +5,7 @@ import java.util.TreeMap;
 
 import gameboard.Board;
 import player.Adventurers;
+import cards.Flooded;
 
 /**
  * This class handles the move action for players.
@@ -55,30 +56,40 @@ public class Move {
 	 * The keys correspond to move direction as follows:
 	 * 1- North; 2- East; 3- South; 4- West.
 	 */
-	private void determineValidMoves() {
-		// check North tile
-		if (loc[0] > 0 && board.isValidTile(loc[0]-1, loc[1]) == true) {
-			numMoves++;
-			moves.put(1, board.getTileName(loc[0]-1,loc[1]));
-		}
+	private TreeMap<Integer,String> determineValidMoves() {
+		moves = players.getPlayer(playerNum).determineValidMoves(loc);
+		this.numMoves = moves.size();
 		
-		// check East tile
-		if (loc[1] < 5 && board.isValidTile(loc[0], loc[1]+1) == true) {
-			numMoves++;
-			moves.put(2, board.getTileName(loc[0],loc[1]+1));
+		// check extended options for diver
+		if (players.getPlayer(playerNum).getRole() == "Diver"
+				&& numMoves == 0) {
+			
+			int n = 1;
+			while (numMoves == 0) {
+				n++;
+				if (loc[0]-n >= 0
+						&& board.getState(loc[0]-n, loc[1]) != Flooded.SUNK) {
+					moves.put(1, board.getTileName(loc[0]-n,loc[1]));
+					numMoves++;}
+				
+				if (loc[1]+n <= 5
+						&& board.getState(loc[0], loc[1]+n) != Flooded.SUNK) {
+					moves.put(2, board.getTileName(loc[0],loc[1])+n);
+					numMoves++;}
+				
+				if (loc[0]+n <= 5
+						&& board.getState(loc[0]+n, loc[1]) != Flooded.SUNK) {
+					moves.put(3, board.getTileName(loc[0]+n,loc[1]));
+					numMoves++;}
+				
+				if (loc[1]-n >= 0
+						&& board.getState(loc[0], loc[1]-n) != Flooded.SUNK) {
+					moves.put(2, board.getTileName(loc[0],loc[1]-n));
+					numMoves++;}
+			}
 		}
-		
-		// check South tile
-		if (loc[0] < 5 && board.isValidTile(loc[0]+1, loc[1]) == true) {
-			numMoves++;
-			moves.put(3, board.getTileName(loc[0]+1,loc[1]));
-		}
-		
-		// check West tile
-		if (loc[1] > 0 && board.isValidTile(loc[0], loc[1]-1) == true) {
-			numMoves++;
-			moves.put(4, board.getTileName(loc[0],loc[1]-1));
-		}
+	
+		return moves;
 	}
 	
 	
