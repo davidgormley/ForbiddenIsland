@@ -195,5 +195,22 @@ public class Player {
 		treasureCards.removeCard(i);
 		return card;
 	}
+	
+	/**
+	 * Method to remove all instances of a card from inventory. Intended to be
+	 * used in capturing treasures.
+	 * @param cardname The name of the card as string
+	 */
+	public void removeTreasureCards(String cardname) {
+		// iterate to find instance of card
+		for (int i = 0; i < treasureCards.size(); i++) {
+			if (treasureCards.getCard(i).cardName() == cardname){
+				treasureCards.removeCard(i);
+				
+				// call recursively until all card instances are gone
+				removeTreasureCards(cardname);
+			}
+		}
+	}
 
 }
