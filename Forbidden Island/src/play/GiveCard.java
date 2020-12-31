@@ -17,14 +17,6 @@ import player.*;
  */
 
 public class GiveCard {
-	// Select card to give
-
-	// Select receiving player
-	// - show available players
-	// - check that receiver has space in inventory
-
-	// Remove from P1's inventory and add to P2's
-
 	// ===========================================================
 	// Variable Setup
 	// ===========================================================
