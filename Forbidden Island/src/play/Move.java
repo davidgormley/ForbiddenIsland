@@ -59,35 +59,6 @@ public class Move {
 	private TreeMap<Integer,String> determineValidMoves() {
 		moves = players.getPlayer(playerNum).determineValidMoves(loc);
 		this.numMoves = moves.size();
-		
-		// check extended options for diver
-		if (players.getPlayer(playerNum).getRole() == "Diver"
-				&& numMoves == 0) {
-			
-			int n = 1;
-			while (numMoves == 0) {
-				n++;
-				if (loc[0]-n >= 0
-						&& board.getState(loc[0]-n, loc[1]) != Flooded.SUNK) {
-					moves.put(1, board.getTileName(loc[0]-n,loc[1]));
-					numMoves++;}
-				
-				if (loc[1]+n <= 5
-						&& board.getState(loc[0], loc[1]+n) != Flooded.SUNK) {
-					moves.put(2, board.getTileName(loc[0],loc[1])+n);
-					numMoves++;}
-				
-				if (loc[0]+n <= 5
-						&& board.getState(loc[0]+n, loc[1]) != Flooded.SUNK) {
-					moves.put(3, board.getTileName(loc[0]+n,loc[1]));
-					numMoves++;}
-				
-				if (loc[1]-n >= 0
-						&& board.getState(loc[0], loc[1]-n) != Flooded.SUNK) {
-					moves.put(2, board.getTileName(loc[0],loc[1]-n));
-					numMoves++;}
-			}
-		}
 	
 		return moves;
 	}

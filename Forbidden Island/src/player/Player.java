@@ -222,9 +222,13 @@ public class Player {
 	 * puts the tile name into a numbered TreeMap to later present to player.
 	 * The keys correspond to move direction as follows:
 	 * 1- North; 2- East; 3- South; 4- West.
+	 * 
+	 * Functionality included for Diver's extended range when neighbour tiles
+	 * are sunken.
 	 */
 	public TreeMap<Integer,String> determineValidMoves(int[] loc) {
 		TreeMap<Integer,String> moves = new TreeMap<Integer,String>();
+		int numMoves;
 		
 		// check North tile
 		if (loc[0] > 0 && board.isValidTile(loc[0]-1, loc[1]) == true)
@@ -241,6 +245,37 @@ public class Player {
 		// check West tile
 		if (loc[1] > 0 && board.isValidTile(loc[0], loc[1]-1) == true)
 			moves.put(4, board.getTileName(loc[0],loc[1]-1));
+		
+		numMoves = moves.size();
+		
+		// check extended options for diver
+		if (this.role == "Diver"
+				&& numMoves == 0) {
+			
+			int n = 1;
+			while (numMoves == 0) {
+				n++;
+				if (loc[0]-n >= 0
+						&& board.getState(loc[0]-n, loc[1]) != Flooded.SUNK) {
+					moves.put(1, board.getTileName(loc[0]-n,loc[1]));
+					numMoves++;}
+				
+				if (loc[1]+n <= 5
+						&& board.getState(loc[0], loc[1]+n) != Flooded.SUNK) {
+					moves.put(2, board.getTileName(loc[0],loc[1])+n);
+					numMoves++;}
+				
+				if (loc[0]+n <= 5
+						&& board.getState(loc[0]+n, loc[1]) != Flooded.SUNK) {
+					moves.put(3, board.getTileName(loc[0]+n,loc[1]));
+					numMoves++;}
+				
+				if (loc[1]-n >= 0
+						&& board.getState(loc[0], loc[1]-n) != Flooded.SUNK) {
+					moves.put(2, board.getTileName(loc[0],loc[1]-n));
+					numMoves++;}
+			}
+		}
 		
 		return moves;
 	}
