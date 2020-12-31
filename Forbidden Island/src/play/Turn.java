@@ -112,7 +112,7 @@ public class Turn {
 			
 			switch(action) {
 			case "M":
-				Move m = new Move(pnum);
+				Move m = new Move(pnum,in);
 				break;
 				
 			case "U":
@@ -155,12 +155,12 @@ public class Turn {
 				break;
 				
 			case "S":
-				Sandbag s = new Sandbag();
+				Sandbag s = new Sandbag(in);
 				turns++;
 				break;
 				
 			case "H":
-				Helicopter h = new Helicopter();
+				Helicopter h = new Helicopter(in);
 				turns++;
 				break;
 				

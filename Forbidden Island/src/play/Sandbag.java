@@ -20,7 +20,7 @@ public class Sandbag {
     //===========================================================
 	Adventurers 	players = Adventurers.getInstance(); 
 	Board 			board = Board.getInstance();
-	Scanner 		in = new Scanner(System.in);
+	Scanner 		in;
 	int 			P1 = 0;
 	
 	//===========================================================
@@ -29,7 +29,8 @@ public class Sandbag {
 	/**
 	 * Create Sandbag object
 	 */
-	public Sandbag() {
+	public Sandbag(Scanner in) {
+		this.in = in;
 		doSandbag();
 	}
 	

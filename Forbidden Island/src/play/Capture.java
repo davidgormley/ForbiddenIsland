@@ -29,15 +29,15 @@ public class Capture {
 	// ===========================================================
 	// Variable Setup
 	// ===========================================================
-	Adventurers players = Adventurers.getInstance();
-	Board board = Board.getInstance();
-	Scanner in;
+	Adventurers players = 	Adventurers.getInstance();
+	Board board = 			Board.getInstance();
+	Scanner 				in;
 	
-	int pnum;
-	int[] pos;
-	Player player;
-	TreasureType treasureType;
-	String cardname;
+	int 					pnum;
+	int[] 					pos;
+	Player 					player;
+	TreasureType 			treasureType;
+	String 					cardname;
 	
 	// ===========================================================
 	// Constructor

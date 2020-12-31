@@ -28,14 +28,14 @@ public class GiveCard {
 	// ===========================================================
 	// Variable Setup
 	// ===========================================================
-	Adventurers players = Adventurers.getInstance();
-	Board board = Board.getInstance();
-	Scanner in;
+	Adventurers players = 	Adventurers.getInstance();
+	Board board = 			Board.getInstance();
+	Scanner 				in;
 	
-	Inventory inv;
-	int p1;
-	int p2;
-	int cardNum;
+	Inventory 				inv;
+	int 					p1;
+	int 					p2;
+	int 					cardNum;
 	
 	
 	// ===========================================================

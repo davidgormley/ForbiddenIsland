@@ -20,7 +20,7 @@ public class Move {
     //===========================================================
 	Adventurers 			players = Adventurers.getInstance();
 	Board 					board = Board.getInstance();
-	Scanner 				in = new Scanner(System.in);
+	Scanner 				in;
 	TreeMap<Integer,String> moves = new TreeMap<Integer,String>();
 	int 					playerNum;
 	int 					numMoves = 0;
@@ -34,7 +34,8 @@ public class Move {
 	 * Create move object
 	 * @param pnum player number
 	 */
-	public Move(int pnum) {
+	public Move(int pnum, Scanner in) {
+		this.in = in;
 		doMove(pnum);
 	}
 	

@@ -22,7 +22,7 @@ public class Helicopter {
     //===========================================================
 	Adventurers 		players = Adventurers.getInstance();
 	Board 				board = Board.getInstance();
-	Scanner 			in = new Scanner(System.in);
+	Scanner 			in;
 	int 				P1 = 0;
 	int[] 				destination;
 	ArrayList<Integer> 	passengers = new ArrayList<Integer>(); // an array of player numbers
@@ -33,7 +33,8 @@ public class Helicopter {
 	/**
 	 * Create helicopter object
 	 */
-	public Helicopter() {
+	public Helicopter(Scanner in) {
+		this.in = in;
 		doHelicopter();
 	}
 	
