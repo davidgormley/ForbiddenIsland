@@ -2,8 +2,11 @@ package play;
 
 import java.util.Scanner;
 
-import cards.Flooded;
-import cards.TreasureType;
+import cards.*;
+import deck.FloodDeck;
+import deck.FloodDiscard;
+import deck.TreasureDeck;
+import deck.TreasureDiscard;
 import game.WaterLevel;
 import gameboard.Board;
 import player.Adventurers;
@@ -27,6 +30,10 @@ public class GameController {
 	Board board = 					Board.getInstance();
 	WaterLevel meter =				WaterLevel.getInstance();
 	Scanner 						in;
+	TreasureDeck tDeck =			TreasureDeck.getInstance();
+	TreasureDiscard tDiscard =		TreasureDiscard.getInstance();
+	FloodDeck fDeck = 				FloodDeck.getInstance();
+	FloodDiscard fDiscard =			FloodDiscard.getInstance();
 	
 	private boolean 				Win;
 	private boolean					Lose;
@@ -64,7 +71,7 @@ public class GameController {
 				
 				// deal cards and check water meter lose condition
 				if (Win == false) {
-					Lose = dealTreasureCards();
+					Lose = dealTreasureCards(p);
 					
 					// deal cards and check flood lose conditions
 					if (Lose == false) {
@@ -85,8 +92,47 @@ public class GameController {
 	/**
 	 * Deal two treasure cards to player after turn.
 	 */
-	private boolean dealTreasureCards() {
-		//TODO
+	private boolean dealTreasureCards(int pnum) {
+		Card tmp;
+		for (int r = 0; r < 2; r++) {
+			tmp = tDeck.deal(true);
+			
+			// check if water rise card
+			if (tmp.getType() == CardType.WATER_RISE) {
+				meter.incrementWaterLevel();
+				
+				// check against lose conditions in case meter has reached 10
+				if(checkLose(pnum) == true)
+					return true;
+			}
+			
+			// check if player's inventory is full and get them to discard one
+			else if (players.getPlayer(pnum).inventorySize() == 5) {
+				int choice;
+				
+				System.out.println("Inventory full. Choose a card to remove [1-6]: ");
+				players.getPlayer(pnum).viewInventory();
+				System.out.println("6: " + tmp.cardName());
+				
+				do {
+					choice = in.nextInt();
+					in.nextLine();
+				} while (choice < 1 || choice > 6);
+				
+				if (choice < 6)
+					players.getPlayer(pnum).getTreasureCards().removeCard(choice-1);
+				
+			}
+			
+			else
+				players.getPlayer(pnum).giveCard(tmp);
+			
+			// check if all treasure cards have been dealt
+			if (tDeck.deckLength() == 0)
+				tDeck.flipDiscard();
+		}
+		
+		return false;
 	}
 	
 	/**
