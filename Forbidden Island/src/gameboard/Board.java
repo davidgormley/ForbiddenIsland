@@ -301,4 +301,23 @@ public class Board {
 	public IslandTile getTile(int i, int j) {
 		return board[i][j];
 	}
+	
+	/**
+	 * Method to return the treasure type of the tile at position (i,j).
+	 * @param i tile row index
+	 * @param j tile column index
+	 * @return TreasureType enum
+	 */
+	public TreasureType getTreasureType(int i, int j) {
+		return board[i][j].getTreasureType();
+	}
+	
+	/**
+	 * Flips the lootable boolean on tile when its treasure has been captured.
+	 * @param i tile row index
+	 * @param j tile column index
+	 */
+	public void treasureCaptured(int i, int j) {
+		board[i][j].loot();
+	}
 }
