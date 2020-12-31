@@ -22,18 +22,19 @@ public class Turn {
 	//===========================================================
     // Variable Setup
     //===========================================================
-	Adventurers players = Adventurers.getInstance();
-	Board board = Board.getInstance();
-	Scanner in;
+	Adventurers 		players = Adventurers.getInstance();
+	Board 				board = Board.getInstance();
+	Scanner 			in;
 	
 	ArrayList<String> actionCodes = new ArrayList<String>(
 			Arrays.asList("M","U","C","I","T","P","G","S","H","E","V","L"));
 	
-	String action;
-	String end;
-	int pnum;
-	int turns;
-	Player p1;
+	String 				action;
+	String 				end;
+	int 				pnum;
+	int 				turns;
+	Player 				p1;
+	boolean				Win;
 	
 	
 	//===========================================================
@@ -44,7 +45,7 @@ public class Turn {
 		this.pnum = playerNumber;
 		this.turns = 3;
 		this.p1 = players.getPlayer(pnum);
-		doTurn();
+		this.Win = doTurn();
 	}
 	
 	//===========================================================
@@ -99,7 +100,7 @@ public class Turn {
 	/**
 	 * Implements player turn loop.
 	 */
-	public void doTurn() {
+	public boolean doTurn() {
 		while (turns > 0) {
 			System.out.println("\n" + turns + " turns remaining.");
 			
@@ -161,6 +162,12 @@ public class Turn {
 				
 			case "H":
 				Helicopter h = new Helicopter(in);
+				Win = h.doHelicopter();
+				
+				if(Win == true) {
+					return true;
+				}
+				
 				turns++;
 				break;
 				
@@ -189,5 +196,7 @@ public class Turn {
 			
 			in.nextLine();			// pause run until player is ready for next turn
 		}
+		
+		return false;
 	}
 }

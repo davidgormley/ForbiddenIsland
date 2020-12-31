@@ -22,13 +22,17 @@ public class GameController {
 	Adventurers players = 			Adventurers.getInstance();
 	Board board = 					Board.getInstance();
 	Scanner 						in;
-	boolean 						Win;
+	private boolean 				Win;
+	private boolean					Lose;
 	
 	//===========================================================
     // Constructor
     //===========================================================
 	private GameController() {
 		this.Win = false;
+		this.Lose = false;
+		this.players = Adventurers.getInstance();
+		this.board = board.getInstance();
 	}
 	
 	//===========================================================
@@ -40,7 +44,11 @@ public class GameController {
 		}
 		return GC;
 	}
+	
 	//===========================================================
     // Methods
     //===========================================================
+	public void playGame(Scanner in) {
+		
+	}
 }

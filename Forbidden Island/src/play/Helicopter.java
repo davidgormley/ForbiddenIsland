@@ -5,6 +5,9 @@ import java.util.Scanner;
 import gameboard.Board;
 import player.Adventurers;
 import java.util.TreeMap;
+
+import cards.TreasureType;
+
 import java.util.ArrayList;
 
 /**
@@ -26,6 +29,7 @@ public class Helicopter {
 	int 				P1 = 0;
 	int[] 				destination;
 	ArrayList<Integer> 	passengers = new ArrayList<Integer>(); // an array of player numbers
+	boolean				Win;
 	
 	//===========================================================
     // Constructor
@@ -35,7 +39,6 @@ public class Helicopter {
 	 */
 	public Helicopter(Scanner in) {
 		this.in = in;
-		doHelicopter();
 	}
 	
 	//===========================================================
@@ -120,13 +123,50 @@ public class Helicopter {
 	}
 	
 	/**
+	 * Method for checking whether the win conditions have been met when a
+	 * helicopter lift card is played.
+	 * @return
+	 */
+	private boolean checkWin() {
+		int[] loc = players.getPlayer(P1).getPawnPosition();
+		
+		// check that is played on Fool's Landing
+		if (!loc.equals(board.tileCoords("Fool's Landing")))
+			return false;
+		
+		// check that all players on Fool's Landing
+		for (int p = 0; p < players.numPlayers(); p++) {
+			if (!loc.equals(players.getPlayer(p).getPawnPosition()))
+				return false;
+		}
+		
+		// check that all treasures have been captured
+		if (!players.haveTreasure(TreasureType.CRYSTAL_OF_FIRE))
+			return false;
+		if (!players.haveTreasure(TreasureType.EARTH_STONE))
+			return false;
+		if (!players.haveTreasure(TreasureType.OCEAN_CHALICE))
+			return false;
+		if (!players.haveTreasure(TreasureType.STATUE_OF_WIND))
+			return false;
+		
+		// succcess!
+		return true;
+	}
+	
+	/**
 	 * Performs checks and player selections, then iterates through the list of
 	 * chosen players and sets their position to the new destination.
 	 */
-	public void doHelicopter() {
+	public boolean doHelicopter() {
 		selectPlayer();
 		
 		if(checkCard() == true) {
+			// check win condition
+			if (checkWin() == true) {
+				return true;
+			}
+			
 			selectDestination();
 			
 			choosePassengers();
@@ -135,5 +175,7 @@ public class Helicopter {
 			
 			System.out.println("Adventurers have arrived safely at their destination.");
 		}
+		
+		return false;
 	}
 }
