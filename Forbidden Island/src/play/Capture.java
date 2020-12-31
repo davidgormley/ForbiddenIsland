@@ -129,12 +129,48 @@ public class Capture {
 	}
 	
 	/**
+	 * This method updates both locations from which a treasure may be captured
+	 * once it has been captured from either one.
+	 * @param treasureType TreasureType enum
+	 */
+	private void looted(TreasureType treasureType) {
+		int[] loc1;
+		int[] loc2;
+		
+		if (treasureType == TreasureType.EARTH_STONE) {
+			loc1 = board.tileCoords("Temple of the Moon");
+			loc2 = board.tileCoords("Temple of the Sun");
+		}
+		
+		else if(treasureType == TreasureType.CRYSTAL_OF_FIRE) {
+			loc1 = board.tileCoords("Cave of Embers");
+			loc2 = board.tileCoords("Cave of Shadows");
+		}
+		
+		else if(treasureType == TreasureType.OCEAN_CHALICE) {
+			loc1 = board.tileCoords("Coral Palace");
+			loc2 = board.tileCoords("Tidal Palace");
+		}
+		
+		// Statue of the Wind
+		else {
+			loc1 = board.tileCoords("Withering Garden");
+			loc2 = board.tileCoords("Howling Garden");
+		}
+		
+		board.treasureCaptured(loc1[0], loc1[1]);
+		board.treasureCaptured(loc2[0], loc2[1]);
+		
+		
+	}
+	
+	/**
 	 * Adds treasure to team's collection, updates tile, nad removes treasure
 	 * cars from player's inventory.
 	 */
 	public void doCapture() {
 		players.addTreasure(treasureType);
-		board.treasureCaptured(pos[0],pos[1]);
+		looted(treasureType);
 		players.getPlayer(pnum).removeTreasureCards(cardname);
 	}
 }
