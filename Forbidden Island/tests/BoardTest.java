@@ -33,4 +33,18 @@ public class BoardTest {
         Assertions.assertEquals(board.isValidTile(4, 5), false);
     }
 
+    @Test
+    public void test_board_active_tiles() {
+        Board board = Board.getInstance();
+
+        int firstCount = board.activeTiles().size();
+
+        board.floodTile("Fool's Landing");
+        board.floodTile("Fool's Landing");
+
+        int secondCount = board.activeTiles().size();
+
+        Assertions.assertEquals(firstCount, 24);
+        Assertions.assertEquals(secondCount, 23);
+    }
 }
