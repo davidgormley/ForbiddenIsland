@@ -17,7 +17,6 @@ public class WaterLevel {
     //===========================================================
 	private static WaterLevel 	waterLevel;
 	private int 				wlvl;
-	public 	Scanner 			in;
 	
 	//===========================================================
     // Constructor
@@ -26,8 +25,7 @@ public class WaterLevel {
 	 * Create water level object
 	 */
 	private WaterLevel() {
-		this.in = new Scanner(System.in);
-		this.wlvl = setWaterLevel(in);
+		this.wlvl = 0;
 	}
 	
 	//===========================================================
@@ -53,7 +51,7 @@ public class WaterLevel {
 	 * @param in Scanner to read in user input.
 	 * @return integer object to accept new input
 	 */
-	private int setWaterLevel(Scanner in) {
+	public void setWaterLevel(Scanner in) {
 		int wlvl;
 		
 		// use do-while to repeat until a valid input is received
@@ -61,8 +59,6 @@ public class WaterLevel {
 			System.out.println("Set flood level? Enter integer between 1 and 5:");
 			wlvl = in.nextInt();
 		}while (wlvl < 1 && wlvl > 5);
-		
-		return wlvl;
 	}
 	
 	/**
@@ -77,9 +73,24 @@ public class WaterLevel {
 	 * Method to increment the water level.
 	 */
 	public void incrementWaterLevel() {
-		if (this.wlvl < 10){
+		if (this.wlvl < 11){
 			this.wlvl++;
 		}
 	}
 	
+	/**
+	 * Determines how many flood cards to draw based on current
+	 * water meter level.
+	 * @return
+	 */
+	public int cardsToDraw() {
+		if (this.wlvl < 3)
+			return 2;
+		else if (wlvl < 6)
+			return 3;
+		else if (wlvl < 8)
+			return 4;
+		else 
+			return 5;
+	}
 }
