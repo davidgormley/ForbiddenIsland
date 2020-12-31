@@ -34,9 +34,21 @@ public class GameplayDemo {
 		/**
 		 * Test player turn
 		 */
-		players.getPlayer(1).giveCard(new Card("The Ocean Chalice",CardType.TREASURE));
+		players.getPlayer(1).giveCard(new Card("The Ocean's Chalice",CardType.TREASURE));
 		players.getPlayer(1).setPos(pos2[0],pos2[1]);
 		Turn t = new Turn(in,1);
+		
+		
+		/**
+		 * Test capture. Give extra three treasure cards to player 2 and move 
+		 * to relevant tile. If given card from previous players turn, should
+		 * have 4 available and be able to successfully capture.
+		 */
+		players.getPlayer(2).giveCard(new Card("The Ocean's Chalice",CardType.TREASURE));
+		players.getPlayer(2).giveCard(new Card("The Ocean's Chalice",CardType.TREASURE));
+		players.getPlayer(2).giveCard(new Card("The Ocean's Chalice",CardType.TREASURE));
+		int[] tp = board.tileCoords("Tidal Palace");
+		players.getPlayer(2).setPos(tp[0], tp[1]);
 		t = new Turn(in,2);
 		
 		/**

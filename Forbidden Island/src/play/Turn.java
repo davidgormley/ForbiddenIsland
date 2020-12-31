@@ -27,7 +27,7 @@ public class Turn {
 	Scanner in;
 	
 	ArrayList<String> actionCodes = new ArrayList<String>(
-			Arrays.asList("M","U","C","I","P","G","S","H","E","V","L"));
+			Arrays.asList("M","U","C","I","T","P","G","S","H","E","V","L"));
 	
 	String action;
 	String end;
@@ -58,6 +58,7 @@ public class Turn {
 		System.out.println("Shore [U]p");
 		System.out.println("[C]apture Treasure");
 		System.out.println("Player [I]nfo");
+		System.out.println("[T]eam info");
 		System.out.println("View [P]layer Locations");
 		System.out.println("[G]ive Card");
 		System.out.println("[S]andbag");
@@ -119,13 +120,22 @@ public class Turn {
 				break;
 			
 			case "C":
-				Capture c = new Capture();
+				Capture c = new Capture(pnum,in);
+				if(c.isValid() == true) {
+					c.doCapture();}
+				else {
+					turns++;}
 				break;
 				
 			case "I":
 				System.out.println("\n" + p1.getName() + " (" + p1.getRole() + ")"
 						+ "\n\nInventory:");
 				p1.viewInventory();
+				turns++;
+				break;
+				
+			case "T":
+				players.capturedTreasures();
 				turns++;
 				break;
 				
