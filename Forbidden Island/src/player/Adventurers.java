@@ -9,23 +9,26 @@ import gameboard.Board;
  * Singleton class to keep track of active players.
  * 
  * @author:  Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
- * @date:    201223
+ * @date:    201230
  * @version: 1.0
  */
 
 public class Adventurers {
+	
 	//===========================================================
 	// Variable Setup
 	//===========================================================
 	private static Adventurers				adventurers;
 	private TreeMap<Integer,Player>			players;
 	private TreeMap<TreasureType,Boolean>	treasures;
-	
-	Board board = Board.getInstance();
+	Board 									board = Board.getInstance();
 
 	//===========================================================
 	// Private Constructor
 	//===========================================================
+	/**
+	 * Create the adventurers list.
+	 */
 	private Adventurers() {
 		this.players = new TreeMap<Integer,Player>();
 		this.treasures = new TreeMap<TreasureType,Boolean>();
@@ -35,6 +38,10 @@ public class Adventurers {
 	//===========================================================
 	// Get Instance
 	//===========================================================
+	/**
+	 * Get instance of the adventurers list.
+	 * @return adventurers List of players
+	 */
 	public static Adventurers getInstance() {
 		if (adventurers == null) {
 			adventurers = new Adventurers();
@@ -103,6 +110,7 @@ public class Adventurers {
 	
 	/**
 	 * Checks whether a specified treasure has been captured.
+	 * @param treasure TreasureType Enum representing capture treasures.
 	 */
 	public boolean haveTreasure(TreasureType treasure) {
 		if (treasures.get(treasure) == true) {

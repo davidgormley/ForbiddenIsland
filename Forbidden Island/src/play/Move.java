@@ -10,7 +10,7 @@ import player.Adventurers;
  * This class handles the move action for players.
  * 
  * @author:  Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
- * @date:    201223
+ * @date:    201230
  * @version: 1.0
  */
 
@@ -18,18 +18,22 @@ public class Move {
 	//===========================================================
     // Variable Setup
     //===========================================================
-	Adventurers players = Adventurers.getInstance();
-	Board board = Board.getInstance();
-	Scanner in = new Scanner(System.in);
+	Adventurers 			players = Adventurers.getInstance();
+	Board 					board = Board.getInstance();
+	Scanner 				in = new Scanner(System.in);
 	TreeMap<Integer,String> moves = new TreeMap<Integer,String>();
-	int playerNum;
-	int numMoves = 0;
-	int[] loc;				// player's current location
-	int[] destination;
+	int 					playerNum;
+	int 					numMoves = 0;
+	int[] 					loc;				// player's current location
+	int[] 					destination;
 	
 	//===========================================================
     // Constructor
     //===========================================================
+	/**
+	 * Create move object
+	 * @param pnum player number
+	 */
 	public Move(int pnum) {
 		doMove(pnum);
 	}

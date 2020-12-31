@@ -10,7 +10,7 @@ import cards.Flooded;
  * This class handles the capture action for players.
  * 
  * @author: Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
- * @date: 201223
+ * @date: 201230
  * @version: 1.0
  */
 
@@ -28,9 +28,15 @@ public class Capture {
 	// ===========================================================
 
 	// ===========================================================
-	// Methods
+	// Other functions
 	// ===========================================================
-
+	/**
+	 * Checks the state of tile and if Treasure type is valid
+	 * @param board Board object
+	 * @param player Player object
+	 * @param treasureType Treasure type object
+	 * @return Boolean Check if tile is valid
+	 */
 	public static boolean isValid(Board board, Player player, TreasureType treasureType) {
 		int playerPosition[] = player.getPawnPosition();
 		IslandTile tile = board.getTileAt(playerPosition[0], playerPosition[1]);

@@ -11,26 +11,28 @@ import java.util.ArrayList;
  * This class handles the helicopter action for players.
  * 
  * @author:  Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
- * @date:    201223
+ * @date:    201230
  * @version: 1.0
  */
 
 public class Helicopter {
+	
 	//===========================================================
     // Variable Setup
     //===========================================================
-	Adventurers players = Adventurers.getInstance();
-	Board board = Board.getInstance();
-	Scanner in = new Scanner(System.in);
-	int P1 = 0;
-	int[] destination;
-	
-	// an array of player numbers
-	ArrayList<Integer> passengers = new ArrayList<Integer>();
+	Adventurers 		players = Adventurers.getInstance();
+	Board 				board = Board.getInstance();
+	Scanner 			in = new Scanner(System.in);
+	int 				P1 = 0;
+	int[] 				destination;
+	ArrayList<Integer> 	passengers = new ArrayList<Integer>(); // an array of player numbers
 	
 	//===========================================================
     // Constructor
     //===========================================================
+	/**
+	 * Create helicopter object
+	 */
 	public Helicopter() {
 		doHelicopter();
 	}
@@ -56,6 +58,7 @@ public class Helicopter {
 	
 	/**
 	 * Checks whether player has a helicopter lift card.
+	 * @return Boolean Check if player has helicopter card
 	 */
 	private boolean checkCard() {
 		if (players.getPlayer(P1).hasCard("Helicopter Lift") == true) {

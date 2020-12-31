@@ -3,15 +3,16 @@ package game;
 import deck.*;
 import java.util.ArrayList;
 
-public class SetDecks {
-	/**
-	 * Class to setup the card decks for new game.
-	 * 
-	 * @author: Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
-	 * @date: 201223
-	 * @version: 1.0
-	 */
+/**
+ * Class to setup the card decks for new game.
+ * 
+ * @author: Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
+ * @date: 201230
+ * @version: 1.0
+ */
 
+public class SetDecks {
+	
 	// ===========================================================
 	// Variable Setup
 	// ===========================================================
@@ -23,6 +24,9 @@ public class SetDecks {
 	// ===========================================================
 	// Constructor
 	// ===========================================================
+	/**
+	 * Set up and shuffle the 4 decks
+	 */
 	public SetDecks() {
 		// instantiate decks
 		this.floodDeck = 		FloodDeck.getInstance();
@@ -36,10 +40,4 @@ public class SetDecks {
 		treasureDeck.shuffleDeck();
 		treasureDiscard.shuffleDeck();
 	}
-
-	// ===========================================================
-	// Other
-	// ===========================================================
-	
-
 }

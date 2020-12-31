@@ -6,21 +6,25 @@ import java.util.Scanner;
  * This class handles the water level for the game.
  * 
  * @author:  Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
- * @date:    201223
+ * @date:    201230
  * @version: 1.0
  */
 
 public class WaterLevel {
+	
 	//===========================================================
     // Variable Setup
     //===========================================================
-	private static WaterLevel waterLevel;
-	private int wlvl;
-	public Scanner in;
+	private static WaterLevel 	waterLevel;
+	private int 				wlvl;
+	public 	Scanner 			in;
 	
 	//===========================================================
     // Constructor
     //===========================================================
+	/**
+	 * Create water level object
+	 */
 	private WaterLevel() {
 		this.in = new Scanner(System.in);
 		this.wlvl = setWaterLevel(in);
@@ -29,6 +33,10 @@ public class WaterLevel {
 	//===========================================================
     // Get Instance
     //===========================================================
+	/**
+	 * Get instance of water level object
+	 * @return waterLevel Water level object
+	 */
 	public static WaterLevel getInstance() {
 		if (waterLevel == null) {
 			waterLevel = new WaterLevel();
@@ -43,7 +51,7 @@ public class WaterLevel {
 	 * This method lets the user set the water level at the 
 	 * beginning of a new game.
 	 * @param in Scanner to read in user input.
-	 * @return
+	 * @return integer object to accept new input
 	 */
 	private int setWaterLevel(Scanner in) {
 		int wlvl;
@@ -59,7 +67,7 @@ public class WaterLevel {
 	
 	/**
 	 * Returns the current water level.
-	 * @return
+	 * @return integer object to set new input
 	 */
 	public int getWaterLevel() {
 		return this.wlvl;

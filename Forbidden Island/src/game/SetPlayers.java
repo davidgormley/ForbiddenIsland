@@ -9,7 +9,7 @@ import java.util.Map;
  * Class to setup the players for a new game.
  * 
  * @author:  Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
- * @date:    201223
+ * @date:    201230
  * @version: 1.0
  */
 
@@ -24,6 +24,10 @@ public class SetPlayers {
 	//===========================================================
     // Constructor
     //===========================================================
+	/**
+	 * Set up the palyers for the game
+	 * @param Scanner Take input from user
+	 */
 	public SetPlayers(Scanner in) {
 		this.players = Adventurers.getInstance();
 		getNumPlayers(in);
@@ -33,7 +37,7 @@ public class SetPlayers {
 	}
 	
 	//===========================================================
-    // Methods
+    // Other Functions
     //===========================================================
 	/**
 	 * Set number of players
@@ -50,7 +54,7 @@ public class SetPlayers {
 	}
 	
 	/**
-	 * 
+	 * Create players for the game
 	 * @param in Scanner for player inputs
 	 * @param playerNum The order number of player being created
 	 * @return The player

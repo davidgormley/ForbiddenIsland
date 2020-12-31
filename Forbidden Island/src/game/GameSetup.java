@@ -11,17 +11,17 @@ import deck.*;
  * Class to set up the game for Forbidden Island.
  * 
  * @author:  Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
- * @date:    201223
+ * @date:    2012230
  * @version: 1.0
  */
 
 
 public class GameSetup {
+	
 	// ===========================================================
 	// Variable Setup
 	// ===========================================================
 	private static GameSetup	fIsland;
-	
 	private SetPlayers 			playerCtrl;
 	private SetDecks			deckCtrl;
 	private Board				boardCtrl;
@@ -32,6 +32,9 @@ public class GameSetup {
 	//===========================================================
     // Constructor
     //===========================================================
+	/**
+	 * Create the game set up logic and structure.
+	 */
 	private GameSetup() {
 		this.in = 			new Scanner(System.in);
 		this.boardCtrl = 	Board.getInstance();
@@ -45,6 +48,10 @@ public class GameSetup {
 	//===========================================================
     // Get Instance
     //===========================================================
+	/**
+	 * Get instance of GameSetup object
+	 * @return fIsland GameSetup object
+	 */
 	public static GameSetup getInstance() {
 		if (fIsland == null) {
 			fIsland = new GameSetup();
@@ -71,7 +78,6 @@ public class GameSetup {
 				players.getPlayer(p).giveCard(ctmp);
 			}
 		}
-
 		
 		// deal 6 flood cards
 		IslandTile tmp;
@@ -84,7 +90,5 @@ public class GameSetup {
 			board.floodTile(tmp.getName());
 			fdiscard.addCard(tmp);
 		}
-		
 	}
-	
 }

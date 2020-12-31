@@ -10,7 +10,7 @@ import cards.Flooded;
  * This class handles the sandbag action for players.
  * 
  * @author:  Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
- * @date:    201223
+ * @date:    201230
  * @version: 1.0
  */
 
@@ -18,14 +18,17 @@ public class Sandbag {
 	//===========================================================
     // Variable Setup
     //===========================================================
-	Adventurers players = Adventurers.getInstance(); 
-	Board board = Board.getInstance();
-	Scanner in = new Scanner(System.in);
-	int P1 = 0;
+	Adventurers 	players = Adventurers.getInstance(); 
+	Board 			board = Board.getInstance();
+	Scanner 		in = new Scanner(System.in);
+	int 			P1 = 0;
 	
 	//===========================================================
     // Constructor
     //===========================================================
+	/**
+	 * Create Sandbag object
+	 */
 	public Sandbag() {
 		doSandbag();
 	}
@@ -51,6 +54,7 @@ public class Sandbag {
 	
 	/**
 	 * Checks whether player has a sandbag card.
+	 * @return Boolean Checks if the card is Sandbag
 	 */
 	private boolean checkCard() {
 		if (players.getPlayer(P1).hasCard("Sandbag") == true) {
@@ -63,7 +67,7 @@ public class Sandbag {
 	
 	/**
 	 * Checks whether tile can be shored up
-	 * @return
+	 * @return Boolean True if Tile is flooded
 	 */
 	private boolean checkTile() {
 		int[] loc = players.getPlayer(P1).getPawnPosition();

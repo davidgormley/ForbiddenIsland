@@ -12,7 +12,7 @@ import player.*;
  * This class handles the give card action for players.
  * 
  * @author: Owen Ryan-Hanbury, David Gormley and Srinithi Ramprasad
- * @date: 201223
+ * @date: 201230
  * @version: 1.0
  */
 
@@ -57,7 +57,6 @@ public class GiveCard {
 
 	/**
 	 * Method to check whether the GiveCard action is valid.
-	 * 
 	 * @param sender   The sender player object
 	 * @param receiver The receiver player object
 	 * @param card     The card which is to be given
@@ -78,11 +77,9 @@ public class GiveCard {
 
 	/**
 	 * Method to give a selected card from one player to another.
-	 * 
 	 * @param sender   The sender player object
 	 * @param receiver The receiver player object
 	 * @param card     The card which is to be given
-	 * @return void
 	 */
 	public static void give(Player sender, Player receiver, Card card) {
 		if (!isValid(sender, receiver, card))
