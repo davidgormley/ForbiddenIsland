@@ -1,6 +1,10 @@
 package play;
 
 import java.util.Scanner;
+
+import cards.Flooded;
+import cards.TreasureType;
+import game.WaterLevel;
 import gameboard.Board;
 import player.Adventurers;
 
@@ -21,7 +25,9 @@ public class GameController {
 	
 	Adventurers players = 			Adventurers.getInstance();
 	Board board = 					Board.getInstance();
+	WaterLevel meter =				WaterLevel.getInstance();
 	Scanner 						in;
+	
 	private boolean 				Win;
 	private boolean					Lose;
 	
@@ -108,14 +114,56 @@ public class GameController {
 	 * Method for testing the losing conditions.
 	 * @return
 	 */
-	private boolean checkLose() {
+	private boolean checkLose(int pnum) {
 		// Check if Water meter has reached level 5.
+		if (meter.getWaterLevel() == 10) {
+			return true;
+		}
 		
 		// Check if both related Island Tiles for a given treasure have sunk
 		// before the treasure could be captured.
+		int[] loc1 = {0,0};
+		int[] loc2 = {0,0};
+		
+		if (!players.haveTreasure(TreasureType.EARTH_STONE)) {
+			loc1 = board.tileCoords("Temple of the Moon");
+			loc2 = board.tileCoords("Temple of the Sun");
+		}
+		
+		else if (!players.haveTreasure(TreasureType.CRYSTAL_OF_FIRE)) {
+			loc1 = board.tileCoords("Cave of Embers");
+			loc2 = board.tileCoords("Cave of Shadows");
+		}
+		
+		else if (!players.haveTreasure(TreasureType.OCEAN_CHALICE)) {
+			loc1 = board.tileCoords("Coral Palace");
+			loc2 = board.tileCoords("Tidal Palace");
+		}
+		
+		else if (!players.haveTreasure(TreasureType.STATUE_OF_WIND)) {
+			loc1 = board.tileCoords("Withering Garden");
+			loc2 = board.tileCoords("Howling Garden");
+		}
+		
+		if (loc1[0] != 0) {
+			if (board.getState(loc1[0],loc1[1]) ==  Flooded.SUNK &&
+					board.getState(loc2[0], loc2[1]) == Flooded.SUNK) {
+				return true;}
+		}
 		
 		// Check if Fool's Landing has sunk.
+		loc1 = board.tileCoords("Fool's Landing");
+		if (board.getState(loc1[0], loc1[1]) == Flooded.SUNK) {
+			return true;}
+		
 		
 		// Check if a player has drowned.
+		int[] ploc = players.getPlayer(pnum).getPawnPosition();
+		int numMoves = players.getPlayer(pnum).determineValidMoves(ploc).size();
+		
+		if (numMoves == 0)
+			return true;
+		
+		return false;
 	}
 }
