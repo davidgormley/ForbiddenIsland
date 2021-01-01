@@ -1,4 +1,4 @@
-package game;
+package setup;
 
 import deck.*;
 import java.util.ArrayList;

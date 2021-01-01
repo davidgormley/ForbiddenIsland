@@ -7,9 +7,9 @@ import deck.FloodDeck;
 import deck.FloodDiscard;
 import deck.TreasureDeck;
 import deck.TreasureDiscard;
-import game.WaterLevel;
 import gameboard.Board;
 import player.Adventurers;
+import setup.WaterLevel;
 
 /**
  * This class handles manages to running of the game, including player turns
@@ -163,14 +163,14 @@ public class GameController {
 	 * End game with Win condition.
 	 */
 	private void doWinGame() {
-		//TODO
+		System.out.println("You won! Congratulations!");
 	}
 	
 	/**
 	 * End game with Lose condition.
 	 */
 	private void doLoseGame() {
-		//TODO
+		System.out.println("You lose. Better luck next time.");
 	}
 	
 	/**

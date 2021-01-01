@@ -2,8 +2,10 @@ package play;
 
 import gameboard.Board;
 import player.Adventurers;
+import setup.*;
+
 import java.util.Scanner;
-import game.*;
+
 import cards.*;
 
 public class GameplayDemo {

@@ -1,4 +1,4 @@
-package game;
+package setup;
 
 import player.*;
 import java.util.Stack;
