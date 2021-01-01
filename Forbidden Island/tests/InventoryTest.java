@@ -28,7 +28,7 @@ public class InventoryTest {
     }
 
     @Test
-    public void test_inventory_contains_card() {
+    public void test_inventory_card_methods() {
         Inventory inventory = new Inventory();
 
         inventory.addCard(new Card("The Earth Stone", CardType.TREASURE));
@@ -39,5 +39,7 @@ public class InventoryTest {
 
         Assertions.assertEquals(inventory.hasCard("The Earth Stone"), true);
         Assertions.assertEquals(inventory.hasCard("Random Card Name"), false);
+
+        Assertions.assertEquals(inventory.cardInstances("The Earth Stone"), 5);
     }
 }
