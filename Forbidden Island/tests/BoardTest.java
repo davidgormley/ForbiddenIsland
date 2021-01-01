@@ -47,4 +47,16 @@ public class BoardTest {
         Assertions.assertEquals(firstCount, 24);
         Assertions.assertEquals(secondCount, 23);
     }
+
+    @Test
+    public void test_board_coordinate_functions() {
+        Board board = Board.getInstance();
+
+        // Test for a few tiles.
+        int flCoords[] = board.tileCoords("Fool's Landing");
+        int tmCoords[] = board.tileCoords("Temple of the Moon");
+
+        Assertions.assertEquals(board.getTileAt(flCoords[0], flCoords[1]).getName(), "Fool's Landing");
+        Assertions.assertEquals(board.getTileAt(tmCoords[0], tmCoords[1]).getName(), "Temple of the Moon");
+    }
 }
