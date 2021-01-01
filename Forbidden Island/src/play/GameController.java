@@ -75,7 +75,7 @@ public class GameController {
 					
 					// deal cards and check flood lose conditions
 					if (Lose == false) {
-						Lose = dealFloodCards();
+						Lose = dealFloodCards(p);
 					}
 				}
 			}
@@ -138,8 +138,25 @@ public class GameController {
 	/**
 	 * Deal flood cards according to water level.
 	 */
-	private boolean dealFloodCards() {
-		//TODO
+	private boolean dealFloodCards(int pnum) {
+		int draw = meter.cardsToDraw();
+		
+		IslandTile tmp;
+		for (int r = 0; r < draw; r++) {
+			tmp = fDeck.deal();
+			board.floodTile(tmp.cardName());
+			
+			// check lose condition
+			if (checkLose(pnum) == true)
+				return true;
+			
+			// check if flood deck is empty and refill if necessary
+			if (fDeck.deckLength() == 0)
+				fDeck.refill();
+		}
+		
+		
+		return false;
 	}
 	
 	/**
