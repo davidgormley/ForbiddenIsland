@@ -59,4 +59,14 @@ public class BoardTest {
         Assertions.assertEquals(board.getTileAt(flCoords[0], flCoords[1]).getName(), "Fool's Landing");
         Assertions.assertEquals(board.getTileAt(tmCoords[0], tmCoords[1]).getName(), "Temple of the Moon");
     }
+
+    @Test
+    public void test_board_looting() {
+        Board board = Board.getInstance();
+
+        int tmCoords[] = board.tileCoords("Temple of the Moon");
+        board.treasureCaptured(tmCoords[0], tmCoords[1]);
+
+        Assertions.assertEquals(board.getTileAt(tmCoords[0], tmCoords[1]).isLootable(), false);
+    }
 }
