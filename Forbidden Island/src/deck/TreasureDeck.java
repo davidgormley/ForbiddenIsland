@@ -71,9 +71,8 @@ public class TreasureDeck extends Deck<Card> {
 	 */
 	public void refill() {
 		// make sure treasure deck is empty first
-		if (this.size() == 0) {
+		if (this.treasureDeck.isEmpty() == true) {
 			this.treasureDeck.fillTreasureDeck();
-			//the above statement is wrong call treasureDeck.refillTreasureDeck();
 		}
 	}
 	
@@ -87,8 +86,8 @@ public class TreasureDeck extends Deck<Card> {
 	/**
 	 * Empty the treasure deck. **For testing**
 	 */
-	public void empty() {
-		this.treasureDeck.empty();
+	public void emptyDeck() {
+		this.treasureDeck.emptyDeck();
 	}
 	
 	/**
@@ -108,5 +107,13 @@ public class TreasureDeck extends Deck<Card> {
 		while (discard.deckLength() > 0) {
 			this.treasureDeck.addCard(discard.pop());
 		}
+	}
+	
+	/**
+	 * Method to check whether deck is empty.
+	 * @return Boolean
+	 */
+	public boolean deckIsEmpty() {
+		return this.treasureDeck.isEmpty();
 	}
 }

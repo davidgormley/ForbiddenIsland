@@ -49,7 +49,7 @@ public class TreasureDiscard extends Deck<Card>{
 	 * Method to empty the discard pile.
 	 */
 	public void empty() {
-		this.treasureDiscard.empty();
+		this.treasureDiscard.emptyDeck();
 	}
 	
 	/**

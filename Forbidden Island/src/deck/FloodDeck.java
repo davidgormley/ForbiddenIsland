@@ -30,6 +30,7 @@ public class FloodDeck extends Deck {
 	private FloodDeck() {
 		this.floodDeck = new Deck<IslandTile>();
 		this.floodDeck.fillWithIslandTiles();
+		floodDeck.shuffleDeck();
 	}
 
 	//===========================================================
@@ -73,36 +74,20 @@ public class FloodDeck extends Deck {
 
 		}
 		return cardsDrawn;
-//		for (int i = 0; i < 6; i++) {
-//			IslandTile cardNew = (IslandTile) floodDeck.drawCard();
-//			
-//			// flood the tile in the board
-//
-//		}
 	}
-
-//	draw cards from flood deck based on water rise card level
-	public Deck<IslandTile> drawCardsFromFloodDeck() {
-
-		
-
-		Deck<IslandTile> cardsDrawn = new Deck<IslandTile>();
-		for (int i = 0; i < n; i++) {
-			IslandTile cardNew = (IslandTile) floodDeck.drawCard();
-			cardsDrawn.addCard(cardNew);
-
-		}
-		return cardsDrawn;
-
-//		for (int i = 0; i < n; i++) {
-//			IslandTile cardNew = (IslandTile) deck.drawCard();
-//			if (cardNew.state() == Flooded.FLOODED) {
-//				// remove the tile from the game
-//
-//			} else {
-//				// flood the tile in the board
-//
-//			}
-//		}
+	
+	/**
+	 * Prints out contents of Flood Deck. **For testing purposes**
+	 */
+	public void viewCards() {
+		this.floodDeck.printDeck();
+	}
+	
+	/**
+	 * Method to check whether deck is empty.
+	 * @return Boolean
+	 */
+	public boolean deckIsEmpty() {
+		return this.floodDeck.isEmpty();
 	}
 }

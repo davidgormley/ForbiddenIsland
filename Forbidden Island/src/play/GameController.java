@@ -64,6 +64,7 @@ public class GameController {
 	 * @param in Scanner
 	 */
 	public void playGame(Scanner in) {
+		this.in = in;
 		while (Win == false && Lose == false) {
 			for (int p = 1; p <= players.numPlayers(); p++) {
 				Turn turn = new Turn(in,p);
@@ -71,7 +72,7 @@ public class GameController {
 				
 				// deal cards and check water meter lose condition
 				if (Win == false) {
-					Lose = dealTreasureCards(p);
+					Lose = dealTreasureCards(in,p);
 					
 					// deal cards and check flood lose conditions
 					if (Lose == false) {
@@ -92,13 +93,17 @@ public class GameController {
 	/**
 	 * Deal two treasure cards to player after turn.
 	 */
-	private boolean dealTreasureCards(int pnum) {
+	private boolean dealTreasureCards(Scanner in, int pnum) {
 		Card tmp;
+		
+		System.out.println("\nDealing treasure cards...\n");
+		
 		for (int r = 0; r < 2; r++) {
 			tmp = tDeck.deal(true);
 			
 			// check if water rise card
 			if (tmp.getType() == CardType.WATER_RISE) {
+				System.out.println("Uh-oh, waters are rising!");
 				meter.incrementWaterLevel();
 				
 				// check against lose conditions in case meter has reached 10
@@ -124,14 +129,16 @@ public class GameController {
 				
 			}
 			
-			else
+			else {
 				players.getPlayer(pnum).giveCard(tmp);
+				System.out.println(players.getPlayer(pnum).getName() + " received "
+						+ tmp.cardName() + " card.");
+			}
 			
 			// check if all treasure cards have been dealt
-			if (tDeck.deckLength() == 0)
+			if (tDeck.deckIsEmpty() == true)
 				tDeck.flipDiscard();
 		}
-		
 		return false;
 	}
 	
@@ -141,20 +148,43 @@ public class GameController {
 	private boolean dealFloodCards(int pnum) {
 		int draw = meter.cardsToDraw();
 		
+		System.out.println("\nDealing flood cards...\n");
+		
 		IslandTile tmp;
+		String state;
+		int[] coords;
 		for (int r = 0; r < draw; r++) {
 			tmp = fDeck.deal();
-			board.floodTile(tmp.cardName());
+			coords = board.tileCoords(tmp.cardName());
 			
-			// check lose condition
-			if (checkLose(pnum) == true)
-				return true;
+			// redraw if tile is already sunk
+			if(board.getTile(coords[0], coords[1]).state() == Flooded.SUNK) {
+				fDeck.viewCards();
+				//r--;}
+			}
+			else {
+				board.floodTile(tmp.cardName());
+				
+				// new tile flood state as string
+				if (tmp.state() == Flooded.DRY)
+					state = "flooded";
+				else
+					state = "sunk";
+				
+				System.out.println(tmp.cardName() + " is now " + state + ".");
+				
+				// check lose condition
+				if (checkLose(pnum) == true)
+					return true;
+			}
+
+			fDiscard.addCard(tmp);
 			
 			// check if flood deck is empty and refill if necessary
-			if (fDeck.deckLength() == 0)
+			if (fDeck.deckIsEmpty() == true) {
 				fDeck.refill();
+				fDiscard.emptyDeck();}
 		}
-		
 		
 		return false;
 	}

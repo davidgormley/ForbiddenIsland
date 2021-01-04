@@ -40,7 +40,7 @@ public class Deck<T> {
 	 * @return Take a card from the deck
 	 */
 	public T drawCard() {
-		return (T) deck.pop();
+		return (T) this.deck.pop();
 	}
 
 	// ===========================================================
@@ -58,11 +58,12 @@ public class Deck<T> {
 	 */
 	public void printDeck() {
 		// Inform the user if the deck is empty.
-		if (deck.size() == 0) {
+		if (this.deck.isEmpty() == true) {
 			System.out.println("Deck is empty.");
 		} else {
-			for (int i = 0; deck.size() > i; i++) {
-				System.out.println(this.deck.elementAt(i).toString());
+			Stack<T> tmp = this.deck;
+			for (int i = 0; tmp.size() > i; i++) {
+				System.out.println(tmp.elementAt(i).toString());
 			}
 		}
 	}
@@ -72,7 +73,7 @@ public class Deck<T> {
 	 * @return int Size of the deck
 	 */
 	public int deckLength() {
-		return deck.size();
+		return this.deck.size();
 	}
 
 	/**
@@ -138,8 +139,8 @@ public class Deck<T> {
 	/**
 	 * Empty method. **For testing**
 	 */
-	public void empty() {
-		while (this.deck.size() > 0) {
+	public void emptyDeck() {
+		while (!this.deck.empty()) {
 			deck.pop();
 		}
 	}
@@ -159,5 +160,13 @@ public class Deck<T> {
 	 */
 	public T pop() {
 		return (T) this.deck.pop();
+	}
+	
+	/**
+	 * Method to check whether deck is empty
+	 * @return Boolean
+	 */
+	public boolean isEmpty() {
+		return this.deck.isEmpty();
 	}
 }

@@ -84,6 +84,7 @@ public class GameSetup {
 		for (int i = 0; i < 6; i++) {
 			tmp = flood.deal();
 			board.floodTile(tmp.getName());
+			System.out.println(tmp.getName() + " is flooded.");
 			fdiscard.addCard(tmp);
 		}
 	}

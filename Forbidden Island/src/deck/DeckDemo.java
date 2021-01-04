@@ -14,14 +14,14 @@ public class DeckDemo {
 		cdk.printDeck();
 		cdk.fillTreasureDeck();
 		cdk.printDeck();
-		cdk.empty();
+		cdk.emptyDeck();
 		cdk.printDeck();
 		
 		// test for singleton
 		System.out.println("\n===================\nTest\n===================");
 		System.out.println(tdk.size());
 		tdk.view();
-		tdk.empty();
+		tdk.emptyDeck();
 		System.out.println(tdk.size());
 		tdk.view();
 		tdk.refill();

@@ -48,8 +48,8 @@ public class FloodDiscard extends Deck<Card>{
 	/**
 	 * Method to empty the discard pile.
 	 */
-	public void empty() {
-		this.floodDiscard.empty();
+	public void emptyDeck() {
+		this.floodDiscard.emptyDeck();
 	}
 	
 	/**

@@ -102,7 +102,8 @@ public class Turn {
 	 */
 	public boolean doTurn() {
 		while (turns > 0) {
-			System.out.println("\n" + turns + " turns remaining.");
+			System.out.println("\n" + players.getPlayer(pnum).getName() + "'s turn (" 
+					+ turns + " remaining).\n");
 			
 			// decrement turns counter
 			turns--;
