@@ -31,10 +31,3 @@ Each player in turn should perform the following three things in order:
 3. Assign a Role to each player
 4. Hand out treasure cards
 5. Set the water level
-
-
-## Design Considerations
-* Each tile needs a variable for a flooded and unflooded side.
-* DG: Do we need more than one class to represent all the players?
-* DG: How do we handle special abilities for more than one class type?
-* DG: There are 4 pawns, each of them assigned to a player. Should they be added in to a player class or as part of game logic?
