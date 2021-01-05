@@ -43,4 +43,17 @@ public class IslandTileTest {
         Assertions.assertEquals(secondTile.isLootable(), true);
     }
 
+    @Test
+    public void test_to_string() {
+        IslandTile firstTile = new IslandTile("Fool's Landing", CardType.TREASURE, TreasureType.NONE);
+        IslandTile secondTile = new IslandTile("Phantom Rock", CardType.TREASURE, TreasureType.EARTH_STONE);
+
+        Assertions.assertEquals(firstTile.toString(), "Fool's Landing (DRY)");
+        Assertions.assertEquals(secondTile.toString(), "Phantom Rock (DRY)");
+
+        firstTile.flood();
+        firstTile.flood();
+
+        Assertions.assertEquals(firstTile.toString(), "Fool's Landing (SUNK)");
+    }
 }
