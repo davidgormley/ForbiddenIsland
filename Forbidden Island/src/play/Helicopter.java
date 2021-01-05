@@ -1,6 +1,7 @@
 package play;
 
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 import gameboard.Board;
 import player.Adventurers;
@@ -56,7 +57,12 @@ public class Helicopter {
 		players.printList();
 		
 		do {
-			P1 = in.nextInt();
+			try {
+				P1 = in.nextInt();}
+			catch (InputMismatchException e) {
+				System.out.println("Invalid input. Please enter an integer.");
+			}
+			in.nextLine();			// capture return key
 		} while(P1 < 1 || P1 > players.numPlayers());
 	}
 	

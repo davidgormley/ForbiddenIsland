@@ -1,11 +1,11 @@
 package play;
 
 import java.util.Scanner;
+import java.util.InputMismatchException;
 import java.util.TreeMap;
 
 import gameboard.Board;
 import player.Adventurers;
-import cards.Flooded;
 
 /**
  * This class handles the move action for players.
@@ -80,9 +80,15 @@ public class Move {
 		}
 		
 		// get player's choice of destination
-		System.out.println("\nPlease select a destination [1-4]: ");
 		do {
-			choice = in.nextInt();
+			System.out.println("\nPlease select a destination [1-4]: ");
+			try {
+				choice = in.nextInt();}
+			catch(InputMismatchException e) {
+				System.out.println("Invalid input. Please enter an integer.");
+				choice = 0;			// default
+			}
+			in.nextLine(); 			// catch return key
 		}while(!moves.containsKey(choice));
 		
 		destination = board.tileCoords(moves.get(choice));

@@ -1,6 +1,7 @@
 package play;
 
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 import gameboard.Board;
 import player.Adventurers;
@@ -45,11 +46,16 @@ public class Sandbag {
 	 * made the active player and control should then be given to that player.
 	 */
 	private void selectPlayer() {
-		System.out.println("\nWhich Player will use a Sandbag card?");
-		players.printList();
-		
 		do {
-			P1 = in.nextInt();
+			System.out.println("\nWhich Player will use a Sandbag card?");
+			players.printList();
+			
+			try {
+				P1 = in.nextInt();}
+			catch (InputMismatchException e) {
+				System.out.println("Invalid input. Please enter an integer.");
+			}
+			in.nextLine();
 		} while(P1 < 1 || P1 > players.numPlayers());
 	}
 	

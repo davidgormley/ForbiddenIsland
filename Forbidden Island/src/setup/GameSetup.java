@@ -2,7 +2,7 @@ package setup;
 
 import gameboard.*;
 import player.*;
-
+import java.util.concurrent.TimeUnit;
 import java.util.Scanner;
 import cards.*;
 import deck.*;
@@ -68,6 +68,7 @@ public class GameSetup {
 		TreasureDeck tdeck = TreasureDeck.getInstance();
 		Card ctmp;
 		
+		System.out.println("\nDealing treasure cards...\n");
 		for(int p = 1; p <= players.numPlayers(); p++) {
 			for (int i = 0; i< 2; i++) {
 				ctmp = tdeck.deal(false);
@@ -81,11 +82,53 @@ public class GameSetup {
 		FloodDiscard fdiscard = FloodDiscard.getInstance();
 		Board board = Board.getInstance();
 		
+		System.out.println("\nDealing Flood cards...\n");
 		for (int i = 0; i < 6; i++) {
 			tmp = flood.deal();
 			board.floodTile(tmp.getName());
 			System.out.println(tmp.getName() + " is flooded.");
 			fdiscard.addCard(tmp);
+		}
+	}
+	
+	/**
+	 * Prints the game title.
+	 */
+	private void printTitle() {
+		String[] message = {"______ _________________ _________________ _____ _   _ ",
+				"|  ___|  _  | ___ \\ ___ \\_   _|  _  \\  _  \\  ___| \\ | |",
+				"| |_  | | | | |_/ / |_/ / | | | | | | | | | |__ |  \\| |",
+				"|  _| | | | |    /| ___ \\ | | | | | | | | |  __|| . ` |",
+				"| |   \\ \\_/ / |\\ \\| |_/ /_| |_| |/ /| |/ /| |___| |\\  |",
+				"\\_|    \\___/\\_| \\_\\____/ \\___/|___/ |___/ \\____/\\_| \\_/",
+				" _____ _____ _       ___   _   _______ ",
+				"|_   _/  ___| |     / _ \\ | \\ | |  _  \\",
+				"  | | \\ `--.| |    / /_\\ \\|  \\| | | | |",
+				"  | |  `--. \\ |    |  _  || . ` | | | |",
+				" _| |_/\\__/ / |____| | | || |\\  | |/ / ",
+				" \\___/\\____/\\_____/\\_| |_/\\_| \\_/___/  "};
+	
+		
+		System.out.print("\nWelcome Adventurers");
+		// delay printing
+		try {
+			TimeUnit.MILLISECONDS.sleep(1200);}
+		catch (Exception e) {
+			e.printStackTrace();}
+		System.out.print(", to the ...\n");
+		// delay printing
+		try {
+			TimeUnit.MILLISECONDS.sleep(1200);}
+		catch (Exception e) {
+			e.printStackTrace();}
+		
+		for (String line : message) {
+			System.out.println(line);
+			// delay printing
+			try {
+				TimeUnit.MILLISECONDS.sleep(500);}
+			catch (Exception e) {
+				e.printStackTrace();}
 		}
 	}
 	
@@ -97,5 +140,6 @@ public class GameSetup {
 		this.playerCtrl = new SetPlayers(in);
 		dealInitialCards();
 		this.waterCtrl.setWaterLevel(in);
+		printTitle();
 	}
 }

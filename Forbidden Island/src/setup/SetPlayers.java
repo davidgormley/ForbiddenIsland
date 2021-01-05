@@ -3,6 +3,7 @@ package setup;
 import player.*;
 import java.util.Stack;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 import java.util.Map;
 
 /**
@@ -45,11 +46,15 @@ public class SetPlayers {
 	 */
 	public void getNumPlayers(Scanner in) {
 		// set number of players
-		System.out.println("How many players are playing? Enter integer between 2 and 4:");
-		while (numberPlayers != 2 && numberPlayers != 3 && numberPlayers != 4) {
-			numberPlayers = in.nextInt();
-			in.nextLine();
-		}
+		do {
+			System.out.println("How many players are playing? Enter integer between 2 and 4:");
+			try {
+				numberPlayers = in.nextInt();}
+			catch (InputMismatchException e) {
+				System.out.println("Invalid input. Please enter an integer.");
+			}
+			in.nextLine();			// capture return key
+		}while (numberPlayers != 2 && numberPlayers != 3 && numberPlayers != 4) ;
 		System.out.println("There are " + numberPlayers + " players playing.\n");
 	}
 	

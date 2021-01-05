@@ -1,6 +1,7 @@
 package setup;
 
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 /**
  * This class handles the water level for the game.
@@ -52,13 +53,19 @@ public class WaterLevel {
 	 * @return integer object to accept new input
 	 */
 	public void setWaterLevel(Scanner in) {
-		int wlvl;
+		int wlvl = 0;
 		
 		// use do-while to repeat until a valid input is received
 		do {
-			System.out.println("Set flood level? Enter integer between 1 and 5:");
-			wlvl = in.nextInt();
-		}while (wlvl < 1 && wlvl > 5);
+			try {
+				System.out.println("\nSet flood level: [1-5] ");
+				wlvl = in.nextInt();
+			}
+			catch(InputMismatchException e) {
+				System.out.println("Invalid input. Please enter an integer.");
+			}
+			in.nextLine();
+		}while (wlvl < 1 || wlvl > 5);
 	}
 	
 	/**

@@ -2,6 +2,7 @@ package play;
 
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 import cards.Card;
 import cards.CardType;
@@ -106,7 +107,11 @@ public class GiveCard {
 			// get user input
 			System.out.println("\nWho would you like to give a card to? [1-4]: ");
 			do {
-				p2 = in.nextInt();
+				try {
+					p2 = in.nextInt();}
+				catch(InputMismatchException e) {
+					System.out.println("Invalid input. Please enter an integer.");
+				}
 				in.nextLine();				// capture return key
 			}while(p2 < 1 || p2 > players.numPlayers() || p2 == p1);
 		}

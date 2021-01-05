@@ -105,9 +105,6 @@ public class Turn {
 			System.out.println("\n" + players.getPlayer(pnum).getName() + "'s turn (" 
 					+ turns + " remaining).\n");
 			
-			// decrement turns counter
-			turns--;
-			
 			playerOptions();
 			
 			selectAction();
@@ -115,50 +112,45 @@ public class Turn {
 			switch(action) {
 			case "M":
 				Move m = new Move(pnum,in);
+				turns--;
 				break;
 				
 			case "U":
 				shoreUp();
+				turns--;
 				break;
 			
 			case "C":
 				Capture c = new Capture(pnum,in);
 				if(c.isValid() == true) {
-					c.doCapture();}
-				else {
-					turns++;}
+					c.doCapture();
+					turns--;}
 				break;
 				
 			case "I":
 				System.out.println("\n" + p1.getName() + " (" + p1.getRole() + ")"
 						+ "\n\nInventory:");
 				p1.viewInventory();
-				turns++;
 				break;
 				
 			case "T":
 				players.capturedTreasures();
-				turns++;
 				break;
 				
 			case "P":
 				players.playerLocations();
-				turns++;
 				break;
 				
 			case "G":
 				GiveCard g = new GiveCard(pnum,in);
 				if(g.giveCardChecks() == true){
 					g.doGiveCard();
-				}
-				else {
-					turns++;
+					turns--;
 				}
 				break;
 				
 			case "S":
 				Sandbag s = new Sandbag(in);
-				turns++;
 				break;
 				
 			case "H":
@@ -166,10 +158,7 @@ public class Turn {
 				Win = h.doHelicopter();
 				
 				if(Win == true) {
-					return true;
-				}
-				
-				turns++;
+					return true;}
 				break;
 				
 			case "E":
