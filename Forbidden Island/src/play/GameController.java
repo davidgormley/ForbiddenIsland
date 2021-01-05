@@ -1,6 +1,7 @@
 package play;
 
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 import cards.*;
 import deck.FloodDeck;
@@ -120,8 +121,13 @@ public class GameController {
 				System.out.println("6: " + tmp.cardName());
 				
 				do {
-					choice = in.nextInt();
-					in.nextLine();
+					try {
+						choice = in.nextInt();}
+					catch(InputMismatchException e) {
+						System.out.println("Invalid input. Please enter an integer.");
+						choice = 0;		// default
+					}
+					in.nextLine();		// catch return key
 				} while (choice < 1 || choice > 6);
 				
 				if (choice < 6)

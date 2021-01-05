@@ -3,6 +3,7 @@ package gameboard;
 import java.util.*;
 import cards.*;
 import deck.*;
+import player.Adventurers;
 
 /**
  * Class to set up the Board for Forbidden Island.
@@ -145,7 +146,118 @@ public class Board {
 		}
 		System.out.println("\n");
 	}
+	
+	/**
+	 * Prints a more detailed version of the board. Each tile is presented in
+	 * a 3x4 format as follows:
+	 * |1234| <- numbers correspond to players currently on tile
+	 * | FL | <- corresponds to tile name acronyms from LUT
+	 * |D  T| <- left : flood state (D=Dry, F=Flooded); right: treasure availability (T=treasure can be captured here)
+	 * @param players
+	 */
+	public void printBoardFull(Adventurers players) {
+		// StringBuffer array for building mutable strings
+		StringBuffer[] map_strings = new StringBuffer[25];
+		// initialise array and set capacities
+		for (int n = 0; n < 25; n++) {
+			map_strings[n] = new StringBuffer("");
+			map_strings[n].ensureCapacity(36);
+		}
+		
+		// iterate over tiles and build formatted strings
+		for (int i = 0; i < 6; i++) {
+			// add borders
+			if (i==0 || i*4==4 || i*4==8 || i*4==12 || i*4==16 || i*4==20) {
+				map_strings[i*4].append("------------------------------------");}
+			
+			// fill tile bodies
+			for (int j = 0; j < 6; j++) {
+				// check if null or sunk tile
+				if (board[i][j] == null || board[i][j].state() == Flooded.SUNK) {
+					map_strings[i*4 + 1].append(" ~ ~ ~");
+					map_strings[i*4 + 2].append("~ ~ ~ ");
+					map_strings[i*4 + 3].append(" ~ ~ ~");
+				}
+				
+				else {
+					map_strings[i*4 + 1].append(playerLocPrntStr(i,j,players));
+					map_strings[i*4 + 2].append(tileNamePrntStr(i,j));
+					map_strings[i*4 + 3].append(stateTreasurePrntStr(i,j));
+				}
+			}
+		}
+		map_strings[24].append("------------------------------------");
+		
+		// print map
+		for(int n = 0; n < 25; n++)
+			System.out.println(map_strings[n].toString());
+	}
 
+	/**
+	 * Support for function for printing full board. Handles player location row.
+	 * @param i Row
+	 * @param j Col
+	 * @param players Adventurers object
+	 * @return String
+	 */
+	private String playerLocPrntStr(int i, int j, Adventurers players) {
+		StringBuffer on_tile = new StringBuffer(6);
+		on_tile.append("|");
+		
+		int[] loc = {i,j};
+		for (int p = 1; p <= players.numPlayers(); p++) {
+			if (Arrays.equals(loc,players.getPlayer(p).getPawnPosition()) == true)
+				on_tile.append(String.valueOf(p));
+			else
+				on_tile.append(" ");
+		}
+		
+		if (players.numPlayers() == 2)
+			on_tile.append("  ");
+		else if (players.numPlayers() == 3)
+			on_tile.append(" ");
+		
+		on_tile.append("|");
+		
+		return on_tile.toString();
+	}
+	
+	/**
+	 * Support method for printing full board. Handles tile name row.
+	 * @param i Row
+	 * @param j Col
+	 * @return String
+	 */
+	private String tileNamePrntStr(int i, int j) {
+		StringBuffer tname = new StringBuffer(6);
+		tname.append("| ");
+		tname.append(legend.get(board[i][j].getName()));
+		tname.append(" |");
+		return tname.toString();
+	}
+	
+	/**
+	 * Support method for printing full board. Handles tile State and Treasure row.
+	 * @param i
+	 * @param j
+	 * @return
+	 */
+	private String stateTreasurePrntStr(int i, int j) {
+		String line = "|";
+		// add flood state in lower left corner
+		if (this.board[i][j].state() == Flooded.DRY)
+			line = line + "D  ";
+		else
+			line = line + "F  ";
+		// add treasure indicator in bottom right corner
+		if (board[i][j].isLootable() == true)
+			line = line + "T|";
+		else
+			line = line + " |";
+		
+		return line;
+	}
+	
 	/**
 	 * Method to print the map legend
 	 */

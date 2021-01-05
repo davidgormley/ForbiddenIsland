@@ -167,7 +167,7 @@ public class Turn {
 				
 			case "V":
 				board.printLegend();
-				board.printBoard();
+				board.printBoardFull(players);
 				break;
 				
 			case "L":
