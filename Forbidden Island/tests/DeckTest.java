@@ -17,7 +17,7 @@ public class DeckTest {
 
         Card cardOnTop = treasureCards.pop();
 
-        treasureCards.empty();
+        treasureCards.emptyDeck();
         treasureCards.fillTreasureDeck();
         treasureCards.shuffleDeck();
 
@@ -26,4 +26,16 @@ public class DeckTest {
         Assertions.assertNotEquals(cardOnTop.cardName(), newCardOnTop.cardName());
     }
 
+    @Test
+    public void check_deck_emptiness() {
+        Deck<Card> treasureCards = new Deck<Card>();
+
+        treasureCards.fillTreasureDeck();
+
+        Assertions.assertEquals(treasureCards.isEmpty(), false);
+
+        treasureCards.emptyDeck();
+
+        Assertions.assertEquals(treasureCards.isEmpty(), true);
+    }
 }
