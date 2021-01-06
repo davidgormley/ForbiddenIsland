@@ -31,3 +31,61 @@ Each player in turn should perform the following three things in order:
 3. Assign a Role to each player
 4. Hand out treasure cards
 5. Set the water level
+
+## Reading the Map
+When viewing the map in-game, each tile is presented in a 3x4-char format:
+
+    |1234| <- Numbers indicate which players are on a given tile (corresponding to play order)
+    | FL | <- Acronyms correspond to the names of each tile (listed below)
+    |D  T| <- lower left shows tile flood state (D=Dry,F=Flooded); 
+              lower right indicates whether a treasure can be captured here
+
+## Map Legend
+
+BB - Breaker's Bridge
+
+BG - Bronze Gate
+
+CA - Cliffs of Abandon
+
+CE - Cave of Embers
+
+CF - Crimson Forest
+
+CG - Copper Gate
+
+CP - Coral Palace
+
+CS - Cave of Shadows
+
+DD - Dunes of Deception
+
+FL - Fool's Landing
+
+GG - Gold Gate
+
+HG - Howling Garden
+
+IG - Iron Gate
+
+LL - Lost Lagoon
+
+MM - Misty Marsh
+
+OB - Observatory
+
+PR - Phantom Rock
+
+SG - Silver Gate
+
+TM - Temple of the Moon
+
+TP - Tidal Palace
+
+TS - Temple of the Sun
+
+TW - Twilight Hollow
+
+WG - Whispering Garden
+
+WT - Watchtower
