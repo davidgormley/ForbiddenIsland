@@ -42,50 +42,29 @@ When viewing the map in-game, each tile is presented in a 3x4-char format:
 
 ## Map Legend
 
-BB - Breaker's Bridge
-
-BG - Bronze Gate
-
-CA - Cliffs of Abandon
-
-CE - Cave of Embers
-
-CF - Crimson Forest
-
-CG - Copper Gate
-
-CP - Coral Palace
-
-CS - Cave of Shadows
-
-DD - Dunes of Deception
-
-FL - Fool's Landing
-
-GG - Gold Gate
-
-HG - Howling Garden
-
-IG - Iron Gate
-
-LL - Lost Lagoon
-
-MM - Misty Marsh
-
-OB - Observatory
-
-PR - Phantom Rock
-
-SG - Silver Gate
-
-TM - Temple of the Moon
-
-TP - Tidal Palace
-
-TS - Temple of the Sun
-
-TW - Twilight Hollow
-
-WG - Whispering Garden
-
-WT - Watchtower
+Code | Tile Name
+------------ | -------------
+BB | Breaker's Bridge
+BG | Bronze Gate
+CA | Cliffs of Abandon
+CE | Cave of Embers
+CF | Crimson Forest
+CG | Copper Gate
+CP | Coral Palace
+CS | Cave of Shadows
+DD | Dunes of Deception
+FL | Fool's Landing
+GG | Gold Gate
+HG | Howling Garden
+IG | Iron Gate
+LL | Lost Lagoon
+MM | Misty Marsh
+OB | Observatory
+PR | Phantom Rock
+SG | Silver Gate
+TM | Temple of the Moon
+TP | Tidal Palace
+TS | Temple of the Sun
+TW | Twilight Hollow
+WG | Whispering Garden
+WT | Watchtower
